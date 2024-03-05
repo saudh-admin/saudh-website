@@ -1,0 +1,129 @@
+:root {
+  --primary-color: var(--color-gold);
+  --text-color: var(--color-main-blue);
+}
+@media (min-width: 1440px)
+{:root {
+    --maskHeight: calc(0.4*var(--viewport-h) + (1424px - 2*var(--gutter))*1.16*0.427*0.38);
+}
+}
+@media (min-width: 1024px)
+{:root {
+    --maskHeight: calc(0.4*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.38);
+}}
+@media (min-width: 768px){
+:root {
+    --navigation-height: 96px;
+    --navigation-sub-section-height: 524px;
+    --maskHeight: calc(0.48*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.46);
+}}
+@media (min-width: 1440px){
+:root {
+    --padding: 32px;
+}}
+@media (min-width: 768px){
+:root {
+    --padding: 16px;
+}}
+@media (min-width: 1024px){
+:root {
+    --gutter: 12px;
+}}
+@media (min-width: 768px){
+:root {
+    --gutter: 17px;
+}}
+:root {
+  --gutter: 8px;
+  --image-standard: 75%;
+  --image-wide: 67.5%;
+  --image-high: 70%;
+  --padding: 8px;
+  --color-white: #fff;
+  --color-white-15: hsla(0,0%,100%,0.15);
+  --color-white-20: hsla(0,0%,100%,0.2);
+  --color-black: #000;
+  --color-black-10: rgba(0,0,0,0.1);
+  --color-black-15: rgba(0,0,0,0.15);
+  --color-black-20: rgba(0,0,0,0.2);
+  --color-dark: #111;
+  --color-dark-90: rgba(17,17,17,0.9);
+  --color-dark-50: rgba(17,17,17,0.5);
+  --color-dark-30: rgba(17,17,17,0.3);
+  --color-dark-20: rgba(17,17,17,0.2);
+  --color-dark-15: rgba(17,17,17,0.15);
+  --color-dark-10: rgba(17,17,17,0.1);
+  --color-dark-8: rgba(17,17,17,0.08);
+  --color-normal: #909090;
+  --color-gray: #ddd;
+  --color-gray-hover: #747474;
+  --color-light-gray: #f6f5f6;
+  --color-yellow: #ffdb76;
+  --color-pink: #ef7e81;
+  --color-orange: #ff5e5e;
+  --color-light-pink: #f7b386;
+  --color-purple: #be88d3;
+  --color-blue: #e2ebf7;
+  --color-main-blue: #141b4d;
+  --color-main-blue-70: rgba(20,27,77,0.7);
+  --color-main-blue-50: rgba(20,27,77,0.5);
+  --color-main-blue-20: rgba(20,27,77,0.2);
+  --color-main-blue-10: rgba(20,27,77,0.1);
+  --color-light-blue: #89cfdd;
+  --color-green: #e2f7e5;
+  --color-gold: #bd9360;
+  --color-silver: #a99d90;
+  --color-silver-20: rgba(169,157,144,0.2);
+  --color-v-guide-inner: rgba(222,189,235,0.6);
+  --color-v-guide-outer: rgba(1,213,255,0.3);
+  --color-h-guide: rgba(255,152,140,0.2);
+  --color-twitter: #58cef2;
+  --color-facebook: #4267b2;
+  --color-youtube: rgba(255,255,0,0);
+  --breakpoint-xxs: 320px;
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 480px;
+  --breakpoint-mm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-md-up: 769px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-lg-up: 1025px;
+  --breakpoint-vl: 1280px;
+  --breakpoint-vl-up: 1281px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-xl-up: 1441px;
+  --breakpoint-xxl: 1680px;
+  --breakpoint-xxxl: 1920px;
+  --ease-default: cubic-bezier(0.4,0.5,0.15,1);
+  --ease-classic: cubic-bezier(0.23,1,0.32,1);
+  --viewport-h: 100vh;
+  --scroll-y: 0;
+  --navigation-top-bar-height: 38px;
+  --navigation-height: 80px;
+  --navigation-sub-section-height: 100vh;
+  --color-navigation: var(--color-main-blue);
+  --color-navigation-border: var(--color-white-20);
+  --finance-button-width: 96px;
+  --finance-button-height: 200px;
+  --font-custom: FoundersGroteskText,Arial,Helvetica,sans-serif;
+  --v-spacing: 8px;
+  --maskHeight: calc(0.55*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.61);
+}
+
+@import 'animate.css';
+
+@font-face {
+  font-family: "FoundersGroteskText";
+  font-display: swap;
+  src: url('./assets/fonts/FoundersGrotesk-Regular.otf') format('otf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "FoundersGroteskText";
+  font-display: swap;
+  src: url('./assets/fonts/FoundersGrotesk-Light.otf') format('otf');
+  font-style: normal;
+  font-weight: 300;
+}
