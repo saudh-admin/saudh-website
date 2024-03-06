@@ -105,7 +105,7 @@
   --color-navigation-border: var(--color-white-20);
   --finance-button-width: 96px;
   --finance-button-height: 200px;
-  --font-custom: FoundersGroteskText,Arial,Helvetica,sans-serif;
+  --font-custom: FoundersGroteskText,sans-serif;
   --v-spacing: 8px;
   --maskHeight: calc(0.55*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.61);
 }
@@ -130,10 +130,11 @@
 
 .cursor {
   border: 1px solid var(--color-orange, orange);
-  height: 22px;
-  width: 22px;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
   position: fixed;
   top:0;
   left:0;
+  z-index: 9999;
 }

@@ -11,8 +11,11 @@ html {
 
 body {
   margin: 0;
-  font-family: FoundersGroteskText, Arial, Helvetica, sans-serif;
-  display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: normal;
+  font-family: "FoundersGroteskText", sans-serif;
+  src: url('./assets/fonts/FoundersGrotesk-Regular.otf') format('otf');
 }
