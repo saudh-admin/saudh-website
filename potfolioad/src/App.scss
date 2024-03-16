@@ -48,15 +48,8 @@
 }
 
 :root {
-  --gutter: 8px;
-  --image-standard: 75%;
-  --image-wide: 67.5%;
-  --image-high: 70%;
-  --padding: 8px;
-  --color-white: #fff;
   --color-white-15: hsla(0, 0%, 100%, 0.15);
   --color-white-20: hsla(0, 0%, 100%, 0.2);
-  --color-black: #000;
   --color-black-10: rgba(0, 0, 0, 0.1);
   --color-black-15: rgba(0, 0, 0, 0.15);
   --color-black-20: rgba(0, 0, 0, 0.2);
@@ -119,7 +112,6 @@
   --color-navigation-border: var(--color-white-20);
   --finance-button-width: 96px;
   --finance-button-height: 200px;
-  --font-custom: FoundersGroteskText, sans-serif;
   --v-spacing: 8px;
   --maskHeight: calc(0.55*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.61);
 }
@@ -129,7 +121,7 @@
 @font-face {
   font-family: "FoundersGroteskText";
   font-display: swap;
-  src: url('./assets/fonts/FoundersGrotesk-Regular.otf') format('otf');
+  src: url('../public/assets/fonts/FoundersGrotesk-Regular.otf') format('opentype');
   font-style: normal;
   font-weight: normal;
 }
@@ -137,7 +129,7 @@
 @font-face {
   font-family: "FoundersGroteskText";
   font-display: swap;
-  src: url('./assets/fonts/FoundersGrotesk-Light.otf') format('otf');
+  src: url('../public/assets/fonts/FoundersGrotesk-Light.otf') format('opentype');
   font-style: normal;
   font-weight: 300;
 }
@@ -157,7 +149,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  font-family: "FoundersGroteskText", sans-serif;
 }
 
 
@@ -169,32 +161,28 @@
   font-weight: 100;
   letter-spacing: 6px;
   margin-left: 14vw;
-  margin-top: 3vh;
   z-index: 2;
-  margin-bottom: -4rem;
+ 
 }
 
 .ad-bg {
   position: absolute;
-  /* Overlap other elements */
-  /* Position at the left of the parent container */
   width: 100%;
-  /* Span the entire width of the parent container */
   height: 100%;
-  margin-top: -1vh;
+  margin-top: 18rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-size: 32rem;
-  font-weight: 100;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-orange);
-  background-clip: text;
+  font-size: 38rem;
+  font-weight: 600;
+  color: transparent; /* Make the text transparent */
+  -webkit-text-stroke: 1px var(--color-orange); /* Set the text outline */
+  text-shadow: none; /* Remove any existing text shadow */
   padding: 0;
   z-index: 2;
-
 }
+
 
 
 .arrowlogo {
@@ -244,7 +232,7 @@
 }
 
 .heading-content {
-  height: 80vh;
+  height: 65vh;
   display: flex;
   flex-direction: row;
   margin-bottom: 10vh;
@@ -252,15 +240,17 @@
 
 .text-container {
   width: 50%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding-left: 25vw;
   padding-right: 5vw;
-  font-weight: 100;
+  font-weight: lighter;
   text-align: left;
   line-height: 1.5;
-  margin-top: 20vh;
-
+  letter-spacing: 2px;
+  color: var(--color-dark-90);
+    
 }
+
 
 .learn-content {
   width: 50%;
@@ -268,25 +258,46 @@
   flex-direction: column;
   padding-left: 3vw;
   justify-content: end;
-  margin-top: 10vh;
   margin-bottom: 0;
+  
 
   .Big-text {
     font-size: 2.5rem;
     width: 50%;
     line-height: 1.5;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
   }
 
   .learn-text {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     padding-top: 2rem;
+    color: var(--color-gray-hover);
+    font-weight: 200;
+    letter-spacing: 2px;
+
+      img{
+        width: 1.2rem;
+        height: auto;
+        margin-right: 0.2rem;
+      }
+  }
+}
+
+.feature-projects{
+
+  height: auto;
+  background-color: var(--color-light-gray);
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  .feature-heading{
+    font-size: 12rem;
+    letter-spacing: 2px;
   }
 }
 
 .services-home {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   background-color: var(--color-green);
   padding-top: 16vh;
   padding-left: 12vw;
@@ -298,6 +309,7 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .service-header {
@@ -306,23 +318,34 @@
   gap: 3rem;
 
   .service-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 100;
 
   }
 
   .service-categories {
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: 100;
+    margin-left: 0.8rem;
 
     h2 {
-      font-weight: 100;
+      font-weight: 200;
+      font-size: 4rem;
+      letter-spacing: 2px;
     }
   }
 
   .service-action {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 100;
+    color: var(--color-gray-hover);
+    
+
+    img{
+      width: 1.2rem;
+      height: auto;
+      margin-right: 0.5rem;
+    }
   }
 }
 
@@ -344,14 +367,11 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
-  /* Adjust color and opacity as needed */
 }
 
 .shape-circle:nth-child(1) {
   width: 22rem;
-  /* Adjust width of third circle */
   height: 22rem;
-  /* Adjust height of third circle */
   background-color: transparent;
   border: 1px solid #000;
 
@@ -359,18 +379,14 @@
 
 .shape-circle:nth-child(2) {
   width: 16rem;
-  /* Adjust width of second circle */
   height: 16rem;
-  /* Adjust height of second circle */
 }
 
 .shape-circle:nth-child(3) {
   width: 22rem;
-  /* Adjust width of third circle */
   height: 22rem;
   background-color: transparent;
   border: 1px solid var(--color-gray);
-  /* Adjust height of third circle */
 }
 
 .shape-center {
@@ -378,8 +394,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 8rem;
-  height: 8rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid var(--color-gray-hover);
@@ -391,7 +407,6 @@
   align-items: center;
   text-align: center;
   -webkit-text-stroke: 2px var(--color-gray);
-  /* Adjust the width and color of the outline */
   color: transparent;
 }
 
@@ -453,39 +468,29 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
-    /* Rotate and center the text */
     color: white;
     font-weight: bold;
     font-size: 20px;
     white-space: nowrap;
-    /* Prevent word wrapping */
     opacity: 1;
-    /* Initially hidden */
     transition: opacity 0.3s ease-in-out, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 100;
   }
 
   .contact-action:hover .contact-action-word {
     opacity: 1;
-    /* Show the word on hover */
     transform: translate(-50%, -50%) rotate(0deg);
-    /* Reset rotation on hover */
+
   }
 
   .contact-action:hover .contact-action-circle {
     transform: scale(0.9);
-    /* Scale down the circle on hover */
+
   }
 
 }
 
-// .hero-footer{
-//   width: 100vw;
-//   height: 30vh;
-  
-//   display: flex;
-//   flex-direction: row;
-// }
+
 .hero-footer {
   display: flex;
   justify-content: space-between;
@@ -496,21 +501,21 @@
 }
 
 .footer-col {
-  flex: 0 1 30%; /* Each column takes up 30% of the available space */
+  flex: 0 1 30%;
   padding: 10px;
 }
 
 .footer-col1, .footer-col2, .footer-col3 {
   width: 100%;
   margin-top: 2vh;
-  padding-bottom: 10vh; /* Ensure equal width for the first three columns */
+  padding-bottom: 10vh; 
 }
 
 .footer-col4 {
   flex: 0 1 60%; 
   display: flex;
   gap:1.5rem;
-  flex-direction: column;/* The fourth column takes up 40% of the available space */
+  flex-direction: column;
 }
 
 
@@ -527,8 +532,8 @@
   align-items: center;
   justify-content: space-between;
   margin: auto; 
-  border-bottom: 1px solid var(--color-light-gray);
-  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-gray-hover);
+ 
 }
 
 .footer-title{
@@ -541,16 +546,35 @@
   flex-direction: column;
   gap: 0.3rem;
   font-size: 1.2rem;
+  font-weight: 100;
+  letter-spacing: 1px;
 
   a{
     font-size: 1.2rem;
     text-decoration: none;
     color: #000;
+    font-weight: 100;
   }
 }
 
 .footer-col4{
   background-color: #000;
   color: white;
-  padding: 5rem;
+  padding: 4rem;
+
+  .subscribe-title{
+    font-size: 0.9rem;
+  }
+
+  .subscribe-box{
+    letter-spacing: 1px;
+    font-weight: 100;
+    h4{
+      font-size: 1.2rem;
+      color: var(--color-gray-hover);
+    }
+    h5{
+      color: white;
+    }
+  }
 }

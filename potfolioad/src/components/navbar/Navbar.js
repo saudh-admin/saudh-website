@@ -1,8 +1,8 @@
-import React, { useState,useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './navbar.scss';
-import { motion } from 'framer-motion'
-import ToggleButton from './ToggleButton';
+import { motion, AnimatePresence } from 'framer-motion';
 import Links from './Links';
+
 
 const variants = {
 
@@ -25,11 +25,12 @@ const variants = {
 }
 
 const Navbar = () => {
+
     const menuBtnRef = useRef(null);
     const crossBtnRef = useRef(null);
-    const menuOverlayRef = useRef(null);
-    const navbarRef = useRef(null);
-    const [currentTitle, setCurrentTitle] = useState('Hello');
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+
     const [showHome, setShowHome] = useState(false);
     const [showHello, setShowHello] = useState(true);
 
@@ -43,28 +44,17 @@ const Navbar = () => {
         setShowHello(true);
     };
 
-    const toggleMenu = () => {
-        setMenuOpen(prevMenuOpen => {
-            const newState = !prevMenuOpen;
-            setCurrentTitle(newState ? 'Index' : 'Hello');
-            return newState;
-        });
-    };
-    
 
 
-    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const menuBtn = menuBtnRef.current;
         const crossBtn = crossBtnRef.current;
 
-
         if (menuBtn && crossBtn) {
             menuBtn.addEventListener('click', toggleMenu);
             crossBtn.addEventListener('click', toggleMenu);
         }
-
 
         return () => {
             if (menuBtn && crossBtn) {
@@ -73,51 +63,98 @@ const Navbar = () => {
             }
         };
     }, [menuOpen]);
-    const menuBtnClass = `menuBtn ${menuOpen ? 'white' : ''}`;
 
-    const [open, setOpen] = useState(false)
+    const toggleMenu = () => {
+        setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+        setOpen((prevOpen) => !prevOpen);
+    };
+
+    const closeMenu = () => {
+        setOpen(false);
+        setMenuOpen(false);
+    };
+
+    const item = {
+        exit: {
+            opacity: 0,
+            height: 0,
+            transition: {
+                ease: "easeInOut",
+                duration: 0.3,
+                delay: 1.2
+            }
+        }
+    }
 
     return (
 
         <div className={`navbar ${menuOpen ? 'white' : ''}`}>
             <div className='nav-items'>
-                <button className={menuBtnClass}>
-                    <motion.div className='sidebar' animate={open ? 'open' : 'closed'}>
 
-                        <motion.div className='background' variants={variants}>
-                        <Links/>
-                        </motion.div>
-                        <ToggleButton setOpen={setOpen} />
-                    </motion.div>
-                </button>
+            {/* <div className='arrowlogo'><img className="home-arrow" src='down-arrow.png'></img></div> */}
+                <div className="menu" onClick={toggleMenu} ref={menuBtnRef}>
+                    <i className="fa fa-bars"></i>
+
+                </div>
+
+
                 <div className='web_logo' onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
-                            <a href="/" id="logo" className={`header_logo ${menuOpen ? 'white' : ''}`}>AD</a>
-                        </div>
+                    <a href="/" id="logo" className={`header_logo ${menuOpen ? 'white' : ''}`}>AD</a>
+                </div>
                 <div className='title'>
-                <h5 className={`ht-title ${menuOpen || showHome ? 'white' : ''}`}
-                                style={{
-                                    '--title-translate-x': showHello ? '0' : '100%',
-                                    '--title-opacity': showHello ? '1' : '0',
-                                }}>
-                                {menuOpen ? 'Index' : 'Hello'}
-                            </h5>
-                            <h5 className={`new-ht-title ${menuOpen || showHome ? 'white' : ''}`}
-                                style={{
-                                    '--new-title-translate-x': showHome ? '0' : '-100%',
-                                    '--new-title-opacity': showHome ? '1' : '0',
-                                }}>
-                                Home
-                            </h5>
+                    <h5 className={`ht-title ${menuOpen || showHome ? 'white' : ''}`}
+                        style={{
+                            '--title-translate-x': showHello ? '0' : '100%',
+                            '--title-opacity': showHello ? '1' : '0',
+                        }}>
+                        {menuOpen ? 'Index' : 'Hello'}
+                    </h5>
+                    <h5 className={`new-ht-title ${menuOpen || showHome ? 'white' : ''}`}
+                        style={{
+                            '--new-title-translate-x': showHome ? '0' : '-100%',
+                            '--new-title-opacity': showHome ? '1' : '0',
+                        }}>
+                        Home
+                    </h5>
                 </div>
             </div>
             <div className='start-project'>
-            <div className='start-cont'>
+                <div className='start-cont'>
                     <a href="/contact" className='nav-contact'>
                         <div className='start-circle'></div>
                         <span className={`start-label ${menuOpen ? 'white' : ''}`}>Start a project</span>
                     </a>
                 </div>
             </div>
+            <AnimatePresence>
+                {open && (
+                    <motion.div className="menu_container"
+                        variants={item}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "100vh", opacity: 1 }}
+                        transition={{ duration: .5 }}
+                        exit="exit"
+                    >
+
+                        <div className="btn_close" onClick={closeMenu}>X</div>
+                        
+                        <motion.a href=""
+                            initial={{ y: 80, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: .8 }}
+                            exit={{
+                                opacity: 0,
+                                y: 90,
+                                transition: {
+                                    ease: "easeInOut",
+                                    delay: 1
+                                }
+                            }}
+                        ><Links/></motion.a>
+                        {/* Other menu items */}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
 
 
