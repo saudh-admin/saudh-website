@@ -1,0 +1,126 @@
+.us-ad-title {
+    text-wrap: wrap;
+    width: 40%;
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: 6px;
+    margin-left: 14vw;
+    z-index: 2;
+    margin-top: 4vh;
+   
+  }
+
+  .us-ad-bg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 38rem;
+        font-weight: 600;
+        color: var(--color-gray); 
+        -webkit-text-stroke: 1px transparent; 
+        padding: 0;
+        z-index: -1;
+    }
+
+    .us-photo-cont{
+        width: 85%;
+        height: auto;
+        z-index: 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .us-homeimg {
+        margin-top: 20vh;
+        z-index: 3;
+        padding-left: 8vw;
+        width: 100%;
+        height: auto;
+      }
+      .us-content{
+        display: flex;
+        flex-direction: row;
+
+        padding-left: 12vw;
+        padding-right: 12vw;
+        padding-top: 10vh;
+        height: auto;
+
+        .us-content-para{
+            display: flex;
+            flex-direction: column;
+            gap:20rem;
+            width: 50%;
+
+            .us-content-circle {
+                width: 10rem;
+                height: 10rem;
+                background-color: var(--color-orange);
+                border-radius: 50%;
+                align-self: center;
+            }
+            .us-content-para-text{
+                font-size: 1.5rem;
+                width:60%;
+                font-weight: 100;
+                align-self: center;
+                text-align: left;
+                letter-spacing: 2px;
+            }
+        }
+
+        .us-content-title{
+            
+            margin-top: 10vh;
+            width: 50%;
+
+            h1{
+                font-weight: 100;
+                width: 70%;
+                text-align: left;
+                font-size: 3.5rem;
+            
+            letter-spacing: 6px;
+            }
+        }
+      }
+
+      .us-para{
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:2rem;
+        
+        
+        img{
+            width: 50%;
+            height: auto;
+        }
+
+        h2{
+            font-weight: 100;
+            text-align: left;
+            margin: 0;
+            margin-left:25%;
+            align-self: first baseline;
+            font-size: 2.5rem;
+            margin-top: 2vh;
+        }
+        h5{
+            font-weight: 100;
+            text-align: left;
+            width: 50%;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: var(--color-gray-hover);
+        }
+        
+      }
