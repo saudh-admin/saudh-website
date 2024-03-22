@@ -1,6 +1,6 @@
 import '../../App.scss';
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
 import Navbar from '../navbar/Navbar';
 import CarouselSlider from '../carousel/carousel_slider';
 
@@ -33,50 +33,79 @@ const adTitleVariants = {
   }
 };
 
+const featureHeadingVariants = {
+  hidden: { x: '-100%' },
+  visible: { x: 0, transition: { duration: 1 } },
+};
+
+const featureHeadingVariants2 = {
+  hidden: { x: '100%' },
+  visible: { x: 0, transition: { duration: 1 } },
+};
+
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [maxScrollY, setMaxScrollY] = useState(0);
   const [initialOffset, setInitialOffset] = useState(0);
   const scrollImgRef = useRef(null);
   const minY = initialOffset - window.innerHeight / 2;
-  const translateY = Math.max(Math.min(-scrollY * 0.9, 0), minY);
+  const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
 
   const servicesHomeRef = useRef(null);
   const controls = useAnimation();
   const [hoveredCategory, setHoveredCategory] = useState(null);
+  const featureProjectsRef = useRef(null);
+  const { scrollYProgress } = useViewportScroll();
+  const xRange1 = useTransform(scrollYProgress, [0, 1], ['100%', '-100%']);
+  const xRange2 = useTransform(scrollYProgress, [0, 1], ['-100%', '100%']);
 
-  const handleCategoryHover = async (category) => {
+
+  const [animationIndex, setAnimationIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const animationInterval = useRef(null);
+  const handleCategoryHover = (category) => {
     setHoveredCategory(category);
     if (category) {
-      await controls.start({ x: 10, transition: { yoyo: Infinity, duration: 1 } });
+      controls.start({ x: 10, transition: { yoyo: Infinity, duration: 1 } });
     } else {
-      await controls.start({ x: 0 });
+      controls.stop();
+      controls.set({ x: 0 });
     }
   };
+  
+  const startAnimation = () => {
+    setIsAnimating(true);
+    animateCategories();
+  };
+  
+  const stopAnimation = () => {
+    setIsAnimating(false);
+    setAnimationIndex(0);
+    clearInterval(animationInterval.current);
+  };
+  
+  const animateCategories = () => {
+    const categories = ['Branding', 'Interface Design', 'Development', 'Digital Marketing', 'Ongoing Support'];
+  let currentIndex = 0;
 
+  const animationLoop = () => {
+    const category = categories[currentIndex];
+    handleCategoryHover(category);
+
+    currentIndex = (currentIndex + 1) % categories.length;
+    animationInterval.current = setTimeout(animationLoop, 3000);
+  };
+
+  animationLoop();
+  };
+  
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          handleCategoryHover('Branding');
-        }
-      },
-      { root: null, rootMargin: '0px', threshold: 0.1 }
-    );
-
-    if (servicesHomeRef.current) {
-      observer.observe(servicesHomeRef.current);
-    }
-
+    startAnimation();
+  
     return () => {
-      if (servicesHomeRef.current) {
-        observer.unobserve(servicesHomeRef.current);
-      }
+      stopAnimation();
     };
   }, []);
-
-
-
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,7 +122,11 @@ const Home = () => {
   useEffect(() => {
     const scrollImgElement = scrollImgRef.current;
     if (scrollImgElement) {
+      const circleElement = document.querySelector('.home-circle');
+      const circleCenter = circleElement.offsetTop + circleElement.offsetHeight / 2;
+      const maxScroll = circleCenter - window.innerHeight / 2 + 200;
       setInitialOffset(scrollImgElement.offsetTop);
+      setMaxScrollY(maxScroll);
     }
   }, []);
 
@@ -142,7 +175,7 @@ const Home = () => {
         <motion.div
           className='landimg-container'
           ref={scrollImgRef}
-          style={{ y: Math.min(-scrollY * 0.9, 0) + initialOffset }}
+          style={{ y: translateY + initialOffset }}
         >
           <img className='landimg' src='/landimg.avif' alt='not working'></img>
         </motion.div>
@@ -151,13 +184,30 @@ const Home = () => {
         <div className='text-container'>At <b>Agarwal Digital</b>, we’re all about <b>action</b>. What are the specific <b>actions</b> that fuel your company's growth? Do you need more consumers to <b>buy</b> your product? Want more people to <b>subscribe</b> to your list, <b>download</b> your app, or <b>learn</b> about your brand? Or perhaps your goal is simply to <b>generate</b> more leads for your products and services? Whatever <b>actions</b> you're targeting, <b>Agarwal Digital</b> can help.</div>
         <div className='learn-content'>
           <div className='Big-text'>Agarwal Digital has the people, the ideas, and the know-how to get your business where you want it to go. </div>
-          <div className='learn-text'><img src='right-arrow.png'></img> Learn more about us</div>
+          <div className='learn-text'><motion.img
+            src='right-arrow.png'
+            alt='Right Arrow'
+            className='arrow-icon'
+            initial={{ opacity: 1 }}
+    whileHover={{ opacity: 0 }}
+    transition={{ duration: 0.3 }}
+          />Learn more about us</div>
         </div>
       </div>
-      <div className='feature-projects'>
-        <div className='feature-heading'>Featured projects</div>
-        <div className='feature-heading'>Featured projects</div>
-        <CarouselSlider />
+      <div className='feature-projects' ref={featureProjectsRef}>
+  <motion.div
+    className='feature-heading'
+    style={{ x: xRange1 }}
+  >
+    Featured projects
+  </motion.div>
+  <motion.div
+    className='feature-heading'
+    style={{ x: xRange2 }}
+  >
+    Featured projects
+  </motion.div>
+        {/* <CarouselSlider /> */}
       </div>
       <div ref={servicesHomeRef} className='services-home'>
         <div className='services-container'>
@@ -165,7 +215,8 @@ const Home = () => {
             <div className='service-title'>What We Do</div>
             <div className='service-categories'>
               <motion.h2
-                whileHover={{ x: 10, transition: { yoyo: Infinity, duration: 1 } }}
+                animate={hoveredCategory === 'Branding' ? { x: 20 } : { x: 0 }}
+                transition={{ duration: 0.5 }}
                 onMouseEnter={() => handleCategoryHover('Branding')}
                 onMouseLeave={() => handleCategoryHover(null)}
 
@@ -173,48 +224,62 @@ const Home = () => {
                 Branding
               </motion.h2>
               <motion.h2
-                whileHover={{ x: 10, transition: { yoyo: Infinity, duration: 1 } }}
+                animate={hoveredCategory === 'Interface Design' ? { x: 20 } : { x: 0 }}
+                transition={{ duration: 0.5 }}
                 onMouseEnter={() => handleCategoryHover('Interface Design')}
                 onMouseLeave={() => handleCategoryHover(null)}>
                 Interface Design
               </motion.h2>
               <motion.h2
-                whileHover={{ x: 10, transition: { yoyo: Infinity, duration: 1 } }}
+                animate={hoveredCategory === 'Development' ? { x: 20 } : { x: 0 }}
+                transition={{ duration: 0.5 }}
                 onMouseEnter={() => handleCategoryHover('Development')}
                 onMouseLeave={() => handleCategoryHover(null)}
               >
                 Development
               </motion.h2>
               <motion.h2
-                whileHover={{ x: 10 }}
+                animate={hoveredCategory === 'Digital Marketing' ? { x: 20 } : { x: 0 }}
+                transition={{ duration: 0.5 }}
                 onMouseEnter={() => handleCategoryHover('Digital Marketing')}
                 onMouseLeave={() => handleCategoryHover(null)}
               >
                 Digital Marketing
               </motion.h2>
               <motion.h2
-                whileHover={{ x: 10 }}
+               animate={hoveredCategory === 'Ongoing Support' ? { x: 20 } : { x: 0 }}
+                transition={{ duration: 0.5 }}
                 onMouseEnter={() => handleCategoryHover('Ongoing Support')}
                 onMouseLeave={() => handleCategoryHover(null)}
               >
                 Ongoing Support
               </motion.h2>
             </div>
-            <div className='service-action'><img src='right-arrow.png'></img>Explore Our Capabilities</div>
+            <div className='service-action'><motion.img
+            src='right-arrow.png'
+            alt='Right Arrow'
+            className='arrow-icon'
+            initial={{ opacity: 1 }}
+    whileHover={{ opacity: 0 }}
+    transition={{ duration: 0.3 }}
+          />Explore Our Capabilities</div>
           </div>
           <motion.div className='Circle-pattern'>
             <motion.div className='shape-circle dark' animate={{
               x: hoveredCategory === 'Branding' ? -175 : hoveredCategory === 'Interface Design' ? -175 : hoveredCategory === 'Development' ? -175 : hoveredCategory === 'Digital Marketing' ? -175 : hoveredCategory === 'Ongoing Support' ? -185 : -175,
               y: hoveredCategory === 'Branding' ? 20 : hoveredCategory === 'Interface Design' ? -25 : hoveredCategory === 'Development' ? -185 : hoveredCategory === 'Digital Marketing' ? -185 : hoveredCategory === 'Ongoing Support' ? -55 : -185,
+              transition: { type: 'spring', stiffness: 200, damping: 20 }
             }}></motion.div>
             <motion.div className='shape-center' animate={{
               x: hoveredCategory === 'Branding' ? -90 : hoveredCategory === 'Interface Design' ? -80 : hoveredCategory === 'Development' ? -80 : hoveredCategory === 'Digital Marketing' ? -75 : hoveredCategory === 'Ongoing Support' ? -90 : -80,
               y: hoveredCategory === 'Branding' ? 20 : hoveredCategory === 'Interface Design' ? -185 : hoveredCategory === 'Development' ? 120 : hoveredCategory === 'Digital Marketing' ? 5 : hoveredCategory === 'Ongoing Support' ? 20 : -80,
+              transition: { type: 'spring', stiffness: 200, damping: 20 }
             }}></motion.div>
             <motion.div className='shape-circle light' animate={{
               x: hoveredCategory === 'Branding' ? -185 : hoveredCategory === 'Interface Design' ? -175 : hoveredCategory === 'Development' ? -175 : hoveredCategory === 'Digital Marketing' ? -170 : hoveredCategory === 'Ongoing Support' ? -185 : -175,
               y: hoveredCategory === 'Branding' ? -175 : hoveredCategory === 'Interface Design' ? -185 : hoveredCategory === 'Development' ? 20 : hoveredCategory === 'Digital Marketing' ? -130 : hoveredCategory === 'Ongoing Support' ? -175 : -185,
               scale: hoveredCategory === 'Digital Marketing' ? 0.7 : 1,
+              transition: { type: 'spring', stiffness: 200, damping: 20 }
             }}></motion.div>
           </motion.div>
         </div>
