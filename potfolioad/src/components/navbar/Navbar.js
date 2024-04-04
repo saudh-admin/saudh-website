@@ -87,7 +87,7 @@ const Navbar = () => {
     }
 
     return (
-
+        
         <div className={`navbar ${menuOpen ? 'white' : ''}`}>
             <div className='nav-items'>
 

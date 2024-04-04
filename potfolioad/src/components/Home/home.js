@@ -50,6 +50,35 @@ const Home = () => {
   const scrollImgRef = useRef(null);
   const minY = initialOffset - window.innerHeight / 2;
   const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
+  const pageHintRef = useRef(null);
+
+  useEffect(() => {
+    const pageHint = pageHintRef.current;
+
+    // Function to show the page hint
+    const showPageHint = () => {
+      pageHint.classList.add('visible');
+    };
+
+    // Function to hide the page hint
+    const hidePageHint = () => {
+      pageHint.classList.remove('visible');
+    };
+
+    // Show the page hint when the component mounts
+    showPageHint();
+
+    // Simulate content loading (replace with your actual loading logic)
+    const timeoutId = setTimeout(() => {
+      // Hide the page hint when the content has finished loading
+      hidePageHint();
+    }, 3000); // Simulating a 3-second loading time
+
+    // Clean up the timeout when the component unmounts
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   const servicesHomeRef = useRef(null);
   const controls = useAnimation();
@@ -72,36 +101,36 @@ const Home = () => {
       controls.set({ x: 0 });
     }
   };
-  
+
   const startAnimation = () => {
     setIsAnimating(true);
     animateCategories();
   };
-  
+
   const stopAnimation = () => {
     setIsAnimating(false);
     setAnimationIndex(0);
     clearInterval(animationInterval.current);
   };
-  
+
   const animateCategories = () => {
     const categories = ['Branding', 'Interface Design', 'Development', 'Digital Marketing', 'Ongoing Support'];
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  const animationLoop = () => {
-    const category = categories[currentIndex];
-    handleCategoryHover(category);
+    const animationLoop = () => {
+      const category = categories[currentIndex];
+      handleCategoryHover(category);
 
-    currentIndex = (currentIndex + 1) % categories.length;
-    animationInterval.current = setTimeout(animationLoop, 3000);
+      currentIndex = (currentIndex + 1) % categories.length;
+      animationInterval.current = setTimeout(animationLoop, 3000);
+    };
+
+    animationLoop();
   };
 
-  animationLoop();
-  };
-  
   useEffect(() => {
     startAnimation();
-  
+
     return () => {
       stopAnimation();
     };
@@ -160,14 +189,21 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-      {/* <div className='arrowlogo'><img className="home-arrow" src='/down-arrow.png'></img></div> */}
-      <motion.div className='ad-bg' variants={adBgVariants} initial='initial' animate='animate'>
-        AD
-      </motion.div>
-      <motion.h1 className='ad-title' variants={adTitleVariants} initial='initial' animate='animate' when="afterChildren">
-        We launch winning brands and build extraordinary digital experiences.
-      </motion.h1>
+      <div className='header_logo'>
+        <div className='pager-info'>
+          <Navbar />
+          {/* <div className='arrowlogo'><img className="home-arrow" src='/down-arrow.png'></img></div> */}
+          <motion.div className='ad-bg' variants={adBgVariants} initial='initial' animate='animate'>
+            AD
+          </motion.div>
+          <motion.h1 className='ad-title' variants={adTitleVariants} initial='initial' animate='animate' when="afterChildren">
+            We launch winning brands and build extraordinary digital experiences.
+          </motion.h1>
+          <div class="page-hint visible" ref={pageHintRef}><span class="hint__text hint__text--loading">Loading</span> <svg aria-hidden="true" width="11" height="56" viewBox="0 0 11 56" class="icon-arrow-scroll">
+            <path d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5" stroke="#000" stroke-width="1" fill="none"></path>
+          </svg></div>
+        </div>
+      </div>
       <div className='photo-cont'>
         <img className='homeimg' src='/home.png' alt='not workingg'></img>
       </div>
@@ -189,24 +225,24 @@ const Home = () => {
             alt='Right Arrow'
             className='arrow-icon'
             initial={{ opacity: 1 }}
-    whileHover={{ opacity: 0 }}
-    transition={{ duration: 0.3 }}
+            whileHover={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           />Learn more about us</div>
         </div>
       </div>
       <div className='feature-projects' ref={featureProjectsRef}>
-  <motion.div
-    className='feature-heading'
-    style={{ x: xRange1 }}
-  >
-    Featured projects
-  </motion.div>
-  <motion.div
-    className='feature-heading'
-    style={{ x: xRange2 }}
-  >
-    Featured projects
-  </motion.div>
+        <motion.div
+          className='feature-heading'
+          style={{ x: xRange1 }}
+        >
+          Featured projects
+        </motion.div>
+        <motion.div
+          className='feature-heading'
+          style={{ x: xRange2 }}
+        >
+          Featured projects
+        </motion.div>
         {/* <CarouselSlider /> */}
       </div>
       <div ref={servicesHomeRef} className='services-home'>
@@ -247,7 +283,7 @@ const Home = () => {
                 Digital Marketing
               </motion.h2>
               <motion.h2
-               animate={hoveredCategory === 'Ongoing Support' ? { x: 20 } : { x: 0 }}
+                animate={hoveredCategory === 'Ongoing Support' ? { x: 20 } : { x: 0 }}
                 transition={{ duration: 0.5 }}
                 onMouseEnter={() => handleCategoryHover('Ongoing Support')}
                 onMouseLeave={() => handleCategoryHover(null)}
@@ -256,13 +292,13 @@ const Home = () => {
               </motion.h2>
             </div>
             <div className='service-action'><motion.img
-            src='right-arrow.png'
-            alt='Right Arrow'
-            className='arrow-icon'
-            initial={{ opacity: 1 }}
-    whileHover={{ opacity: 0 }}
-    transition={{ duration: 0.3 }}
-          />Explore Our Capabilities</div>
+              src='right-arrow.png'
+              alt='Right Arrow'
+              className='arrow-icon'
+              initial={{ opacity: 1 }}
+              whileHover={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            />Explore Our Capabilities</div>
           </div>
           <motion.div className='Circle-pattern'>
             <motion.div className='shape-circle dark' animate={{
@@ -283,7 +319,7 @@ const Home = () => {
             }}></motion.div>
           </motion.div>
         </div>
-        <div className="service-logo">AD</div>
+        <div className="service-logo"> <div className="clipped-image"> <img src="landimg.avif" alt="Clipped Image" /> </div> AD </div>
       </div>
       <div className='top-button'><hr /> <button>Top!</button></div>
       <div className='contact-home'>

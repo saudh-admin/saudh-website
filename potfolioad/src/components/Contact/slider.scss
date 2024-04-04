@@ -6,17 +6,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
 .carousel {
   width: 100%;
   height: 80%;
-  overflow-x: scroll;
+  overflow: hidden;
   white-space: nowrap;
   background-color: transparent;
   scroll-behavior: smooth;
   cursor: grab;
-
   &:active {
     cursor: grabbing;
   }
@@ -25,29 +25,29 @@
 .carousel-images {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
-
   img {
-    width: 33.33%;
-    height: 80%;
+    width: 20%;
+    height: 60%;
     object-fit: cover;
-    margin: 0 10px;
+    margin: 0 40px;
     transition: transform 0.3s ease;
-
     &.active {
-      transform: translate(-50%, 50px);
+      width: 30%;
+      height: 80%;
       z-index: 1;
     }
-
-    &.prev {
-      transform: translateX(50%);
+    &.prev, &.next {
+      width: 20%;
+      height: 60%;
       z-index: 0;
     }
-
+    &.prev {
+      transform: translateX(100px);
+    }
     &.next {
-      transform: translateX(-50%);
-      z-index: 0;
+      transform: translateX(-100px);
     }
   }
 }
@@ -70,7 +70,6 @@
   background-color: #ccc;
   margin: 0 5px;
   cursor: pointer;
-
   &.active {
     background-color: #000;
   }
