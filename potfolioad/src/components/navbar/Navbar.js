@@ -87,7 +87,8 @@ const Navbar = () => {
     }
 
     return (
-        
+        <div className='container'>
+        <div className="row row--items-middle">
         <div className={`navbar ${menuOpen ? 'white' : ''}`}>
             <div className='nav-items'>
 
@@ -155,6 +156,8 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+        </div>
+        </div>
         </div>
 
 
