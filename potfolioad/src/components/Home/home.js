@@ -1,8 +1,7 @@
 import '../../App.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
-import Navbar from '../navbar/Navbar';
-import CarouselSlider from '../carousel/carousel_slider';
+import Sliderr from '../Contact/slider';
 
 const adBgVariants = {
   initial: {
@@ -86,71 +85,65 @@ const Home = () => {
   //     video.play();
   //   }
   // }, [currentVideoUrl]);
-
   useEffect(() => {
     const pageHint = pageHintRef.current;
     const adBg = document.querySelector('.ad-bg');
     const adTitle = document.querySelector('.ad-title');
 
-    // Function to show the page hint
-    const showPageHint = () => {
-      pageHint.classList.add('visible');
-    };
-
-    // Function to hide the page hint
-    const hidePageHint = () => {
-      pageHint.classList.remove('visible');
-    };
-
-    // Function to update the page hint after loading
     const updatePageHint = () => {
       pageHint.classList.add('loaded');
     };
 
-    // Show the page hint when the component mounts
-    showPageHint();
-
-    // Function to handle scroll events
     const handleScroll = () => {
       const adBgRect = adBg.getBoundingClientRect();
       const adTitleRect = adTitle.getBoundingClientRect();
 
-      // Check if the ad-bg or ad-title is visible on the screen
       if (
         adBgRect.top <= window.innerHeight &&
         adBgRect.bottom >= 0 &&
         adTitleRect.top <= window.innerHeight &&
         adTitleRect.bottom >= 0
       ) {
-        showPageHint();
+        pageHint.classList.add('visible');
       } else {
-        hidePageHint();
+        pageHint.classList.remove('visible');
       }
     };
 
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Check if both ad-bg and ad-title elements are loaded
     const checkElementsLoaded = () => {
       if (adBg && adTitle) {
-        // Update the page hint when the elements are loaded
         updatePageHint();
       } else {
-        // If the elements are not loaded, check again after a short delay
         setTimeout(checkElementsLoaded, 100);
       }
-    };
+    };  
 
-    // Start checking for the elements
     checkElementsLoaded();
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const footerElement = footerRef.current;
+      if (footerElement) {
+        const footerRect = footerElement.getBoundingClientRect();
+        const isFooterVisible = footerRect.top <= window.innerHeight;
+        setHideStartLabel(isFooterVisible);
+      }
+    };
 
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+const [hideStartLabel, setHideStartLabel] = useState(false);
+const footerRef = useRef(null);
   const servicesHomeRef = useRef(null);
   const controls = useAnimation();
   const [hoveredCategory, setHoveredCategory] = useState(null);
@@ -262,9 +255,12 @@ const Home = () => {
     <>
       <header className="header">
         <div className="container">
-          <div class="page-hint visible" ref={pageHintRef} ><span class="hint__text hint__text--loading">Loading</span> <svg aria-hidden="true" width="11" height="56" viewBox="0 0 11 56" class="icon-arrow-scroll">
-            <path d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5" stroke="#000" stroke-width="1" fill="none"></path>
-          </svg></div>
+          <div class="page-hint visible" ref={pageHintRef}>
+            <span class="hint__text hint__text--loading">Loading</span>
+            <svg aria-hidden="true" width="11" height="56" viewBox="0 0 11 56" class="icon-arrow-scroll">
+              <path d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5" stroke="#000" stroke-width="1" fill="none"></path>
+            </svg>
+          </div>
           <div className="row row--items-middle">
             <div className="col-1 col-nav-btn">
               <button id="nav-btn" type="button" aria-label="menu" className="nav-btn d-block" onClick={toggleNav}>
@@ -297,7 +293,8 @@ const Home = () => {
             <div className='start-cont'>
               <a href="/contact" className='nav-contact'>
                 <div className='start-circle'></div>
-                <span className='start-label'>Start a project</span>
+                <span className={`start-label ${hideStartLabel ? 'hide' : ''}`}>Start a project</span>
+          
               </a>
             </div>
           </div>
@@ -305,7 +302,6 @@ const Home = () => {
 
       </header>
       <nav id="nav" className={`nav ${isNavOpen ? 'nav-open' : ''}`}>
-        <div className="nav-overlay"></div>
         <div id="nav-container" className="nav-container">
           <div className="nav__logo">
             <div className="nav__logo-text">AD</div>
@@ -318,7 +314,7 @@ const Home = () => {
               <ul id="nav-list" className="col-11 col-offset-1 col-md-6 col-offset-md-3 nav-list nopad">
                 <li id="nav-item-services" data-node-id="49" className="nav-item">
                   {/* onMouseEnter={() => handleNavItemHover('/assets/videos/services.mp4')} */}
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-services" href="/services" className="nav-link">
+                  <motion.a whileHover={{ x: 25 }} id="nav-link-services" href="/Services" className="nav-link">
                     <motion.span whileHover={{ x: 25 }} className="nav-link-label">Services</motion.span>
                   </motion.a>
                 </li>
@@ -338,7 +334,7 @@ const Home = () => {
                   </motion.a>
                 </li>
                 <li id="nav-item-contact-us" data-node-id="12" className="nav-item">
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-contact-us" data-mask-video="/files/bdbab894/contact.mp4" data-header-image="/assets/w1700-s5-q75-p1/42b28034/luca_bravo_9l_326fiszk_unsplash.jpg" href="/contact-us" className="nav-link">
+                  <motion.a whileHover={{ x: 25 }} id="nav-link-contact-us" data-mask-video="/files/bdbab894/contact.mp4" data-header-image="/assets/w1700-s5-q75-p1/42b28034/luca_bravo_9l_326fiszk_unsplash.jpg" href="/contact" className="nav-link">
                     <motion.span whileHover={{ x: 25 }} className="nav-link-label">Contact</motion.span>
                   </motion.a>
                 </li>
@@ -400,6 +396,7 @@ const Home = () => {
               Featured projects
             </motion.div>
             {/* <CarouselSlider /> */}
+            <Sliderr />
           </div>
           <div ref={servicesHomeRef} className='services-home'>
             <div className='services-container'>
@@ -475,7 +472,9 @@ const Home = () => {
                 }}></motion.div>
               </motion.div>
             </div>
-            <div className="service-logo"> <div className="clipped-image"> <img src="landimg.avif" alt="Clipped Image" /> </div> AD </div>
+            <div className="service-logo">
+            <div class="ad-text">AD</div>
+            </div>
           </div>
           <div className='top-button'><hr /> <button>Top!</button></div>
           <div className='contact-home'>
@@ -488,7 +487,7 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <footer class='hero-footer'>
+      <footer  ref={footerRef} class='hero-footer'>
         <div class='footer-col footer-col1'>
           <div class='footer-title'>Reach us</div>
           <div class='footer-content'>abc@gmail.com</div>

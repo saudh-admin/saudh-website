@@ -1,8 +1,8 @@
-.service-heading{
+.service-headingg{
     background-color: var(--color-green);
     padding-left: 14vw;
     padding-right: 14vw;
-    height: 55vh;
+    height: 56vh;
 
     
    
@@ -55,10 +55,10 @@ margin-top: 0;
             }
 
             .anim-circle{
-                position: absolute; // Position the circle absolutely
-                right: 30%; // Align it to the right
-                top: 30%; // Align it to the middle vertically
-                transform: translate(-50%); // Center it
+                position: absolute; 
+                right: 30%; 
+                top: 30%; 
+                transform: translate(-50%); 
 
                 .shape-circle{
                     width: 10rem;
@@ -92,6 +92,7 @@ margin-top: 0;
                         font-size: 3rem;
                         text-align: left !important;
                         align-items: flex-start;
+                        padding-top: 1rem;
                     }
 
                     h3{
@@ -100,7 +101,7 @@ margin-top: 0;
                         justify-content: center;
                         align-items: center;
                         text-align: center;
-                        padding-top: 1rem;
+                        padding-top: 2rem;
                     }
 
                 }
@@ -109,7 +110,7 @@ margin-top: 0;
                     font-size: 1.2rem;
                     font-weight: 100;
                     width: 50%;
-                    margin-top: -3rem;
+                    margin-top: 0;
                     letter-spacing: 2px;
                 }
             }
@@ -180,6 +181,7 @@ margin-top: 0;
                         font-size: 3rem;
                         text-align: left !important;
                         align-items: flex-start;
+                        padding-top: 1rem;
                     }
 
                     h3{
@@ -199,6 +201,7 @@ margin-top: 0;
                     width: 50%;
                     margin-top: -3rem;
                     letter-spacing: 2px;
+                    padding-top: 3rem;
                 }
             }
         }
