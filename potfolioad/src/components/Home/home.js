@@ -73,18 +73,57 @@ const Home = () => {
 
   const videoRef = useRef(null);
   const [currentVideoUrl, setCurrentVideoUrl] = useState('');
-
   const handleNavItemHover = (videoUrl) => {
-    setCurrentVideoUrl(videoUrl);
+    setCurrentVideoUrl(`/${videoUrl}`);
   };
-
-  // useEffect(() => {
-  //   const video = videoRef.current;
-  //   if (video) {
-  //     video.src = currentVideoUrl;
-  //     video.play();
-  //   }
-  // }, [currentVideoUrl]);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      console.log('Video element found');
+      const playVideo = async () => {
+        try {
+          await video.play();
+          console.log('Video is playing');
+        } catch (error) {
+          console.error('Error playing video:', error);
+        }
+      };
+      video.oncanplay = () => {
+        console.log('Video is ready to play');
+        playVideo();
+      };
+      video.onerror = (error) => {
+        console.error('Video error:', error);
+      };
+      if (currentVideoUrl) {
+        video.src = currentVideoUrl;
+        console.log('Video source set to:', currentVideoUrl);
+      }
+    } else {
+      console.log('Video element not found');
+    }
+  }, [currentVideoUrl]);
+  useEffect(() => {
+    const nav = document.querySelector('.nav');
+    const navBtn = document.querySelector('.nav-btn');
+  
+    if (nav && navBtn) {
+      navBtn.addEventListener('click', () => {
+        if (nav.classList.contains('nav-open')) {
+          const randomX = Math.random() * window.innerWidth;
+          const randomY = Math.random() * window.innerHeight;
+          nav.style.setProperty('--nav-close-x', `${randomX}px`);
+          nav.style.setProperty('--nav-close-y', `${randomY}px`);
+          
+          setTimeout(() => {
+            document.body.classList.remove('nav-open');
+          }, 1200);
+        } else {
+          document.body.classList.add('nav-open');
+        }
+      });
+    }
+  }, []);
   useEffect(() => {
     const pageHint = pageHintRef.current;
     const adBg = document.querySelector('.ad-bg');
@@ -306,34 +345,33 @@ const footerRef = useRef(null);
           <div className="nav__logo">
             <div className="nav__logo-text">AD</div>
             <div className="nav__logo-video">
-              <video ref={videoRef} loop muted></video>
-            </div>
+  <video ref={videoRef} loop muted playsInline autoPlay></video>
+</div>
           </div>
           <div className="container">
             <div className="row row--items-middle nav-row">
               <ul id="nav-list" className="col-11 col-offset-1 col-md-6 col-offset-md-3 nav-list nopad">
-                <li id="nav-item-services" data-node-id="49" className="nav-item">
-                  {/* onMouseEnter={() => handleNavItemHover('/assets/videos/services.mp4')} */}
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-services" href="/Services" className="nav-link">
-                    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Services</motion.span>
-                  </motion.a>
-                </li>
-                <li id="nav-item-projects" data-node-id="7" className="nav-item">
+              <li id="nav-item-services"  className="nav-item" style={{ '--nav-item-index': 0 }}>
+  <motion.a whileHover={{ x: 25 }} id="nav-link-services" href="/Services" className="nav-link" onMouseEnter={() => handleNavItemHover('nav-video.mp4')}>
+    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Services</motion.span>
+  </motion.a>
+</li>
+                <li id="nav-item-projects" className="nav-item" style={{ '--nav-item-index': 1 }}>
                   <motion.a whileHover={{ x: 25 }} id="nav-link-projects" data-mask-video="/files/24b3e92e/projects.mp4" data-header-image="/assets/w1700-s5-q75-p1/f0b76847/viviana_rishe_j2330n6bg3i_unsplash.jpg" href="/projects" className="nav-link">
                     <motion.span whileHover={{ x: 25 }} className="nav-link-label">Projects</motion.span>
                   </motion.a>
                 </li>
-                <li id="nav-item-us" data-node-id="4" className="nav-item">
+                <li id="nav-item-us"  className="nav-item" style={{ '--nav-item-index': 2 }}>
                   <motion.a whileHover={{ x: 25 }} id="nav-link-us" data-mask-video="/files/24b3e92e/us.mp4" href="/us" className="nav-link">
                     <motion.span whileHover={{ x: 25 }} className="nav-link-label">Us</motion.span>
                   </motion.a>
                 </li>
-                <li id="nav-item-journal" data-node-id="10" className="nav-item">
+                <li id="nav-item-journal" className="nav-item" style={{ '--nav-item-index': 3 }}>
                   <motion.a whileHover={{ x: 25 }} id="nav-link-journal" data-mask-video="/files/bdbab894/blog.mp4" href="/journal" className="nav-link">
                     <motion.span whileHover={{ x: 25 }} className="nav-link-label">Journal</motion.span>
                   </motion.a>
                 </li>
-                <li id="nav-item-contact-us" data-node-id="12" className="nav-item">
+                <li id="nav-item-contact-us" className="nav-item" style={{ '--nav-item-index': 4 }}>
                   <motion.a whileHover={{ x: 25 }} id="nav-link-contact-us" data-mask-video="/files/bdbab894/contact.mp4" data-header-image="/assets/w1700-s5-q75-p1/42b28034/luca_bravo_9l_326fiszk_unsplash.jpg" href="/contact" className="nav-link">
                     <motion.span whileHover={{ x: 25 }} className="nav-link-label">Contact</motion.span>
                   </motion.a>
