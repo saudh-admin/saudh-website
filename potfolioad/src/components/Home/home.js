@@ -69,8 +69,6 @@ const Home = () => {
   function toggleNav() {
     const nav = document.querySelector('.nav');
     nav.classList.toggle('nav-open');
-  
-    // Generate random positions (adjust these values based on your layout)
     const minX = 50; // Minimum X position for the circle
     const maxX = window.innerWidth - 100; // Maximum X position (avoiding right edge)
     const minY = 50; // Minimum Y position for the circle
