@@ -23,7 +23,7 @@
         font-size: 38rem;
         font-weight: 600;
         color: var(--color-gray); 
-        -webkit-text-stroke: 1px transparent; 
+        
         padding: 0;
         z-index: -1;
     }
@@ -39,33 +39,69 @@
     }
     .us-homeimg {
         margin-top: 20vh;
-        z-index: 3;
+        position: relative;
+  z-index: 2;
         padding-left: 8vw;
         width: 100%;
         height: auto;
+
       }
       .us-content{
         display: flex;
         flex-direction: row;
-
+        position: relative;
         padding-left: 12vw;
         padding-right: 12vw;
         padding-top: 10vh;
         height: auto;
-
+        .rectangle {
+            width: 6rem;
+            height: 20rem;
+            position: absolute;
+            z-index: 1;
+            transition: transform 0.5s ease;
+          }
+          
+          .rectangle-purple {
+            background-color: var(--color-purple);
+            left: 60%;
+            top: 10%;
+            z-index: 3;
+          }
+          
+          .rectangle-green {
+            background-color: var(--color-green);
+            left: 40%;
+            top: 30%;
+            z-index: 1;
+            
+          }
+          
+          .rectangle-nude {
+            background-color: #e5d8c6;
+            left: 10%;
+            top: 70%;
+            z-index: 1;
+            
+          }
         .us-content-para{
             display: flex;
             flex-direction: column;
             gap:20rem;
             width: 50%;
+            position: relative;
+  z-index: 2;
 
-            .us-content-circle {
-                width: 10rem;
-                height: 10rem;
-                background-color: var(--color-orange);
-                border-radius: 50%;
-                align-self: center;
-            }
+  .us-content-circle {
+    width: 10rem;
+    height: 10rem;
+    background-color: var(--color-orange);
+    border-radius: 50%;
+    align-self: center;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s ease;
+  }
             .us-content-para-text{
                 font-size: 1.5rem;
                 width:60%;
@@ -73,6 +109,8 @@
                 align-self: center;
                 text-align: left;
                 letter-spacing: 2px;
+                position: relative;
+  z-index: 2;
             }
         }
 
@@ -80,6 +118,8 @@
             
             margin-top: 10vh;
             width: 50%;
+            position: relative;
+  z-index: 4;
 
             h1{
                 font-weight: 100;

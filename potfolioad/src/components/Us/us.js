@@ -138,6 +138,50 @@ const footerRef = useRef(null);
       observer.disconnect();
     };
   }, []);
+  const circleRef = useRef(null);
+  const circleRadius = useRef(0); // Initial radius
+  const [circleScale, setCircleScale] = useState(1); // Scale factor for animation
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const [rectangleTranslateY, setRectangleTranslateY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = scrollY / maxScrollY;
+
+    const newScale = 1 + scrollProgress * 3;
+    setCircleScale(newScale);
+
+    const newTranslateY = -scrollProgress * 800;
+    setRectangleTranslateY(newTranslateY);
+  }, [scrollY]);
 
     const [hoveredCategory, setHoveredCategory] = useState(null);
 
@@ -247,8 +291,11 @@ const footerRef = useRef(null);
             <img className='us-homeimg' src='/about.webp' alt='not workingg'></img>
         </div>
         <div className='us-content'>
+        <div className='rectangle rectangle-purple'  style={{ transform: `translateY(${rectangleTranslateY}px)` }}></div>
+  <div className='rectangle rectangle-green' style={{ transform: `translateY(${rectangleTranslateY}px) rotate(40deg)` }}></div>
+  <div className='rectangle rectangle-nude' style={{ transform: `translateY(${rectangleTranslateY}px) rotate(-40deg)` }}></div>
             <div className='us-content-para'>
-                <div className='us-content-circle'></div>
+                <div className='us-content-circle' style={{ transform: `scale(${circleScale})` }}></div>
                 <div className='us-content-para-text'>
                     We work with a wide range of clients across numerous verticals, from innovative startups to global enterprises. Whether it’s a corporate website that needs to be revamped or a hot new product launch, we like getting our hands dirty with clients that know what results they want and trust us to lead the way.
                 </div>
