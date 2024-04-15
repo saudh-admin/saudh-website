@@ -1,4 +1,4 @@
-import Navbar from '../navbar/Navbar';
+
 import './us.scss';
 import '../../App.scss';
 import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';

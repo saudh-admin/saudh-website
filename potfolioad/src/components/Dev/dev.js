@@ -1,11 +1,10 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
 import '../Branding/branding.scss';
 
 const Dev = () => {
   return (
     <>
-            <Navbar />
+         
             <div className='service-branding'>
                 <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>

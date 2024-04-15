@@ -69,19 +69,20 @@ const Home = () => {
   function toggleNav() {
     const nav = document.querySelector('.nav');
     nav.classList.toggle('nav-open');
-    const minX = 50; // Minimum X position for the circle
-    const maxX = window.innerWidth - 100; // Maximum X position (avoiding right edge)
-    const minY = 50; // Minimum Y position for the circle
-    const maxY = window.innerHeight - 100; // Maximum Y position (avoiding bottom edge)
+    const minX = 50;
+    const maxX = window.innerWidth - 100; 
+    const minY = 50; 
+    const maxY = window.innerHeight - 100; 
     const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
     const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
   
     if (nav.classList.contains('nav-open')) {
-      nav.style.clipPath = `circle(100% at ${randomX}px ${randomY}px)`; // Open from random position
+      nav.style.clipPath = `circle(150% at ${randomX}px ${randomY}px)`; 
     } else {
       nav.style.clipPath = `circle(0% at ${randomX}px ${randomY}px)`; 
     }
   }
+
 
   const videoRef = useRef(null);
   const [currentVideoUrl, setCurrentVideoUrl] = useState('');
@@ -341,14 +342,15 @@ const footerRef = useRef(null);
             </div>
           </div>
           <div className='start-project'>
-            <div className='start-cont'>
-              <a href="/contact" className='nav-contact'>
-                <div className='start-circle'><i className="fas fa-phone-alt"></i></div>
-                <span className={`start-label ${hideStartLabel ? 'hide' : ''}`}>Book a Demo Call</span>
-          
-              </a>
-            </div>
-          </div>
+  <div className='start-cont'>
+    <a href="/contact" className='nav-contact'>
+      <div className='start-circle'>
+        <h3>Book a Demo</h3>
+      </div>
+      <span className={`start-label ${hideStartLabel ? 'hide' : ''}`}></span>
+    </a>
+  </div>
+</div>
         </div>
 
       </header>

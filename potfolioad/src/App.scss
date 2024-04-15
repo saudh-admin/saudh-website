@@ -1,51 +1,3 @@
-:root {
-  --primary-color: var(--color-gold);
-  --text-color: var(--color-main-blue);
-}
-
-@media (min-width: 1440px) {
-  :root {
-    --maskHeight: calc(0.4*var(--viewport-h) + (1424px - 2*var(--gutter))*1.16*0.427*0.38);
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --maskHeight: calc(0.4*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.38);
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --navigation-height: 96px;
-    --navigation-sub-section-height: 524px;
-    --maskHeight: calc(0.48*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.46);
-  }
-}
-
-@media (min-width: 1440px) {
-  :root {
-    --padding: 32px;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --padding: 16px;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --gutter: 12px;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --gutter: 17px;
-  }
-}
 
 :root {
   --color-white-15: hsla(0, 0%, 100%, 0.15);
@@ -323,35 +275,18 @@ html{
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  // transition: opacity 0.8s ease, visibility 0s linear 2s;
-  overflow: visible;
-  // clip-path: circle(0% at var(--nav-close-x) var(--nav-close-y));
-  clip-path: none; /* Initial state (full circle) */
-  transition: clip-path 0.5s ease-in-out;
+  clip-path: circle(0% at var(--nav-origin-x, 50%) var(--nav-origin-y, 50%));
+  transition: clip-path 1s ease, opacity 1s ease;
 }
 
 .nav-open .nav {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
-  transition: opacity 0.8s ease, clip-path 1.2s ease;
-  clip-path: circle(100% at center);
-  width: 100vw;
-  height: 100vh;
+  clip-path: circle(150% at var(--nav-origin-x, 50%) var(--nav-origin-y, 50%));
 }
 
-// .nav::before {
-//   content: '';
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%) scale(0);
-//   width: 200vw;
-//   height: 200vw;
-//   border-radius: 50%;
-//   background-color: var(--color-dark);
-//   transition: transform 0.8s ease;
-// }
+
 
 .nav-open .nav::before {
   transform: translate(-50%, -50%) scale(1);
@@ -521,11 +456,11 @@ html{
   color: #fff;
   transform: translateX(20px);
 }
-
 .start-project {
   position: fixed;
-  top: 1rem;
+  top: 3rem;
   right: 1rem;
+  transform: translateY(-50%);
   z-index: 999;
   opacity: 1;
   pointer-events: auto;
@@ -542,20 +477,24 @@ html{
 }
 
 .start-circle {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: auto;
+  height:auto;
   border: 2px solid var(--color-orange);
   background-color: var(--color-orange);
-  border-radius: 50%;
+  border-radius: 25px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding: 0.8rem;
 }
-.start-circle i {
-  font-size: 2rem; /* Adjust size as needed */
-  color: white;
+
+.start-circle h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+
 }
 
 .start-label {
@@ -563,10 +502,14 @@ html{
   font-size: 1.2rem;
   font-weight: 100;
   letter-spacing: 1px;
-
-
+  margin-top: 1rem;
 }
 
+.start-label.hide {
+  opacity: 0;
+  transition: 0.3s ease-out;
+  pointer-events: none;
+}
 .nav-contact {
   text-decoration: none;
 }

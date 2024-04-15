@@ -1,6 +1,4 @@
 import './contact.scss';
-import Navbar from '../navbar/Navbar';
-import Sliderr from './slider';
 import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 

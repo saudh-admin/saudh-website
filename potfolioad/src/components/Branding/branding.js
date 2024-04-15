@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../navbar/Navbar';
 import './branding.scss';
 
 const Branding = () => {
@@ -7,7 +6,7 @@ const Branding = () => {
    
     return (
         <>
-            <Navbar />
+            
             <div className='service-branding'>
                 <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>
