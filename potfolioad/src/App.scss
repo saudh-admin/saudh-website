@@ -1,4 +1,5 @@
 
+
 :root {
   --color-white-15: hsla(0, 0%, 100%, 0.15);
   --color-white-20: hsla(0, 0%, 100%, 0.2);
@@ -325,40 +326,33 @@ html{
   font-size: 30rem;
   color: transparent;
   -webkit-text-stroke: 2px var(--color-white-15);
-
-  transition: opacity 0.5s ease;
   pointer-events: none;
   z-index: 1;
 }
 
 .nav-open .nav__logo {
-  opacity: 1;
+  opacity: 0.2;
   transition-delay: 0.8s;
 }
-.nav__logo-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-  overflow: hidden;
-}
 
-.nav__logo-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.nav-item:hover .nav__logo-video {
-  opacity: 1;
-  z-index: 2;
-}
 .nav__logo-text {
   position: relative;
   z-index: 1;
+  color: transparent;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 30rem;
+  line-height: 1;
+  text-align: center;
+  background-image: url('../public/about.webp');
+  background-size: cover;
+  background-position: center bottom;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px #ddd;
 }
 .nav-list {
   display: flex;
@@ -368,8 +362,14 @@ html{
   margin: 0;
   align-items: left;
   position: relative;
-  z-index: 1;
+  z-index: 100;
+  background-color: transparent;
+  transition: transform 0.3s ease;
 }
+
+.nav-item:hover .nav-list {
+  transform: translateY(-50px);
+} 
 
 .nav-row {
   opacity: 0;
