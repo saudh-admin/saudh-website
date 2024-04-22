@@ -11,6 +11,7 @@ import Interface from './components/Interface/interface';
 import Dev from './components/Dev/dev';
 import Digital from './components/Digital/digital';
 import Support from './components/Support/support';
+import Journal from './components/Journal/journal';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/development" element={<Dev />} />
           <Route path="/digital-marketing" element={<Digital />} />
           <Route path="/ongoing-support" element={<Support />} />
+          <Route path="/journal" element={<Journal />} />
         </Routes>
       </div>
     </Router>

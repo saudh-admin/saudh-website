@@ -143,26 +143,13 @@ const Services = () => {
         setHoveredCategory(category);
 
     };
-    const [showServiceHeading, setShowServiceHeading] = useState(false);
+
     const serviceHeadinggRef = useRef(null);
+
     useEffect(() => {
         const serviceHeadinggElement = serviceHeadinggRef.current;
-        if (serviceHeadinggElement) {
-          serviceHeadinggElement.classList.add('service-headingg-curtain');
-        }
-      }, []);
-      
-      useEffect(() => {
-        const timer = setTimeout(() => {
-          const serviceHeadinggElement = serviceHeadinggRef.current;
-          if (serviceHeadinggElement) {
-            serviceHeadinggElement.classList.add('service-headingg-curtain');
-            setShowServiceHeading(true);
-          }
-        }, 100); // Adjust the delay as needed
-      
-        return () => clearTimeout(timer);
-      }, []);
+        serviceHeadinggElement.classList.add('service-headingg-curtain');
+    }, []);
     return (
         <>
             <header className="header">
@@ -256,14 +243,14 @@ const Services = () => {
                 </div>
 
             </nav>
-            <div className={`service-headingg ${showServiceHeading ? 'service-headingg-curtain' : ''}`}>
-  <div className='service-heading-text'>
-    Services
-  </div>
-  <div className="service-logo">
-    <div className={`service-ad ${showServiceHeading ? 'hide-before' : ''}`}>AD</div>
-  </div>
-</div>
+            <div className='service-headingg' ref={serviceHeadinggRef}>
+                <div className='service-heading-text'>
+                    Services
+                </div>
+                <div className="service-logo">
+                    <div className="service-ad">AD</div>
+                </div>
+            </div>
             <div className='service-content'>
                 <div className='service-col-1'>
                     <motion.div className='service-col-heading'
