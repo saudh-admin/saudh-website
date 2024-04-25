@@ -381,16 +381,14 @@ const Home = () => {
               {!isNavOpen ? (
                 <>
                   <h1
-                    className={`header__text header__text--title ${
-                      showHello ? "show" : "hide"
-                    }`}
+                    className={`header__text header__text--title ${showHello ? "show" : "hide"
+                      }`}
                   >
                     Hello
                   </h1>
                   <h1
-                    className={`header__text header__text--title ${
-                      showHome ? "show" : "hide"
-                    }`}
+                    className={`header__text header__text--title ${showHome ? "show" : "hide"
+                      }`}
                   >
                     Home
                   </h1>
@@ -398,16 +396,14 @@ const Home = () => {
               ) : (
                 <>
                   <h1
-                    className={`header__text header__text--title ${
-                      showHello ? "show" : "hide"
-                    }`}
+                    className={`header__text header__text--title ${showHello ? "show" : "hide"
+                      }`}
                   >
                     Index
                   </h1>
                   <h1
-                    className={`header__text header__text--title ${
-                      showHome ? "show" : "hide"
-                    }`}
+                    className={`header__text header__text--title ${showHome ? "show" : "hide"
+                      }`}
                   >
                     Home
                   </h1>
@@ -431,33 +427,33 @@ const Home = () => {
       </header>
       <nav id="nav" className={`nav ${isNavOpen ? "nav-open" : ""}`}>
         <div id="nav-container" className="nav-container">
-        <div className="nav__logo">
-  <div className="nav__logo-text">
-    AD
-    {isHovered && (
-  <motion.video
-    src="https://res.cloudinary.com/doybtqm8h/video/upload/v1713291632/services_bsd2v9.mp4"
-    autoPlay
-    loop
-    muted
-    style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      zIndex: 1,
-      mixBlendMode: "screen",
-      clipPath: 'AD',
-      WebkitTextFillColor: "transparent",
-      WebkitBackgroundClip: "text",
-      backgroundClip: "text",
-    }}
-  />
+          <div className="nav__logo">
+            <div className="nav__logo-text">
+              AD
+              {isHovered && (
+                <motion.video
+                  src="https://res.cloudinary.com/doybtqm8h/video/upload/v1713291632/services_bsd2v9.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 1,
+                    mixBlendMode: "screen",
+                    clipPath: 'AD',
+                    WebkitTextFillColor: "transparent",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                  }}
+                />
 
-)}
-  </div>
-</div>
+              )}
+            </div>
+          </div>
           <div className="container">
             <div className="row row--items-middle nav-row">
               <ul
@@ -726,26 +722,26 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? -175
                         : hoveredCategory === "Interface Design"
-                        ? -175
-                        : hoveredCategory === "Development"
-                        ? -175
-                        : hoveredCategory === "Digital Marketing"
-                        ? -175
-                        : hoveredCategory === "Ongoing Support"
-                        ? -185
-                        : -175,
+                          ? -175
+                          : hoveredCategory === "Development"
+                            ? -175
+                            : hoveredCategory === "Digital Marketing"
+                              ? -175
+                              : hoveredCategory === "Ongoing Support"
+                                ? -185
+                                : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? 20
                         : hoveredCategory === "Interface Design"
-                        ? -25
-                        : hoveredCategory === "Development"
-                        ? -185
-                        : hoveredCategory === "Digital Marketing"
-                        ? -185
-                        : hoveredCategory === "Ongoing Support"
-                        ? -55
-                        : -185,
+                          ? -25
+                          : hoveredCategory === "Development"
+                            ? -185
+                            : hoveredCategory === "Digital Marketing"
+                              ? -185
+                              : hoveredCategory === "Ongoing Support"
+                                ? -55
+                                : -185,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
                 ></motion.div>
@@ -756,26 +752,26 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? -90
                         : hoveredCategory === "Interface Design"
-                        ? -80
-                        : hoveredCategory === "Development"
-                        ? -80
-                        : hoveredCategory === "Digital Marketing"
-                        ? -75
-                        : hoveredCategory === "Ongoing Support"
-                        ? -90
-                        : -80,
+                          ? -80
+                          : hoveredCategory === "Development"
+                            ? -80
+                            : hoveredCategory === "Digital Marketing"
+                              ? -75
+                              : hoveredCategory === "Ongoing Support"
+                                ? -90
+                                : -80,
                     y:
                       hoveredCategory === "Branding"
                         ? 20
                         : hoveredCategory === "Interface Design"
-                        ? -185
-                        : hoveredCategory === "Development"
-                        ? 120
-                        : hoveredCategory === "Digital Marketing"
-                        ? 5
-                        : hoveredCategory === "Ongoing Support"
-                        ? 20
-                        : -80,
+                          ? -185
+                          : hoveredCategory === "Development"
+                            ? 120
+                            : hoveredCategory === "Digital Marketing"
+                              ? 5
+                              : hoveredCategory === "Ongoing Support"
+                                ? 20
+                                : -80,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
                 ></motion.div>
@@ -786,26 +782,26 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? -185
                         : hoveredCategory === "Interface Design"
-                        ? -175
-                        : hoveredCategory === "Development"
-                        ? -175
-                        : hoveredCategory === "Digital Marketing"
-                        ? -170
-                        : hoveredCategory === "Ongoing Support"
-                        ? -185
-                        : -175,
+                          ? -175
+                          : hoveredCategory === "Development"
+                            ? -175
+                            : hoveredCategory === "Digital Marketing"
+                              ? -170
+                              : hoveredCategory === "Ongoing Support"
+                                ? -185
+                                : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? -175
                         : hoveredCategory === "Interface Design"
-                        ? -185
-                        : hoveredCategory === "Development"
-                        ? 20
-                        : hoveredCategory === "Digital Marketing"
-                        ? -130
-                        : hoveredCategory === "Ongoing Support"
-                        ? -175
-                        : -185,
+                          ? -185
+                          : hoveredCategory === "Development"
+                            ? 20
+                            : hoveredCategory === "Digital Marketing"
+                              ? -130
+                              : hoveredCategory === "Ongoing Support"
+                                ? -175
+                                : -185,
                     scale: hoveredCategory === "Digital Marketing" ? 0.7 : 1,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
