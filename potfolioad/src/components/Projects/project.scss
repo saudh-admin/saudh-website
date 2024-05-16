@@ -4,8 +4,9 @@
   }
   
   .proj-text {
-    font-size: 30rem;
-    font-weight: bold;
+    font-size: 20rem;
+    font-weight:bold;
+    background-color: var(--color-gray);
   }
   
   .proj-image {
@@ -33,16 +34,13 @@
     width: 100%;
     height: 100%;
     fill: none;
-    stroke: #888;
-    stroke-width: 0.1 ;
+    text-shadow: 1px 1px 0 #ccc, -1px -1px 0 #ccc, 1px -1px 0 #ccc, -1px 1px 0 #ccc;
     z-index: 2;
-    
   }
   
   .proj-outline text {
     fill: none;
-    stroke: #888;
-
+    text-shadow: 1px 1px 0 #ccc, -1px -1px 0 #ccc, 1px -1px 0 #ccc, -1px 1px 0 #ccc;
   }
   
   @keyframes curtainFall {
@@ -65,8 +63,8 @@
   
   .projects-title {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top:10rem;
+    left: 10rem;
     font-size: 3rem;
     text-align: left;
     opacity: 0;
@@ -83,3 +81,76 @@
       opacity: 1;
     }
   }
+  .project-filters {
+    background-color: var(--color-gray);
+    font-size: 1.2rem;
+    justify-content: center;
+  }
+  
+  .filter-title-column {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .filter-title {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    margin: 0;
+  }
+  
+  .project-filters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .project-filters li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.5rem;
+    font-weight: lighter;
+  }
+  
+  .project-filters li:hover {
+    cursor: default;
+  }
+  
+  .project-filters li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+
+  .project-filters li.active::before {
+    background-color: #000;
+  }
+  
+  .project-filters li:hover::before {
+    background-color: var(--color-orange);
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+
+  }
+  
+  .project-card {
+    background-color: #fff;
+    padding: 1rem;
+
+  }
+  
+  .project-card img {
+    width: 50%;
+    height: auto;
+  }
+  
