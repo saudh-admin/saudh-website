@@ -168,6 +168,9 @@ const Projects = () => {
         { id: 1, title: 'Project 1', description: 'Description 1', category: 'Branding', image: 'branding.webp' },
         { id: 2, title: 'Project 2', description: 'Description 2', category: 'UX/UI Design', image: 'contact.webp' },
         { id: 3, title: 'Project 3', description: 'Description 3', category: 'Development', image: 'dev.webp' },
+        { id: 4, title: 'Project 4', description: 'Description 1', category: 'Branding', image: 'branding.webp' },
+        { id: 5, title: 'Project 5', description: 'Description 2', category: 'UX/UI Design', image: 'contact.webp' },
+        { id: 6, title: 'Project 6', description: 'Description 3', category: 'Development', image: 'dev.webp' },
         // Add more project objects as needed
     ]);
 
