@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './branding.scss';
+import Navbar from '../Navbar/navbar';
 
 const Branding = () => {
 
    
     return (
         <>
-            
+            <Navbar></Navbar>
+            <main>
             <div className='service-branding'>
                 <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>
@@ -96,6 +98,7 @@ const Branding = () => {
                     <div className='contact-action-word'>Contact</div>
                 </div>
             </div>
+            </main>
             <footer class='hero-footer'>
                 <div class='footer-col footer-col1'>
                     <div class='footer-title'>Reach us</div>

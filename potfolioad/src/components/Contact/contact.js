@@ -1,10 +1,11 @@
 import './contact.scss';
 import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
+import Navbar from '../Navbar/navbar';
 
 const Contact = () => {
 
-    const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const [maxScrollY, setMaxScrollY] = useState(0);
   const [initialOffset, setInitialOffset] = useState(0);
   const scrollImgRef = useRef(null);
@@ -147,98 +148,8 @@ const footerRef = useRef(null);
     return (
 
         <>
-             <header className="header">
-        <div className="container">
-          <div class="page-hint " ref={pageHintRef}>
-            <span class="hint__text hint__text--loading"></span>
-            <svg aria-hidden="true" width="11" height="56" viewBox="0 0 11 56" class="icon-arrow-scroll">
-              <path d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5" stroke="#000" stroke-width="1" fill="none"></path>
-            </svg>
-          </div>
-          <div className="row row--items-middle">
-            <div className="col-1 col-nav-btn">
-              <button id="nav-btn" type="button" aria-label="menu" className="nav-btn d-block" onClick={toggleNav}>
-                <span aria-hidden="true" className="nav-btn__bar nav-btn__bar-1"></span>
-                <span aria-hidden="true" className="nav-btn__bar nav-btn__bar-2"></span>
-                <span aria-hidden="true" className="nav-btn__bar nav-btn__bar-1 nav-btn__bar--closed"></span>
-                <span aria-hidden="true" className="nav-btn__bar nav-btn__bar-2 nav-btn__bar--closed"></span>
-              </button>
-            </div>
-            <div className="col-6 col-offset-2 col-md-3 col-offset-md-0 col-lg-1 col-logo" onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
-              <a href="/" id="logo" className="header__logo">
-                AD
-              </a>
-            </div>
-            <div className="col-2 col-offset-1 col-header-title">
-              {!isNavOpen ? (
-                <>
-                  <h1 className={`header__text header__text--title ${showHello ? 'show' : 'hide'}`}>Hello</h1>
-                  <h1 className={`header__text header__text--title ${showHome ? 'show' : 'hide'}`}>Home</h1>
-                </>
-              ) : (
-                <>
-                  <h1 className={`header__text header__text--title ${showHello ? 'show' : 'hide'}`}>Index</h1>
-                  <h1 className={`header__text header__text--title ${showHome ? 'show' : 'hide'}`}>Home</h1>
-                </>
-              )}
-            </div>
-          </div>
-          <div className='start-project'>
-            <div className='start-cont'>
-              <a href="/contact" className='nav-contact'>
-                <div className='start-circle'></div>
-                <span className={`start-label ${hideStartLabel ? 'hide' : ''}`}>Start a project</span>
-          
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </header>
-      <nav id="nav" className={`nav ${isNavOpen ? 'nav-open' : ''}`}>
-        <div id="nav-container" className="nav-container">
-          <div className="nav__logo">
-            <div className="nav__logo-text">AD</div>
-            <div className="nav__logo-video">
-              <video ref={videoRef} loop muted></video>
-            </div>
-          </div>
-          <div className="container">
-            <div className="row row--items-middle nav-row">
-              <ul id="nav-list" className="col-11 col-offset-1 col-md-6 col-offset-md-3 nav-list nopad">
-                <li id="nav-item-services" data-node-id="49" className="nav-item">
-                  {/* onMouseEnter={() => handleNavItemHover('/assets/videos/services.mp4')} */}
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-services" href="/Services" className="nav-link">
-                    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Services</motion.span>
-                  </motion.a>
-                </li>
-                <li id="nav-item-projects" data-node-id="7" className="nav-item">
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-projects" data-mask-video="/files/24b3e92e/projects.mp4" data-header-image="/assets/w1700-s5-q75-p1/f0b76847/viviana_rishe_j2330n6bg3i_unsplash.jpg" href="/projects" className="nav-link">
-                    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Projects</motion.span>
-                  </motion.a>
-                </li>
-                <li id="nav-item-us" data-node-id="4" className="nav-item">
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-us" data-mask-video="/files/24b3e92e/us.mp4" href="/us" className="nav-link">
-                    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Us</motion.span>
-                  </motion.a>
-                </li>
-                <li id="nav-item-journal" data-node-id="10" className="nav-item">
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-journal" data-mask-video="/files/bdbab894/blog.mp4" href="/journal" className="nav-link">
-                    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Journal</motion.span>
-                  </motion.a>
-                </li>
-                <li id="nav-item-contact-us" data-node-id="12" className="nav-item">
-                  <motion.a whileHover={{ x: 25 }} id="nav-link-contact-us" data-mask-video="/files/bdbab894/contact.mp4" data-header-image="/assets/w1700-s5-q75-p1/42b28034/luca_bravo_9l_326fiszk_unsplash.jpg" href="/contact" className="nav-link">
-                    <motion.span whileHover={{ x: 25 }} className="nav-link-label">Contact</motion.span>
-                  </motion.a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </nav>
-            <div className='main-content'>
+            <Navbar></Navbar>
+            <main className='main-content'>
             <div className='service-heading'>
                 <div className='service-heading-text'>
                 Let's build something awesome together.
@@ -296,7 +207,7 @@ const footerRef = useRef(null);
                     <img src='contact.webp' alt='not working'></img>
                 </div>
             </div>
-            </div>
+            </main>
             <footer  ref={footerRef} class='hero-footer'>
         <div class='footer-col footer-col1'>
           <div class='footer-title'>Reach us</div>

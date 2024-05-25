@@ -7,6 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Sliderr from "../Contact/slider";
+import Navbar from "../Navbar/navbar";
 
 const adBgVariants = {
   initial: {
@@ -37,15 +38,7 @@ const adTitleVariants = {
   },
 };
 
-const featureHeadingVariants = {
-  hidden: { x: "-100%" },
-  visible: { x: 0, transition: { duration: 1 } },
-};
 
-const featureHeadingVariants2 = {
-  hidden: { x: "100%" },
-  visible: { x: 0, transition: { duration: 1 } },
-};
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -55,70 +48,12 @@ const Home = () => {
   const minY = initialOffset - window.innerHeight / 2;
   const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
   const pageHintRef = useRef(null);
-  const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const [showHome, setShowHome] = useState(false);
-  const [showHello, setShowHello] = useState(true);
 
-  const handleHover = () => {
-    setShowHome(true);
-    setShowHello(false);
-  };
+  
 
-  const handleHoverLeave = () => {
-    setShowHome(false);
-    setShowHello(true);
-  };
 
-  function toggleNav() {
-    const nav = document.querySelector(".nav");
-    nav.classList.toggle("nav-open");
-    const minX = 50;
-    const maxX = window.innerWidth - 100;
-    const minY = 50;
-    const maxY = window.innerHeight - 100;
-    const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-    const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
-    if (nav.classList.contains("nav-open")) {
-      nav.style.clipPath = `circle(150% at ${randomX}px ${randomY}px)`;
-    } else {
-      nav.style.clipPath = `circle(0% at ${randomX}px ${randomY}px)`;
-    }
-  }
-
-  const videoRef = useRef(null);
-  const [currentVideoUrl, setCurrentVideoUrl] = useState("");
-  const handleNavItemHover = (videoUrl) => {
-    setCurrentVideoUrl(`/${videoUrl}`);
-  };
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      console.log("Video element found");
-      const playVideo = async () => {
-        try {
-          await video.play();
-          console.log("Video is playing");
-        } catch (error) {
-          console.error("Error playing video:", error);
-        }
-      };
-      video.oncanplay = () => {
-        console.log("Video is ready to play");
-        playVideo();
-      };
-      video.onerror = (error) => {
-        console.error("Video error:", error);
-      };
-      if (currentVideoUrl) {
-        video.src = currentVideoUrl;
-        console.log("Video source set to:", currentVideoUrl);
-      }
-    } else {
-      console.log("Video element not found");
-    }
-  }, [currentVideoUrl]);
   useEffect(() => {
     const nav = document.querySelector(".nav");
     const navBtn = document.querySelector(".nav-btn");
@@ -144,29 +79,33 @@ const Home = () => {
     const pageHint = pageHintRef.current;
     const adBg = document.querySelector(".ad-bg");
     const adTitle = document.querySelector(".ad-title");
-
+  
     const updatePageHint = () => {
-      pageHint.classList.add("loaded");
-    };
-
-    const handleScroll = () => {
-      const adBgRect = adBg.getBoundingClientRect();
-      const adTitleRect = adTitle.getBoundingClientRect();
-
-      if (
-        adBgRect.top <= window.innerHeight &&
-        adBgRect.bottom >= 0 &&
-        adTitleRect.top <= window.innerHeight &&
-        adTitleRect.bottom >= 0
-      ) {
-        pageHint.classList.add("visible");
-      } else {
-        pageHint.classList.remove("visible");
+      if (pageHint) {
+        pageHint.classList.add("loaded");
       }
     };
-
+  
+    const handleScroll = () => {
+      if (adBg && adTitle && pageHint) {
+        const adBgRect = adBg.getBoundingClientRect();
+        const adTitleRect = adTitle.getBoundingClientRect();
+  
+        if (
+          adBgRect.top <= window.innerHeight &&
+          adBgRect.bottom >= 0 &&
+          adTitleRect.top <= window.innerHeight &&
+          adTitleRect.bottom >= 0
+        ) {
+          pageHint.classList.add("visible");
+        } else {
+          pageHint.classList.remove("visible");
+        }
+      }
+    };
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     const checkElementsLoaded = () => {
       if (adBg && adTitle) {
         updatePageHint();
@@ -174,9 +113,9 @@ const Home = () => {
         setTimeout(checkElementsLoaded, 100);
       }
     };
-
+  
     checkElementsLoaded();
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -322,244 +261,7 @@ const Home = () => {
 
   return (
     <>
-      <header className="header">
-        <div className="container">
-          <div class="page-hint visible" ref={pageHintRef}>
-            <span class="hint__text hint__text--loading">Loading</span>
-            <svg
-              aria-hidden="true"
-              width="11"
-              height="56"
-              viewBox="0 0 11 56"
-              class="icon-arrow-scroll"
-            >
-              <path
-                d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5"
-                stroke="#000"
-                stroke-width="1"
-                fill="none"
-              ></path>
-            </svg>
-          </div>
-          <div className="row row--items-middle">
-            <div className="col-1 col-nav-btn">
-              <button
-                id="nav-btn"
-                type="button"
-                aria-label="menu"
-                className="nav-btn d-block"
-                onClick={toggleNav}
-              >
-                <span
-                  aria-hidden="true"
-                  className="nav-btn__bar nav-btn__bar-1"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className="nav-btn__bar nav-btn__bar-2"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className="nav-btn__bar nav-btn__bar-1 nav-btn__bar--closed"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className="nav-btn__bar nav-btn__bar-2 nav-btn__bar--closed"
-                ></span>
-              </button>
-            </div>
-            <div
-              className="col-6 col-offset-2 col-md-3 col-offset-md-0 col-lg-1 col-logo"
-              onMouseEnter={handleHover}
-              onMouseLeave={handleHoverLeave}
-            >
-              <a href="/" id="logo" className="header__logo">
-                AD
-              </a>
-            </div>
-            <div className="col-2 col-offset-1 col-header-title">
-              {!isNavOpen ? (
-                <>
-                  <h1
-                    className={`header__text header__text--title ${showHello ? "show" : "hide"
-                      }`}
-                  >
-                    Hello
-                  </h1>
-                  <h1
-                    className={`header__text header__text--title ${showHome ? "show" : "hide"
-                      }`}
-                  >
-                    Home
-                  </h1>
-                </>
-              ) : (
-                <>
-                  <h1
-                    className={`header__text header__text--title ${showHello ? "show" : "hide"
-                      }`}
-                  >
-                    Index
-                  </h1>
-                  <h1
-                    className={`header__text header__text--title ${showHome ? "show" : "hide"
-                      }`}
-                  >
-                    Home
-                  </h1>
-                </>
-              )}
-            </div>
-          </div>
-          <div className="start-project">
-            <div className="start-cont">
-              <a href="/contact" className="nav-contact">
-                <div className="start-circle">
-                  <h3>Book a Demo</h3>
-                </div>
-                <span
-                  className={`start-label ${hideStartLabel ? "hide" : ""}`}
-                ></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
-      <nav id="nav" className={`nav ${isNavOpen ? "nav-open" : ""}`}>
-        <div id="nav-container" className="nav-container">
-          <div className="nav__logo">
-            <div className="nav__logo-text">
-              AD
-              {isHovered && (
-                <motion.video
-                  src="https://res.cloudinary.com/doybtqm8h/video/upload/v1713291632/services_bsd2v9.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    zIndex: 1,
-                    mixBlendMode: "screen",
-                    clipPath: 'AD',
-                    WebkitTextFillColor: "transparent",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                  }}
-                />
-
-              )}
-            </div>
-          </div>
-          <div className="container">
-            <div className="row row--items-middle nav-row">
-              <ul
-                id="nav-list"
-                className="col-11 col-offset-1 col-md-6 col-offset-md-3 nav-list nopad"
-              >
-                <li
-                  id="nav-item-services"
-                  data-node-id="49"
-                  className="nav-item"
-                >
-                  <a
-                    id="nav-link-services"
-                    href="/Services"
-                    className="nav-link"
-                  >
-                    <span
-                      className="nav-link-label"
-                      onMouseEnter={handleHoverS}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      Services
-                    </span>
-                  </a>
-                </li>
-                <li
-                  id="nav-item-projects"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 1 }}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-projects"
-                    href="/projects"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Projects
-                    </motion.span>
-                  </motion.a>
-                </li>
-                <li
-                  id="nav-item-us"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 2 }}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-us"
-                    href="/us"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Us
-                    </motion.span>
-                  </motion.a>
-                </li>
-                <li
-                  id="nav-item-journal"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 3 }}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-journal"
-                    href="/journal"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Journal
-                    </motion.span>
-                  </motion.a>
-                </li>
-                <li
-                  id="nav-item-contact-us"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 4 }}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-contact-us"
-                    href="/contact"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Contact
-                    </motion.span>
-                  </motion.a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar></Navbar>
       <main>
         <div className="main-content">
           <div className="container">

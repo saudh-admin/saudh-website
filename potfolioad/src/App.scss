@@ -87,17 +87,17 @@
   font-weight: 300;
 }
 
-// .cursor {
-//   border: 1px solid var(--color-orange, orange);
-//   height: 16px;
-//   width: 16px;
-//   border-radius: 50%;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 9999;
-//   cursor: none;
-// }
+.cursor {
+  border: 1px solid var(--color-orange, orange);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  cursor: none;
+}
 
 
 * {
@@ -340,22 +340,16 @@ html{
 
 .nav__logo-text {
   position: relative;
-  z-index: 1;
-  color: transparent;
-  mix-blend-mode: screen;
-  opacity: 0.5;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  font-size: 30rem;
+  font-size: 32rem;
   line-height: 1;
   text-align: center;
-  background-image: url('../public/about.webp');
-  background-size: cover;
-  background-position: center bottom;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-stroke: 1px #ddd;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+letter-spacing: -0.02em;
 }
 .nav-list {
   display: flex;

@@ -1,11 +1,12 @@
 import React from 'react';
-
+import Navbar from '../Navbar/navbar';
 import '../Branding/branding.scss';
 
 const Digital = () => {
 return (
     <>
-
+        <Navbar></Navbar>
+        <main>
     <div className='service-branding'>
             <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>
@@ -105,6 +106,7 @@ return (
                     </div>
             </div>
     </div>
+    </main>
     <div className='contact-footer'>
             <div className='top-button'><hr /> <button>Top!</button></div>
             <div className='contact-home'>

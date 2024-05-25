@@ -1,8 +1,11 @@
 import React from 'react';
 import './journal.scss';
+import Navbar from '../Navbar/navbar';
 
 const Journal = () => {
   return (
+    <>
+    <Navbar></Navbar>
     <div className="journal-container">
       <h1 className="journal-heading">Journal</h1>
       <div className="journal-grid">
@@ -44,6 +47,7 @@ const Journal = () => {
         <div className="journal-item empty"></div>
       </div>
     </div>
+    </>
   );
 };
 
