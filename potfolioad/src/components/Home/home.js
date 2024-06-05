@@ -25,14 +25,14 @@ const adBgVariants = {
 
 const adTitleVariants = {
   initial: {
-    x: -500,
+    y: -100,
     opacity: 0,
   },
   animate: {
-    x: 0,
+    y: 0,
     opacity: 1,
     transition: {
-      duration: 2.5,
+      duration: 1.5,
       delay: 1,
     },
   },

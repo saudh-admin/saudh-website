@@ -1,297 +1,223 @@
 import './services.scss';
-import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
 
 const Services = () => {
-    const [scrollY, setScrollY] = useState(0);
-    const [maxScrollY, setMaxScrollY] = useState(0);
-    const [initialOffset, setInitialOffset] = useState(0);
-    const scrollImgRef = useRef(null);
-    const minY = initialOffset - window.innerHeight / 2;
-    const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
-    const pageHintRef = useRef(null);
-    const [isNavOpen, setIsNavOpen] = useState(false);
-
-    const [showHome, setShowHome] = useState(false);
-    const [showHello, setShowHello] = useState(true);
-
-    const handleHover = () => {
-        setShowHome(true);
-        setShowHello(false);
-    };
-
-    const handleHoverLeave = () => {
-        setShowHome(false);
-        setShowHello(true);
-    };
-
-
-    const toggleNav = () => {
-        document.body.classList.toggle('nav-open');
-        setIsNavOpen(!isNavOpen);
-    };
-
-    const videoRef = useRef(null);
-    const [currentVideoUrl, setCurrentVideoUrl] = useState('');
-
-    const handleNavItemHover = (videoUrl) => {
-        setCurrentVideoUrl(videoUrl);
-    };
-
-
-
-
-    const [hideStartLabel, setHideStartLabel] = useState(false);
-    const footerRef = useRef(null);
-    const { scrollYProgress } = useViewportScroll();
-    const xRange1 = useTransform(scrollYProgress, [0, 1], ['100%', '-100%']);
-    const xRange2 = useTransform(scrollYProgress, [0, 1], ['-100%', '100%']);
-
-
-    const [animationIndex, setAnimationIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const animationInterval = useRef(null);
-
-    const startAnimation = () => {
-        setIsAnimating(true);
-        animateCategories();
-    };
-
-    const stopAnimation = () => {
-        setIsAnimating(false);
-        setAnimationIndex(0);
-        clearInterval(animationInterval.current);
-    };
-
-    const animateCategories = () => {
-        const categories = ['Branding', 'Interface Design', 'Development', 'Digital Marketing', 'Ongoing Support'];
-        let currentIndex = 0;
-
-        const animationLoop = () => {
-            const category = categories[currentIndex];
-            handleCategoryHover(category);
-
-            currentIndex = (currentIndex + 1) % categories.length;
-            animationInterval.current = setTimeout(animationLoop, 3000);
-        };
-
-        animationLoop();
-    };
-
-    useEffect(() => {
-        startAnimation();
-
-        return () => {
-            stopAnimation();
-        };
-    }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    useEffect(() => {
-        const scrollImgElement = scrollImgRef.current;
-        if (scrollImgElement) {
-            const circleElement = document.querySelector('.home-circle');
-            const circleCenter = circleElement.offsetTop + circleElement.offsetHeight / 2;
-            const maxScroll = circleCenter - window.innerHeight / 2 + 200;
-            setInitialOffset(scrollImgElement.offsetTop);
-            setMaxScrollY(maxScroll);
-        }
-    }, []);
-
-    const handleIntersect = (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const scrollImgElement = scrollImgRef.current;
-                if (scrollImgElement) {
-                    setInitialOffset(scrollImgElement.offsetTop - window.innerHeight / 2);
-                }
-            }
-        });
-    };
-
-
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(handleIntersect, {
-            threshold: 0.5,
-        });
-
-        const homeCircleElement = document.querySelector('.home-circle');
-        if (homeCircleElement) {
-            observer.observe(homeCircleElement);
-        }
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
-
     const [hoveredCategory, setHoveredCategory] = useState(null);
 
     const handleCategoryHover = async (category) => {
         setHoveredCategory(category);
-
     };
 
     const serviceHeadinggRef = useRef(null);
 
     useEffect(() => {
         const serviceHeadinggElement = serviceHeadinggRef.current;
-        serviceHeadinggElement.classList.add('service-headingg-curtain');
+        if (serviceHeadinggElement) {
+            serviceHeadinggElement.classList.add('service-headingg-curtain');
+        }
     }, []);
+
+    const [isLoading, setIsLoading] = useState(true);
+    const [showImage, setShowImage] = useState(false);
+    const [showBackground, setShowBackground] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+            setTimeout(() => {
+                setShowImage(true);
+                setTimeout(() => {
+                    setShowBackground(true);
+                }, 1000);
+            }, 1000);
+        }, 2000);
+    }, []);
+
     return (
         <>
             <Navbar></Navbar>
             <main>
-            <div className='service-headingg' ref={serviceHeadinggRef}>
-                <div className='service-heading-text'>
-                    Services
-                </div>
-                <div className="service-logo">
-                    <div className="service-ad">AD</div>
-                </div>
-            </div>
-            <div className='service-content'>
-                <div className='service-col-1'>
-                    <motion.div className='service-col-heading'
-                        onMouseEnter={() => handleCategoryHover('Branding')}
-                        onMouseLeave={() => handleCategoryHover(null)} >
-                        <img className='service-col-heading-img' src='branding.webp' alt='landimg' />
-                        <motion.div className='anim-circle'>
-                            <motion.div className='shape-circle dark' animate={{
-                                x: hoveredCategory === 'Branding' ? -80 : -80,
-                                y: hoveredCategory === 'Branding' ? 0 : -40,
-                            }}></motion.div>
-                            <motion.div className='shape-center' animate={{
-                                x: hoveredCategory === 'Branding' ? -40 : -40,
-                                y: hoveredCategory === 'Branding' ? 0 : 0,
-                            }}></motion.div>
-                            <motion.div className='shape-circle light' animate={{
-                                x: hoveredCategory === 'Branding' ? -80 : -80,
-                                y: hoveredCategory === 'Branding' ? -80 : -40,
-                            }}></motion.div>
-                        </motion.div>
-                        <div className='service-col-heading-text'>
-                            <div className='head'><h1>Branding</h1><h3>Explore</h3></div>
-                            <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
-                        </div>
-                    </motion.div>
-                    <motion.div className='service-col-heading'
-                        onMouseEnter={() => handleCategoryHover('Development')}
-                        onMouseLeave={() => handleCategoryHover(null)} >
-                        <img className='service-col-heading-img' src='dev.webp' alt='landimg' />
-                        <motion.div className='anim-circle'>
-                            <motion.div className='shape-circle dark' animate={{
-                                x: hoveredCategory === 'Development' ? -80 : -80,
-                                y: hoveredCategory === 'Development' ? -80 : -40,
-                            }}></motion.div>
-                            <motion.div className='shape-center' animate={{
-                                x: hoveredCategory === 'Development' ? -40 : -40,
-                                y: hoveredCategory === 'Development' ? 40 : 0,
-                            }}></motion.div>
-                            <motion.div className='shape-circle light' animate={{
-                                x: hoveredCategory === 'Development' ? -80 : -80,
-                                y: hoveredCategory === 'Development' ? 0 : -40,
-
-                            }}></motion.div>
-                        </motion.div>
-                        <div className='service-col-heading-text'>
-                            <div className='head'><h1>Development</h1><h3>Explore</h3></div>
-                            <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
-                        </div>
-                    </motion.div>
-                    <motion.div className='service-col-heading'
-                        onMouseEnter={() => handleCategoryHover('Ongoing Support')}
-                        onMouseLeave={() => handleCategoryHover(null)} >
-                        <img className='service-col-heading-img' src='support.webp' alt='landimg' />
-                        <motion.div className='anim-circle'>
-                            <motion.div className='shape-circle dark' animate={{
-                                x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
-                                y: hoveredCategory === 'Ongoing Support' ? -40 : -40,
-                            }}></motion.div>
-                            <motion.div className='shape-center' animate={{
-                                x: hoveredCategory === 'Ongoing Support' ? -40 : -40,
-                                y: hoveredCategory === 'Ongoing Support' ? 0 : 0,
-                            }}></motion.div>
-                            <motion.div className='shape-circle light' animate={{
-                                x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
-                                y: hoveredCategory === 'Ongoing Support' ? -80 : -40,
-                            }}></motion.div>
-                        </motion.div>
-                        <div className='service-col-heading-text'>
-                            <div className='head'><h1>Ongoing Support</h1><h3>Explore</h3></div>
-                            <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
-                        </div>
-                    </motion.div>
-                </div>
-                <div className='service-col-2'>
-                    <div className='service-home-heading'>
-                        Where can we take you?
+                <div className="projects-heading">
+                    <div
+                        className={`proj-logo ${isLoading ? 'loading' : ''} ${showImage ? 'show-image' : ''
+                            } ${showBackground ? 'show-background' : ''}`}
+                        ref={serviceHeadinggRef}
+                    >
+                        <svg
+                            className={`proj-text ${window.location.pathname === '/Services'
+                                    ? 'white-background'
+                                    : window.location.pathname === '/contact'
+                                        ? 'white-background'
+                                        : window.location.pathname === '/projects'
+                                            ? 'gray-background'
+                                            : ''
+                                }`}
+                            viewBox="0 0 200 100"
+                        >
+                            <defs>
+                                <clipPath id="text-clip">
+                                    <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                                        AD
+                                    </text>
+                                </clipPath>
+                            </defs>
+                            <image
+                                xlinkHref="marketing.webp"
+                                width="100%"
+                                height="100%"
+                                clipPath="url(#text-clip)"
+                                preserveAspectRatio="xMidYMid slice"
+                            />
+                        </svg>
+                        <div
+                            className={`proj-background ${window.location.pathname === '/Services'
+                                    ? 'green-background'
+                                    : window.location.pathname === '/contact'
+                                        ? 'blue-background'
+                                        : window.location.pathname === '/projects'
+                                            ? 'white-background'
+                                            : ''
+                                }`}
+                        ></div>
+                        <svg className="proj-outline" viewBox="0 0 200 100">
+                            <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                                AD
+                            </text>
+                        </svg>
+                        <h2 className="projects-title">Services</h2>
                     </div>
-                    <motion.div className='service-col-heading'
-                        onMouseEnter={() => handleCategoryHover('Interface Design')}
-                        onMouseLeave={() => handleCategoryHover(null)} >
-                        <img className='service-col-heading-img' src='interface.webp' alt='landimg' />
-                        <motion.div className='anim-circle'>
-                            <motion.div className='shape-circle dark' animate={{
-                                x: hoveredCategory === 'Interface Design' ? -80 : -80,
-                                y: hoveredCategory === 'Interface Design' ? 15 : -40,
-                                scale: hoveredCategory === 'Interface Design' ? 0.7 : 1,
-                            }}></motion.div>
-                            <motion.div className='shape-center' animate={{
-                                x: hoveredCategory === 'Interface Design' ? -40 : -40,
-                                y: hoveredCategory === 'Interface Design' ? -40 : 0,
-                            }}></motion.div>
-                            <motion.div className='shape-circle light' animate={{
-                                x: hoveredCategory === 'Interface Design' ? -80 : -80,
-                                y: hoveredCategory === 'Interface Design' ? -40 : -40,
-
-                            }}></motion.div>
-                        </motion.div>
-                        <div className='service-col-heading-text'>
-                            <div className='head'><h1>Interface Design</h1><h3>Explore</h3></div>
-                            <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
-                        </div>
-                    </motion.div>
-                    <motion.div className='service-col-heading'
-                        onMouseEnter={() => handleCategoryHover('Digital Marketing')}
-                        onMouseLeave={() => handleCategoryHover(null)} >
-                        <img className='service-col-heading-img' src='marketing.webp' alt='landimg' />
-                        <motion.div className='anim-circle'>
-                            <motion.div className='shape-circle dark' animate={{
-                                x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
-                                y: hoveredCategory === 'Digital Marketing' ? -40 : -40,
-                            }}></motion.div>
-                            <motion.div className='shape-center' animate={{
-                                x: hoveredCategory === 'Digital Marketing' ? -40 : -40,
-                                y: hoveredCategory === 'Digital Marketing' ? 40 : 0,
-                            }}></motion.div>
-                            <motion.div className='shape-circle light' animate={{
-                                x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
-                                y: hoveredCategory === 'Digital Marketing' ? -25 : -40,
-                                scale: hoveredCategory === 'Digital Marketing' ? 0.8 : 1,
-
-                            }}></motion.div>
-                        </motion.div>
-                        <div className='service-col-heading-text'>
-                            <div className='head'><h1>Digital Marketing</h1><h3>Explore</h3></div>
-                            <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
-                        </div>
-                    </motion.div>
                 </div>
-            </div>
+                <div className='service-content'>
+                    <div className='service-col-1'>
+                        <motion.div className='service-col-heading'
+                            onMouseEnter={() => handleCategoryHover('Branding')}
+                            onMouseLeave={() => handleCategoryHover(null)} >
+                            <img className='service-col-heading-img' src='branding.webp' alt='landimg' />
+                            <motion.div className='anim-circle'>
+                                <motion.div className='shape-circle dark' animate={{
+                                    x: hoveredCategory === 'Branding' ? -80 : -80,
+                                    y: hoveredCategory === 'Branding' ? 0 : -40,
+                                }}></motion.div>
+                                <motion.div className='shape-center' animate={{
+                                    x: hoveredCategory === 'Branding' ? -40 : -40,
+                                    y: hoveredCategory === 'Branding' ? 0 : 0,
+                                }}></motion.div>
+                                <motion.div className='shape-circle light' animate={{
+                                    x: hoveredCategory === 'Branding' ? -80 : -80,
+                                    y: hoveredCategory === 'Branding' ? -80 : -40,
+                                }}></motion.div>
+                            </motion.div>
+                            <div className='service-col-heading-text'>
+                                <div className='head'><h1>Branding</h1><h3>Explore</h3></div>
+                                <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                            </div>
+                        </motion.div>
+                        <motion.div className='service-col-heading'
+                            onMouseEnter={() => handleCategoryHover('Development')}
+                            onMouseLeave={() => handleCategoryHover(null)} >
+                            <img className='service-col-heading-img' src='dev.webp' alt='landimg' />
+                            <motion.div className='anim-circle'>
+                                <motion.div className='shape-circle dark' animate={{
+                                    x: hoveredCategory === 'Development' ? -80 : -80,
+                                    y: hoveredCategory === 'Development' ? -80 : -40,
+                                }}></motion.div>
+                                <motion.div className='shape-center' animate={{
+                                    x: hoveredCategory === 'Development' ? -40 : -40,
+                                    y: hoveredCategory === 'Development' ? 40 : 0,
+                                }}></motion.div>
+                                <motion.div className='shape-circle light' animate={{
+                                    x: hoveredCategory === 'Development' ? -80 : -80,
+                                    y: hoveredCategory === 'Development' ? 0 : -40,
+
+                                }}></motion.div>
+                            </motion.div>
+                            <div className='service-col-heading-text'>
+                                <div className='head'><h1>Development</h1><h3>Explore</h3></div>
+                                <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                            </div>
+                        </motion.div>
+                        <motion.div className='service-col-heading'
+                            onMouseEnter={() => handleCategoryHover('Ongoing Support')}
+                            onMouseLeave={() => handleCategoryHover(null)} >
+                            <img className='service-col-heading-img' src='support.webp' alt='landimg' />
+                            <motion.div className='anim-circle'>
+                                <motion.div className='shape-circle dark' animate={{
+                                    x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
+                                    y: hoveredCategory === 'Ongoing Support' ? -40 : -40,
+                                }}></motion.div>
+                                <motion.div className='shape-center' animate={{
+                                    x: hoveredCategory === 'Ongoing Support' ? -40 : -40,
+                                    y: hoveredCategory === 'Ongoing Support' ? 0 : 0,
+                                }}></motion.div>
+                                <motion.div className='shape-circle light' animate={{
+                                    x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
+                                    y: hoveredCategory === 'Ongoing Support' ? -80 : -40,
+                                }}></motion.div>
+                            </motion.div>
+                            <div className='service-col-heading-text'>
+                                <div className='head'><h1>Ongoing Support</h1><h3>Explore</h3></div>
+                                <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                            </div>
+                        </motion.div>
+                    </div>
+                    <div className='service-col-2'>
+                        <div className='service-home-heading'>
+                            Where can we take you?
+                        </div>
+                        <motion.div className='service-col-heading'
+                            onMouseEnter={() => handleCategoryHover('Interface Design')}
+                            onMouseLeave={() => handleCategoryHover(null)} >
+                            <img className='service-col-heading-img' src='interface.webp' alt='landimg' />
+                            <motion.div className='anim-circle'>
+                                <motion.div className='shape-circle dark' animate={{
+                                    x: hoveredCategory === 'Interface Design' ? -80 : -80,
+                                    y: hoveredCategory === 'Interface Design' ? 15 : -40,
+                                    scale: hoveredCategory === 'Interface Design' ? 0.7 : 1,
+                                }}></motion.div>
+                                <motion.div className='shape-center' animate={{
+                                    x: hoveredCategory === 'Interface Design' ? -40 : -40,
+                                    y: hoveredCategory === 'Interface Design' ? -40 : 0,
+                                }}></motion.div>
+                                <motion.div className='shape-circle light' animate={{
+                                    x: hoveredCategory === 'Interface Design' ? -80 : -80,
+                                    y: hoveredCategory === 'Interface Design' ? -40 : -40,
+
+                                }}></motion.div>
+                            </motion.div>
+                            <div className='service-col-heading-text'>
+                                <div className='head'><h1>Interface Design</h1><h3>Explore</h3></div>
+                                <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                            </div>
+                        </motion.div>
+                        <motion.div className='service-col-heading'
+                            onMouseEnter={() => handleCategoryHover('Digital Marketing')}
+                            onMouseLeave={() => handleCategoryHover(null)} >
+                            <img className='service-col-heading-img' src='marketing.webp' alt='landimg' />
+                            <motion.div className='anim-circle'>
+                                <motion.div className='shape-circle dark' animate={{
+                                    x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
+                                    y: hoveredCategory === 'Digital Marketing' ? -40 : -40,
+                                }}></motion.div>
+                                <motion.div className='shape-center' animate={{
+                                    x: hoveredCategory === 'Digital Marketing' ? -40 : -40,
+                                    y: hoveredCategory === 'Digital Marketing' ? 40 : 0,
+                                }}></motion.div>
+                                <motion.div className='shape-circle light' animate={{
+                                    x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
+                                    y: hoveredCategory === 'Digital Marketing' ? -25 : -40,
+                                    scale: hoveredCategory === 'Digital Marketing' ? 0.8 : 1,
+
+                                }}></motion.div>
+                            </motion.div>
+                            <div className='service-col-heading-text'>
+                                <div className='head'><h1>Digital Marketing</h1><h3>Explore</h3></div>
+                                <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
             </main>
             <div className='contact-footer'>
                 <div className='top-button'><hr /> <button>Top!</button></div>

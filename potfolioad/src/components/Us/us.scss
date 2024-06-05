@@ -21,9 +21,11 @@
         justify-content: flex-start;
         align-items: center;
         font-size: 38rem;
-        font-weight: 600;
-        color: var(--color-gray); 
-        
+        font-weight: 400;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px var(--color-gray);
+        text-shadow: none;
         padding: 0;
         z-index: -1;
     }
@@ -38,7 +40,7 @@
         align-items: center;
     }
     .us-homeimg {
-        margin-top: 20vh;
+        margin-top: 26vh;
         position: relative;
   z-index: 2;
         padding-left: 8vw;

@@ -1,214 +1,121 @@
 import './contact.scss';
-import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
 
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showImage, setShowImage] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
+  const serviceHeadinggRef = useRef(null);
 
-  const [scrollY, setScrollY] = useState(0);
-  const [maxScrollY, setMaxScrollY] = useState(0);
-  const [initialOffset, setInitialOffset] = useState(0);
-  const scrollImgRef = useRef(null);
-  const minY = initialOffset - window.innerHeight / 2;
-  const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
-  const pageHintRef = useRef(null);
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  return (
+    <>
+      <Navbar></Navbar>
+      <main>
+        <div className="projects-heading">
+          <div
+            className={`proj-logo ${isLoading ? 'loading' : ''} ${
+              showImage ? 'show-image' : ''
+            } ${showBackground ? 'show-background' : ''}`}
+            ref={serviceHeadinggRef}
+          >
+            <svg
+              className={`proj-text ${
+                window.location.pathname === '/Services'
+                  ? 'white-background'
+                  : window.location.pathname === '/contact'
+                  ? 'white-background'
+                  : window.location.pathname === '/projects'
+                  ? 'gray-background'
+                  : ''
+              }`}
+              viewBox="0 0 200 100"
+            >
+              <defs>
+                <clipPath id="text-clip">
+                  <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                    AD
+                  </text>
+                </clipPath>
+              </defs>
+              <image
+                xlinkHref="marketing.webp"
+                width="100%"
+                height="100%"
+                clipPath="url(#text-clip)"
+                preserveAspectRatio="xMidYMid slice"
+              />
+            </svg>
+            <div
+              className={`proj-background ${
+                window.location.pathname === '/Services'
+                  ? 'green-background'
+                  : window.location.pathname === '/contact'
+                  ? 'blue-background'
+                  : window.location.pathname === '/projects'
+                  ? 'white-background'
+                  : ''
+              }`}
+            ></div>
+            <svg className="proj-outline" viewBox="0 0 200 100">
+              <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                AD
+              </text>
+            </svg>
+            <h2 className="projects-title">Let's build something<br />awesome together.</h2>
+          </div>
+        </div>
+        <div className='contact-content'>
+          <div className='contact-form'>
+            <form>
+              <div className='form-group'>
+                <input type='text' id='name' name='name' placeholder='Your name' required />
+              </div>
 
-  const [showHome, setShowHome] = useState(false);
-  const [showHello, setShowHello] = useState(true);
+              <div className='form-group'>
+                <input type='email' id='email' name='email' placeholder='Work email' required />
+              </div>
 
-  const handleHover = () => {
-    setShowHome(true);
-    setShowHello(false);
-  };
+              <div className='form-group'>
+                <input type='tel' id='phone' name='phone' placeholder='Phone' required />
+              </div>
 
-  const handleHoverLeave = () => {
-    setShowHome(false);
-    setShowHello(true);
-  };
-
-
-  const toggleNav = () => {
-    document.body.classList.toggle('nav-open');
-    setIsNavOpen(!isNavOpen);
-  };
-
-  const videoRef = useRef(null);
-  const [currentVideoUrl, setCurrentVideoUrl] = useState('');
-
-  const handleNavItemHover = (videoUrl) => {
-    setCurrentVideoUrl(videoUrl);
-  };
-
-
-
-
-const [hideStartLabel, setHideStartLabel] = useState(false);
-const footerRef = useRef(null);
-  const { scrollYProgress } = useViewportScroll();
-  const xRange1 = useTransform(scrollYProgress, [0, 1], ['100%', '-100%']);
-  const xRange2 = useTransform(scrollYProgress, [0, 1], ['-100%', '100%']);
-
-
-  const [animationIndex, setAnimationIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const animationInterval = useRef(null);
-
-  const startAnimation = () => {
-    setIsAnimating(true);
-    animateCategories();
-  };
-
-  const stopAnimation = () => {
-    setIsAnimating(false);
-    setAnimationIndex(0);
-    clearInterval(animationInterval.current);
-  };
-
-  const animateCategories = () => {
-    const categories = ['Branding', 'Interface Design', 'Development', 'Digital Marketing', 'Ongoing Support'];
-    let currentIndex = 0;
-
-    const animationLoop = () => {
-      const category = categories[currentIndex];
-      handleCategoryHover(category);
-
-      currentIndex = (currentIndex + 1) % categories.length;
-      animationInterval.current = setTimeout(animationLoop, 3000);
-    };
-
-    animationLoop();
-  };
-
-  useEffect(() => {
-    startAnimation();
-
-    return () => {
-      stopAnimation();
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const scrollImgElement = scrollImgRef.current;
-    if (scrollImgElement) {
-      const circleElement = document.querySelector('.home-circle');
-      const circleCenter = circleElement.offsetTop + circleElement.offsetHeight / 2;
-      const maxScroll = circleCenter - window.innerHeight / 2 + 200;
-      setInitialOffset(scrollImgElement.offsetTop);
-      setMaxScrollY(maxScroll);
-    }
-  }, []);
-
-  const handleIntersect = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const scrollImgElement = scrollImgRef.current;
-        if (scrollImgElement) {
-          setInitialOffset(scrollImgElement.offsetTop - window.innerHeight / 2);
-        }
-      }
-    });
-  };
-
-
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersect, {
-      threshold: 0.5,
-    });
-
-    const homeCircleElement = document.querySelector('.home-circle');
-    if (homeCircleElement) {
-      observer.observe(homeCircleElement);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-    const [hoveredCategory, setHoveredCategory] = useState(null);
-
-    const handleCategoryHover = async (category) => {
-        setHoveredCategory(category);
-
-    };
-    return (
-
-        <>
-            <Navbar></Navbar>
-            <main className='main-content'>
-            <div className='service-heading'>
-                <div className='service-heading-text'>
-                Let's build something awesome together.
+              <div className='form-group'>
+                <div className='budget-container'>
+                  <input type='text' id='budgetdiv' name='budgetdiv' placeholder='What is your budget?' required />
+                  <select id='budget' name='budget' required>
+                    <option value='' disabled selected>Select a price range</option>
+                    <option value='under30k'>Under $30,000</option>
+                    <option value='30k-50k'>$30,000 - $50,000</option>
+                    <option value='50k-100k'>$50,000 - $100,000</option>
+                    <option value='over100k'>$100,000+</option>
+                    <option value='tbd'>TBD</option>
+                  </select>
                 </div>
-                <div className="service-logo">
-                    <div class="ad-text">AD</div>
+              </div>
+
+              <div className='form-group'>
+                <div className='budget-container'>
+                  <label htmlFor='attachment' className='attach'>Any docs to attach?</label>
+                  <input type='file' id='attachment' name='attachment' className='file-input' />
+                  <label htmlFor='attachment' className='file-label'>Select a file</label>
                 </div>
-            </div>
-            <div className='contact-content'>
-                <div className='contact-form'>
-                    <form>
-                        <div className='form-group'>
-                            <input type='text' id='name' name='name' placeholder='Your name' required />
-                        </div>
+              </div>
 
-                        <div className='form-group'>
-                            <input type='email' id='email' name='email' placeholder='Work email' required />
-                        </div>
+              <div className='form-group'>
+                <textarea id='message' name='message' placeholder='Please tell us a bit about your project..' required></textarea>
+              </div>
 
-                        <div className='form-group'>
-                            <input type='tel' id='phone' name='phone' placeholder='Phone' required />
-                        </div>
-
-                        <div className='form-group'>
-                            <div className='budget-container'>
-                                <input type='text' id='budgetdiv' name='budgetdiv' placeholder='What is your budget?' required />
-                                <select id='budget' name='budget' required>
-                                    <option value='' disabled selected>Select a price range</option>
-                                    <option value='under30k'>Under $30,000</option>
-                                    <option value='30k-50k'>$30,000 - $50,000</option>
-                                    <option value='50k-100k'>$50,000 - $100,000</option>
-                                    <option value='over100k'>$100,000+</option>
-                                    <option value='tbd'>TBD</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className='form-group'>
-                            <div className='budget-container'>
-                                <label htmlFor='attachment' className='attach'>Any docs to attach?</label>
-                                <input type='file' id='attachment' name='attachment' className='file-input' />
-                                <label htmlFor='attachment' className='file-label'>Select a file</label>
-                            </div>
-                        </div>
-
-                        <div className='form-group'>
-                            <textarea id='message' name='message' placeholder='Please tell us a bit about your project..' required></textarea>
-                        </div>
-
-                        <button type='submit'>Send</button>
-                    </form>
-                </div>
-                <div className='contact-title'>
-                    <h1>Tell us about your goals, and we'll get back to you right away!</h1>
-                    <img src='contact.webp' alt='not working'></img>
-                </div>
-            </div>
-            </main>
-            <footer  ref={footerRef} class='hero-footer'>
+              <button type='submit'>Send</button>
+            </form>
+          </div>
+          <div className='contact-title'>
+            <h1>Tell us about your goals, and we'll get back to you right away!</h1>
+            <img src='contact.webp' alt='not working'></img>
+          </div>
+        </div>
+      </main>
+      <footer class='hero-footer'>
         <div class='footer-col footer-col1'>
           <div class='footer-title'>Reach us</div>
           <div class='footer-content'>abc@gmail.com</div>
@@ -234,9 +141,8 @@ const footerRef = useRef(null);
           </div>
         </div>
       </footer>
-
-        </>
-    );
+    </>
+  );
 };
 
 export default Contact;

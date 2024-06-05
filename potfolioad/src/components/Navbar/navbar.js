@@ -240,6 +240,22 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 0) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const scrollImgElement = scrollImgRef.current;
@@ -369,38 +385,62 @@ useEffect(() => {
               </a>
             </div>
             <div className="col-2 col-offset-1 col-header-title">
-              {!isNavOpen ? (
-                <>
-                  <h1
-                    className={`header__text header__text--title ${showHello ? "show" : "hide"
-                      }`}
-                  >
-                    Hello
-                  </h1>
-                  <h1
-                    className={`header__text header__text--title ${showHome ? "show" : "hide"
-                      }`}
-                  >
-                    Home
-                  </h1>
-                </>
-              ) : (
-                <>
-                  <h1
-                    className={`header__text header__text--title ${showHello ? "show" : "hide"
-                      }`}
-                  >
-                    Index
-                  </h1>
-                  <h1
-                    className={`header__text header__text--title ${showHome ? "show" : "hide"
-                      }`}
-                  >
-                    Home
-                  </h1>
-                </>
-              )}
-            </div>
+  {!isNavOpen ? (
+    <>
+      <h1
+        className={`header__text header__text--title ${
+          showHello ? "show" : "hide"
+        }`}
+      >
+        Hello
+      </h1>
+      <h1
+        className={`header__text header__text--title ${
+          showHome ? "show" : "hide"
+        }`}
+      >
+        {window.location.pathname === "/Services"
+          ? "Services"
+          : window.location.pathname === "/projects"
+          ? "Projects"
+          : window.location.pathname === "/us"
+          ? "Us"
+          : window.location.pathname === "/journal"
+          ? "Journal"
+          : window.location.pathname === "/contact"
+          ? "Contact"
+          : "Home"}
+      </h1>
+    </>
+  ) : (
+    <>
+      <h1
+        className={`header__text header__text--title ${
+          showHello ? "show" : "hide"
+        }`}
+      >
+        Index
+      </h1>
+      <h1
+        className={`header__text header__text--title ${
+          showHome ? "show" : "hide"
+        }`}
+      >
+        {window.location.pathname === "/Services"
+          ? "Services"
+          : window.location.pathname === "/projects"
+          ? "Projects"
+          : window.location.pathname === "/us"
+          ? "Us"
+          : window.location.pathname === "/journal"
+          ? "Journal"
+          : window.location.pathname === "/contact"
+          ? "Contact"
+          : "Home"}
+      </h1>
+    </>
+  )}
+</div>
           </div>
           <div className="start-project">
             <div className="start-cont">

@@ -16,7 +16,7 @@ const Branding = () => {
                     </div>
                     <div className="service-logo-service-cat">AD</div>
                     <div className='img-heading'>
-                        <img src="branding.webp" alt="Branding"></img>
+                        <img src="brand.jpeg" alt="Branding"></img>
                         <div className='white-overlay'></div>
                         <div className='anim-circle'>
                             <div className='shape-circle dark' style={{ transform: 'translate(-80px, 0px)' }}></div>

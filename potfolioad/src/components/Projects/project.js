@@ -1,150 +1,9 @@
 import './project.scss';
-import { motion, useAnimation, useViewportScroll, useTransform } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './projectcard';
 import Navbar from '../Navbar/navbar';
 
 const Projects = () => {
-    const [scrollY, setScrollY] = useState(0);
-    const [maxScrollY, setMaxScrollY] = useState(0);
-    const [initialOffset, setInitialOffset] = useState(0);
-    const scrollImgRef = useRef(null);
-    const minY = initialOffset - window.innerHeight / 2;
-    const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
-    const pageHintRef = useRef(null);
-    const [isNavOpen, setIsNavOpen] = useState(false);
-
-    const [showHome, setShowHome] = useState(false);
-    const [showHello, setShowHello] = useState(true);
-
-    const handleHover = () => {
-        setShowHome(true);
-        setShowHello(false);
-    };
-
-    const handleHoverLeave = () => {
-        setShowHome(false);
-        setShowHello(true);
-    };
-
-
-    const toggleNav = () => {
-        document.body.classList.toggle('nav-open');
-        setIsNavOpen(!isNavOpen);
-    };
-
-    const videoRef = useRef(null);
-    const [currentVideoUrl, setCurrentVideoUrl] = useState('');
-
-    const handleNavItemHover = (videoUrl) => {
-        setCurrentVideoUrl(videoUrl);
-    };
-
-
-
-
-    const [hideStartLabel, setHideStartLabel] = useState(false);
-    const footerRef = useRef(null);
-    const { scrollYProgress } = useViewportScroll();
-    const xRange1 = useTransform(scrollYProgress, [0, 1], ['100%', '-100%']);
-    const xRange2 = useTransform(scrollYProgress, [0, 1], ['-100%', '100%']);
-
-
-    const [animationIndex, setAnimationIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const animationInterval = useRef(null);
-
-    const startAnimation = () => {
-        setIsAnimating(true);
-        animateCategories();
-    };
-
-    const stopAnimation = () => {
-        setIsAnimating(false);
-        setAnimationIndex(0);
-        clearInterval(animationInterval.current);
-    };
-
-    const animateCategories = () => {
-        const categories = ['Branding', 'Interface Design', 'Development', 'Digital Marketing', 'Ongoing Support'];
-        let currentIndex = 0;
-
-        const animationLoop = () => {
-            const category = categories[currentIndex];
-            handleCategoryHover(category);
-
-            currentIndex = (currentIndex + 1) % categories.length;
-            animationInterval.current = setTimeout(animationLoop, 3000);
-        };
-
-        animationLoop();
-    };
-
-    useEffect(() => {
-        startAnimation();
-
-        return () => {
-            stopAnimation();
-        };
-    }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    useEffect(() => {
-        const scrollImgElement = scrollImgRef.current;
-        if (scrollImgElement) {
-            const circleElement = document.querySelector('.home-circle');
-            const circleCenter = circleElement.offsetTop + circleElement.offsetHeight / 2;
-            const maxScroll = circleCenter - window.innerHeight / 2 + 200;
-            setInitialOffset(scrollImgElement.offsetTop);
-            setMaxScrollY(maxScroll);
-        }
-    }, []);
-
-    const handleIntersect = (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const scrollImgElement = scrollImgRef.current;
-                if (scrollImgElement) {
-                    setInitialOffset(scrollImgElement.offsetTop - window.innerHeight / 2);
-                }
-            }
-        });
-    };
-
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(handleIntersect, {
-            threshold: 0.5,
-        });
-
-        const homeCircleElement = document.querySelector('.home-circle');
-        if (homeCircleElement) {
-            observer.observe(homeCircleElement);
-        }
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
-
-    const [hoveredCategory, setHoveredCategory] = useState(null);
-
-    const handleCategoryHover = async (category) => {
-        setHoveredCategory(category);
-
-    };
-
     const serviceHeadinggRef = useRef(null);
 
     const [isLoading, setIsLoading] = useState(true);
@@ -152,7 +11,7 @@ const Projects = () => {
     const [showBackground, setShowBackground] = useState(false);
 
     useEffect(() => {
-        // Simulate loading delay
+        
         setTimeout(() => {
             setIsLoading(false);
             setTimeout(() => {
@@ -172,7 +31,7 @@ const Projects = () => {
         { id: 4, title: 'Project 4', description: 'Description 1', category: 'Branding', image: 'branding.webp' },
         { id: 5, title: 'Project 5', description: 'Description 2', category: 'UX/UI Design', image: 'contact.webp' },
         { id: 6, title: 'Project 6', description: 'Description 3', category: 'Development', image: 'dev.webp' },
-        // Add more project objects as needed
+      
     ]);
 
     const handleFilterClick = (filter) => {
@@ -183,31 +42,61 @@ const Projects = () => {
         ? projects
         : projects.filter(project => project.category === selectedFilter);
 
-
-
-
     return <>
         <Navbar></Navbar>
 
         <main className="main-content">
-
             <div className="projects-heading">
-                <div className={`proj-logo ${isLoading ? 'loading' : ''} ${showImage ? 'show-image' : ''} ${showBackground ? 'show-background' : ''}`}> <svg className="proj-text" viewBox="0 0 200 100">
-                    <defs>
-                        <clipPath id="text-clip">
-                            <text x="50%" y="80" fontSize="100" fontWeight="bold" textAnchor="middle">AD</text>
-                        </clipPath>
-                    </defs>
-                    <image xlinkHref="marketing.webp" width="100%" height="100%" clipPath="url(#text-clip)" preserveAspectRatio="xMidYMid slice" />
-                </svg>
-                    <div className="proj-background"></div>
+                <div
+                    className={`proj-logo ${isLoading ? 'loading' : ''} ${showImage ? 'show-image' : ''
+                        } ${showBackground ? 'show-background' : ''}`}
+                    ref={serviceHeadinggRef}
+                >
+                    <svg
+                        className={`proj-text ${window.location.pathname === '/Services'
+                                ? 'white-background'
+                                : window.location.pathname === '/contact'
+                                    ? 'white-background'
+                                    : window.location.pathname === '/projects'
+                                        ? 'gray-background'
+                                        : ''
+                            }`}
+                        viewBox="0 0 200 100"
+                    >
+                        <defs>
+                            <clipPath id="text-clip">
+                                <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                                    AD
+                                </text>
+                            </clipPath>
+                        </defs>
+                        <image
+                            xlinkHref="marketing.webp"
+                            width="100%"
+                            height="100%"
+                            clipPath="url(#text-clip)"
+                            preserveAspectRatio="xMidYMid slice"
+                        />
+                    </svg>
+                    <div
+                        className={`proj-background ${window.location.pathname === '/Services'
+                                ? 'green-background'
+                                : window.location.pathname === '/contact'
+                                    ? 'blue-background'
+                                    : window.location.pathname === '/projects'
+                                        ? 'white-background'
+                                        : ''
+                            }`}
+                    ></div>
                     <svg className="proj-outline" viewBox="0 0 200 100">
-                        <text x="50%" y="80" fontSize="100" fontWeight="bold" textAnchor="middle">AD</text>
+                        <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                            AD
+                        </text>
                     </svg>
                     <h2 className="projects-title">Projects</h2>
                 </div>
-                <div class="project-filters">
 
+                <div class="project-filters">
                     <div class="row justify-content-center">
                         <div class="col-md-4 filter-title-column">
                             <h5 class="filter-title">Filters</h5>
@@ -246,7 +135,6 @@ const Projects = () => {
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -255,9 +143,58 @@ const Projects = () => {
                     <ProjectCard key={project.id} project={project} />
                 ))}
             </div>
-
         </main>
+
+        <div className="top-button">
+            <hr /> <button>Top!</button>
+        </div>
+        <div className="contact-home">
+            <h2>Have a project?</h2>
+            <h2>Let's talk.</h2>
+            <div className="contact-action">
+                <div className="contact-action-circle"></div>
+                <div className="contact-action-word">Contact</div>
+            </div>
+        </div>
+
+        <footer class="hero-footer">
+            <div class="footer-col footer-col1">
+                <div class="footer-title">Reach us</div>
+                <div class="footer-content">abc@gmail.com</div>
+            </div>
+            <div class="footer-col footer-col2">
+                <div class="footer-title">Follow us</div>
+                <div class="footer-content">
+                    <a href="" class="footer-nav">
+                        Twitter
+                    </a>
+                    <a href="" class="footer-nav">
+                        Facebook
+                    </a>
+                    <a href="" class="footer-nav">
+                        Instagram
+                    </a>
+                    <a href="" class="footer-nav">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col footer-col3">
+                <div class="footer-title">Legal Stuff</div>
+                <div class="footer-content">@AD</div>
+            </div>
+            <div class="footer-col footer-col4">
+                <div class="subscribe-title">
+                    INSPIRATION AND INNOVATION COME IN SHORT SUPPLY. GET A REFUEL ON US,
+                    DIRECT TO YOUR INBOX.
+                </div>
+                <div class="subscribe-box">
+                    <h4>Enter your email</h4>
+                    <h5>Subscribe</h5>
+                </div>
+            </div>
+        </footer>
     </>
 }
 
-export default Projects
+export default Projects;

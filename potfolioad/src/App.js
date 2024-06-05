@@ -19,15 +19,15 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Services" element={<Services />} />
+          <Route path="/Services" element={<Services />} />b
           <Route path="/projects" element={<Projects />} />
           <Route path="/us" element={<Us />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/branding" element={<Branding/>} />
-          <Route path="/interface-design" element={<Interface />} />
-          <Route path="/development" element={<Dev />} />
-          <Route path="/digital-marketing" element={<Digital />} />
-          <Route path="/ongoing-support" element={<Support />} />
+          <Route path="/Services/branding" element={<Branding/>} />
+          <Route path="/Services/interface-design" element={<Interface />} />
+          <Route path="/Services/development" element={<Dev />} />
+          <Route path="/Services/digital-marketing" element={<Digital />} />
+          <Route path="/Services/ongoing-support" element={<Support />} />
           <Route path="/journal" element={<Journal />} />
         </Routes>
       </div>

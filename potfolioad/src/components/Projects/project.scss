@@ -5,9 +5,23 @@
 
 .proj-text {
   font-size: 20rem;
-  font-weight:bold;
-  background-color: var(--color-gray);
+  font-weight: bold;
+}
 
+.proj-text.green-background {
+  background-color: var(--color-green);
+}
+
+.proj-text.blue-background {
+  background-color: var(--color-blue);
+}
+
+.proj-text.white-background {
+  background-color: #fff;
+}
+
+.proj-text.gray-background {
+  background-color: var(--color-gray);
 }
 
 .proj-image {
@@ -21,11 +35,22 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 50%;
-  background-color: #fff;
+  height: 70%;
   transform: translateY(-100%);
   animation: curtainFall 1s ease-in-out forwards;
   z-index: 1;
+}
+
+.proj-background.green-background {
+  background-color: var(--color-green);
+}
+
+.proj-background.blue-background {
+  background-color: var(--color-blue);
+}
+
+.proj-background.white-background {
+  background-color: #fff;
 }
 
 .proj-outline {
@@ -38,15 +63,11 @@
   text-shadow: 1px 1px 0 #ccc, -1px -1px 0 #ccc, 1px -1px 0 #ccc, -1px 1px 0 #ccc;
   z-index: 2;
   stroke: #ccc;
-  stroke-width: 0.2px;
-
+  stroke-width: 0.1px;
 }
 
 .proj-outline text {
   fill: none;
-
-
-
 }
 
 @keyframes curtainFall {
@@ -69,14 +90,18 @@
 
 .projects-title {
   position: absolute;
-  top:10rem;
-  left: 10rem;
-  font-size: 3rem;
+  top: 25%;
+  left: 15%;
+  transform: translateY(-50%);
+  font-size: 4rem;
   text-align: left;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
   animation-delay: 1s;
   z-index: 3;
+  width: 40%;
+  padding: 0;
+  line-height: 1.2;
 }
 
 @keyframes fadeIn {
@@ -88,6 +113,7 @@
   }
 }
 .project-filters {
+  padding-top: 8rem;
   background-color: var(--color-gray);
   font-size: 1.2rem;
   justify-content: center;

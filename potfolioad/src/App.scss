@@ -118,7 +118,7 @@ html{
   align-items: center;
   width: 100%;
   height: var(--navigation-height);
-  background-color: #fff;
+  background-color: transparent;
   padding-top: 1rem;
   top: 0;
   transition: background-color 0.5s ease;
@@ -163,6 +163,9 @@ html{
   }
 }
 
+.header.scrolled {
+  background-color: #fff; 
+}
 .header .col-header-subtitle,
 .header .col-header-title {
   display: flex;
@@ -979,7 +982,7 @@ margin-top: -10vh;
   background-color: var(--color-orange);
   border-radius: 50%;
   pointer-events: auto;
-  z-index: 2;
+  z-index: 4;
 }
 
 .landimg {
