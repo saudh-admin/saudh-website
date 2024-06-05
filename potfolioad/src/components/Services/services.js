@@ -94,6 +94,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Branding')}
                             onMouseLeave={() => handleCategoryHover(null)} >
+                            <a href='/Services/branding'>
                             <img className='service-col-heading-img' src='branding.webp' alt='landimg' />
                             <motion.div className='anim-circle'>
                                 <motion.div className='shape-circle dark' animate={{
@@ -113,6 +114,7 @@ const Services = () => {
                                 <div className='head'><h1>Branding</h1><h3>Explore</h3></div>
                                 <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
                             </div>
+                            </a>
                         </motion.div>
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Development')}
