@@ -251,7 +251,6 @@ const Home = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleHoverS = () => {
-    // console.log(1)
     setIsHovered(true);
   };
 

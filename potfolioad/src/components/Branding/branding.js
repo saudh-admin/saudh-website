@@ -5,11 +5,15 @@ import { FaChevronDown } from 'react-icons/fa';
 
 const Branding = () => {
 
-    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [activeDropdowns, setActiveDropdowns] = useState({});
 
     const toggleDropdown = (index) => {
-        setActiveDropdown(activeDropdown === index ? null : index);
+        setActiveDropdowns((prevState) => ({
+            ...prevState,
+            [index]: !prevState[index],
+        }));
     };
+
     useEffect(() => {
         const serviceHeadingCat = document.querySelector('.service-heading-cat');
         const imgHeading = document.querySelector('.img-heading');
@@ -68,7 +72,7 @@ const Branding = () => {
                                         <FaChevronDown className="dropdown-icon" />
                                         <h4>Branding</h4>
                                     </div>
-                                    <div className={`dropdown-content ${activeDropdown === 1 ? 'active' : ''}`}>
+                                    <div className={`dropdown-content ${activeDropdowns[1] ? 'active' : ''}`}>
                                         <h5>- Brand Identity</h5>
                                         <h5>- Brand Name</h5>
                                         <h5>- Tagline</h5>
@@ -87,7 +91,7 @@ const Branding = () => {
                                         <FaChevronDown className="dropdown-icon" />
                                         <h4>Print Collateral</h4>
                                     </div>
-                                    <div className={`dropdown-content ${activeDropdown === 2 ? 'active' : ''}`}>
+                                    <div className={`dropdown-content ${activeDropdowns[2] ? 'active' : ''}`}>
                                         <h5>- Business Cards</h5>
                                         <h5>- Brochures</h5>
                                         <h5>- Flyers</h5>
@@ -105,7 +109,7 @@ const Branding = () => {
                                         <FaChevronDown className="dropdown-icon" />
                                         <h4>Digital Design</h4>
                                     </div>
-                                    <div className={`dropdown-content ${activeDropdown === 3 ? 'active' : ''}`}>
+                                    <div className={`dropdown-content ${activeDropdowns[3] ? 'active' : ''}`}>
                                         <h5>- Social Media Content</h5>
                                         <h5>- Design Led Presentation</h5>
                                         <h5>- 3D Design</h5>

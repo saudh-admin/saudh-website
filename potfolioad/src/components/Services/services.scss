@@ -111,14 +111,19 @@
                 margin-bottom: 5vh;
             }
             
-
+            .img-wrapper {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+              }
+                
              
-            .service-col-heading-img{
+            .service-col-heading-img {
                 width: 70%;
                 height: 70%;
-
-
-            }
+                object-fit: cover; 
+                transition: transform 0.3s ease-out;
+              }
 
             .anim-circle{
                 position: absolute; 
@@ -142,15 +147,13 @@
                 align-items: flex-start; 
 
                 .head{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    padding: 0;
-                    margin: 0;
-                    align-items: flex-start;
-                    text-align: left;
-                    width: 70%;
-                    gap: 45%;
+                    width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap:25%;
+  padding-top: 1rem;
+                    
                     
                     
                     h1{
@@ -159,17 +162,13 @@
                         text-align: left !important;
                         align-items: flex-start;
                         padding-top: 1rem;
+                        flex-basis: 25%; 
+  margin-right: 1rem;
+  font-weight: 100;
+  font-size: 3rem;
                     }
 
-                    h3{
-                        font-weight: 100;
-                        font-size: 1.3rem;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                        padding-top: 2rem;
-                    }
-
+                   
                 }
 
                 .para{
@@ -199,21 +198,33 @@
             flex-direction: column;
             position: relative;
             margin-bottom: 25vh;
-            
+
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .img-wrapper {
+                width: 70%;
+                height: auto;
+                overflow: hidden;
+              }
+                
 
              
             .service-col-heading-img{
-                width: 70%;
-                height: 70%;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                transition: transform 0.3s ease-out;
 
 
             }
 
             .anim-circle{
-                position: absolute; // Position the circle absolutely
-                right: 30%; // Align it to the right
-                top: 30%; // Align it to the middle vertically
-                transform: translate(-50%); // Center it
+                position: absolute; 
+                right: 30%; 
+                top: 30%; 
+                transform: translate(-50%);
 
                 .shape-circle{
                     width: 10rem;
@@ -231,15 +242,13 @@
                 align-items: flex-start; 
 
                 .head{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    padding: 0;
-                    margin: 0;
-                    align-items: flex-start;
-                    text-align: left;
-                    width: 70%;
-                    gap: 45%;
+                    width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap:25%;
+  padding-top: 1rem;
+                    
                     
                     
                     h1{
@@ -248,29 +257,58 @@
                         text-align: left !important;
                         align-items: flex-start;
                         padding-top: 1rem;
+                        flex-basis: 25%; 
+  margin-right: 1rem;
+  font-weight: 100;
+  font-size: 3rem;
                     }
 
-                    h3{
-                        font-weight: 100;
-                        font-size: 1.3rem;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                        padding-top: 1rem;
-                    }
-
+                   
                 }
 
                 .para{
                     font-size: 1.2rem;
                     font-weight: 100;
                     width: 50%;
-                    margin-top: -3rem;
+                    margin-top: 0;
                     letter-spacing: 2px;
-                    padding-top: 3rem;
                 }
             }
         }
     }
     
 }
+
+
+  
+  .arrow-icon-service {
+    width: 8%;
+    vertical-align: middle;
+  
+  }
+
+.explore {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    
+    padding-top: 1rem; 
+  }
+  
+  .explore h3 {
+    font-weight: 100;
+    font-size: 1.3rem;
+    margin-left: 0.5rem; 
+    vertical-align: middle;
+    margin-bottom: 0 !important;
+  }
+
+  .service-col-heading:hover .service-col-heading-img {
+    transform: scale(1.1);
+  }
+
+
+
+    .shape-circle, .shape-center {
+        transition: all 0.3s ease-out; 
+        }

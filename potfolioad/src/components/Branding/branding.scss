@@ -1,5 +1,5 @@
 .service-logo-wrapper {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -105,13 +105,13 @@
 }
 
 .shape-circle {
-    width: 8rem !important;
-    height: 8rem !important;
+    width: 10rem ;
+    height: 10rem;
 }
 
 .shape-center {
-    width: 4rem !important;
-    height: 4rem !important;
+    width: 5rem;
+    height: 5rem;
 }
 
 .green-curtain {

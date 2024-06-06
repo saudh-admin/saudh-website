@@ -6,6 +6,7 @@
 .proj-text {
   font-size: 20rem;
   font-weight: bold;
+  fill: transparent;
 }
 
 .proj-text.green-background {
@@ -26,10 +27,18 @@
 
 .proj-image {
   opacity: 0;
-  animation: showImage 1s ease-in-out forwards;
-  animation-delay: 1s;
+  animation: fillImage 1s ease-in-out forwards;
+  animation-delay: 1s; /* Delay the image fill animation */
 }
 
+@keyframes fillImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .proj-background {
   position: absolute;
   top: 0;
@@ -38,6 +47,7 @@
   height: 70%;
   transform: translateY(-100%);
   animation: curtainFall 1s ease-in-out forwards;
+  animation-delay: 2s;
   z-index: 1;
 }
 
@@ -60,15 +70,28 @@
   width: 100%;
   height: 100%;
   fill: none;
-  text-shadow: 1px 1px 0 #ccc, -1px -1px 0 #ccc, 1px -1px 0 #ccc, -1px 1px 0 #ccc;
-  z-index: 2;
   stroke: #ccc;
-  stroke-width: 0.1px;
+  stroke-width: 1px;
+  z-index: 2;
 }
 
-.proj-outline text {
-  fill: none;
+.proj-outline::before {
+  content: 'AD';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 20rem;
+  font-weight: normal;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: transparent;
+  stroke: #ccc;
+  stroke-width: 1px;
 }
+
+
 
 @keyframes curtainFall {
   0% {
@@ -78,7 +101,6 @@
     transform: translateY(0);
   }
 }
-
 @keyframes showImage {
   0% {
     opacity: 0;
