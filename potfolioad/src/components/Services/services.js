@@ -18,27 +18,28 @@ const Services = () => {
 
     const serviceHeadinggRef = useRef(null);
 
+    const [isLoading, setIsLoading] = useState(true);
+    const [showImage, setShowImage] = useState(false);
+    const [showBackground, setShowBackground] = useState(false);
     useEffect(() => {
         const serviceHeadinggElement = serviceHeadinggRef.current;
         if (serviceHeadinggElement) {
             serviceHeadinggElement.classList.add('service-headingg-curtain');
         }
-
-
+    
+    
         setTimeout(() => {
             setShowImage(true);
-        }, 1000);
-
-
+        }, 500);
+    
+    
         setTimeout(() => {
             setShowBackground(true);
-        }, 2000);
+        }, 800);
     }, []);
-
-    const [isLoading, setIsLoading] = useState(true);
-    const [showImage, setShowImage] = useState(false);
-    const [showBackground, setShowBackground] = useState(false);
-
+    
+    
+    
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
@@ -46,9 +47,9 @@ const Services = () => {
                 setShowImage(true);
                 setTimeout(() => {
                     setShowBackground(true);
-                }, 1000);
-            }, 1000);
-        }, 2000);
+                }, 500);
+            }, 500);
+        }, 800);
     }, []);
 
     return (
@@ -75,6 +76,11 @@ const Services = () => {
                         {showBackground && (
                             <div className={`proj-background ${window.location.pathname === '/Services' ? 'green-background' : window.location.pathname === '/contact' ? 'blue-background' : window.location.pathname === '/projects' ? 'white-background' : ''}`}></div>
                         )}
+                        <svg className="proj-outline" viewBox="0 0 200 100">
+                            <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                                AD
+                            </text>
+                        </svg>
                         <h2 className="projects-title">Services</h2>
                     </div>
                 </div>
@@ -125,26 +131,26 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Development')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                             <a href='/Services/development'>
-                             <div className='img-wrapper'>
-                            <img className='service-col-heading-img' src='dev.webp' alt='landimg' />
-                            </div>
-                            <motion.div className='anim-circle'>
-                                <motion.div className='shape-circle dark' animate={{
-                                    x: hoveredCategory === 'Development' ? -80 : -80,
-                                    y: hoveredCategory === 'Development' ? -80 : -40,
-                                }}></motion.div>
-                                <motion.div className='shape-center' animate={{
-                                    x: hoveredCategory === 'Development' ? -40 : -40,
-                                    y: hoveredCategory === 'Development' ? 40 : 0,
-                                }}></motion.div>
-                                <motion.div className='shape-circle light' animate={{
-                                    x: hoveredCategory === 'Development' ? -80 : -80,
-                                    y: hoveredCategory === 'Development' ? 0 : -40,
+                            <a href='/Services/development'>
+                                <div className='img-wrapper'>
+                                    <img className='service-col-heading-img' src='dev.webp' alt='landimg' />
+                                </div>
+                                <motion.div className='anim-circle'>
+                                    <motion.div className='shape-circle dark' animate={{
+                                        x: hoveredCategory === 'Development' ? -80 : -80,
+                                        y: hoveredCategory === 'Development' ? -80 : -40,
+                                    }}></motion.div>
+                                    <motion.div className='shape-center' animate={{
+                                        x: hoveredCategory === 'Development' ? -40 : -40,
+                                        y: hoveredCategory === 'Development' ? 40 : 0,
+                                    }}></motion.div>
+                                    <motion.div className='shape-circle light' animate={{
+                                        x: hoveredCategory === 'Development' ? -80 : -80,
+                                        y: hoveredCategory === 'Development' ? 0 : -40,
 
-                                }}></motion.div>
-                            </motion.div>
-                            <div className='service-col-heading-text'>
+                                    }}></motion.div>
+                                </motion.div>
+                                <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>Development</h1>
                                         <div className='explore'
@@ -169,24 +175,24 @@ const Services = () => {
                             onMouseEnter={() => handleCategoryHover('Ongoing Support')}
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/ongoing-support'>
-                            <div className='img-wrapper'>
-                            <img className='service-col-heading-img' src='support.webp' alt='landimg' />
-                            </div>
-                            <motion.div className='anim-circle'>
-                                <motion.div className='shape-circle dark' animate={{
-                                    x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
-                                    y: hoveredCategory === 'Ongoing Support' ? -40 : -40,
-                                }}></motion.div>
-                                <motion.div className='shape-center' animate={{
-                                    x: hoveredCategory === 'Ongoing Support' ? -40 : -40,
-                                    y: hoveredCategory === 'Ongoing Support' ? 0 : 0,
-                                }}></motion.div>
-                                <motion.div className='shape-circle light' animate={{
-                                    x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
-                                    y: hoveredCategory === 'Ongoing Support' ? -80 : -40,
-                                }}></motion.div>
-                            </motion.div>
-                            <div className='service-col-heading-text'>
+                                <div className='img-wrapper'>
+                                    <img className='service-col-heading-img' src='support.webp' alt='landimg' />
+                                </div>
+                                <motion.div className='anim-circle'>
+                                    <motion.div className='shape-circle dark' animate={{
+                                        x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
+                                        y: hoveredCategory === 'Ongoing Support' ? -40 : -40,
+                                    }}></motion.div>
+                                    <motion.div className='shape-center' animate={{
+                                        x: hoveredCategory === 'Ongoing Support' ? -40 : -40,
+                                        y: hoveredCategory === 'Ongoing Support' ? 0 : 0,
+                                    }}></motion.div>
+                                    <motion.div className='shape-circle light' animate={{
+                                        x: hoveredCategory === 'Ongoing Support' ? -80 : -80,
+                                        y: hoveredCategory === 'Ongoing Support' ? -80 : -40,
+                                    }}></motion.div>
+                                </motion.div>
+                                <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>Ongoing Support</h1>
                                         <div className='explore'
@@ -205,7 +211,7 @@ const Services = () => {
                                     </div>
                                     <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
                                 </div>
-                                </a>
+                            </a>
                         </motion.div>
                     </div>
                     <div className='service-col-2'>
@@ -216,26 +222,26 @@ const Services = () => {
                             onMouseEnter={() => handleCategoryHover('Interface Design')}
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/interface-design'>
-                            <div className='img-wrapper'>
-                            <img className='service-col-heading-img' src='interface.webp' alt='landimg' />
-                            </div>
-                            <motion.div className='anim-circle'>
-                                <motion.div className='shape-circle dark' animate={{
-                                    x: hoveredCategory === 'Interface Design' ? -80 : -80,
-                                    y: hoveredCategory === 'Interface Design' ? 15 : -40,
-                                    scale: hoveredCategory === 'Interface Design' ? 0.7 : 1,
-                                }}></motion.div>
-                                <motion.div className='shape-center' animate={{
-                                    x: hoveredCategory === 'Interface Design' ? -40 : -40,
-                                    y: hoveredCategory === 'Interface Design' ? -40 : 0,
-                                }}></motion.div>
-                                <motion.div className='shape-circle light' animate={{
-                                    x: hoveredCategory === 'Interface Design' ? -80 : -80,
-                                    y: hoveredCategory === 'Interface Design' ? -40 : -40,
+                                <div className='img-wrapper'>
+                                    <img className='service-col-heading-img' src='interface.webp' alt='landimg' />
+                                </div>
+                                <motion.div className='anim-circle'>
+                                    <motion.div className='shape-circle dark' animate={{
+                                        x: hoveredCategory === 'Interface Design' ? -80 : -80,
+                                        y: hoveredCategory === 'Interface Design' ? 15 : -40,
+                                        scale: hoveredCategory === 'Interface Design' ? 0.7 : 1,
+                                    }}></motion.div>
+                                    <motion.div className='shape-center' animate={{
+                                        x: hoveredCategory === 'Interface Design' ? -40 : -40,
+                                        y: hoveredCategory === 'Interface Design' ? -40 : 0,
+                                    }}></motion.div>
+                                    <motion.div className='shape-circle light' animate={{
+                                        x: hoveredCategory === 'Interface Design' ? -80 : -80,
+                                        y: hoveredCategory === 'Interface Design' ? -40 : -40,
 
-                                }}></motion.div>
-                            </motion.div>
-                            <div className='service-col-heading-text'>
+                                    }}></motion.div>
+                                </motion.div>
+                                <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>Interface Design</h1>
                                         <div className='explore'
@@ -254,32 +260,32 @@ const Services = () => {
                                     </div>
                                     <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
                                 </div>
-                                </a>
+                            </a>
                         </motion.div>
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Digital Marketing')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                             <a href='/Services/digital-marketing'>
-                            <div className='img-wrapper'>
-                            <img className='service-col-heading-img' src='marketing.webp' alt='landimg' />
-                            </div>
-                            <motion.div className='anim-circle'>
-                                <motion.div className='shape-circle dark' animate={{
-                                    x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
-                                    y: hoveredCategory === 'Digital Marketing' ? -40 : -40,
-                                }}></motion.div>
-                                <motion.div className='shape-center' animate={{
-                                    x: hoveredCategory === 'Digital Marketing' ? -40 : -40,
-                                    y: hoveredCategory === 'Digital Marketing' ? 40 : 0,
-                                }}></motion.div>
-                                <motion.div className='shape-circle light' animate={{
-                                    x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
-                                    y: hoveredCategory === 'Digital Marketing' ? -25 : -40,
-                                    scale: hoveredCategory === 'Digital Marketing' ? 0.8 : 1,
+                            <a href='/Services/digital-marketing'>
+                                <div className='img-wrapper'>
+                                    <img className='service-col-heading-img' src='marketing.webp' alt='landimg' />
+                                </div>
+                                <motion.div className='anim-circle'>
+                                    <motion.div className='shape-circle dark' animate={{
+                                        x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
+                                        y: hoveredCategory === 'Digital Marketing' ? -40 : -40,
+                                    }}></motion.div>
+                                    <motion.div className='shape-center' animate={{
+                                        x: hoveredCategory === 'Digital Marketing' ? -40 : -40,
+                                        y: hoveredCategory === 'Digital Marketing' ? 40 : 0,
+                                    }}></motion.div>
+                                    <motion.div className='shape-circle light' animate={{
+                                        x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
+                                        y: hoveredCategory === 'Digital Marketing' ? -25 : -40,
+                                        scale: hoveredCategory === 'Digital Marketing' ? 0.8 : 1,
 
-                                }}></motion.div>
-                            </motion.div>
-                            <div className='service-col-heading-text'>
+                                    }}></motion.div>
+                                </motion.div>
+                                <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>Digital Marketing</h1>
                                         <div className='explore'
@@ -298,7 +304,7 @@ const Services = () => {
                                     </div>
                                     <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
                                 </div>
-                                </a>
+                            </a>
                         </motion.div>
                     </div>
                 </div>

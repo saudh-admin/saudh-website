@@ -33,13 +33,14 @@ const Navbar = () => {
   function toggleNav() {
     const nav = document.querySelector(".nav");
     nav.classList.toggle("nav-open");
+    setIsNavOpen(!isNavOpen);
     const minX = 50;
     const maxX = window.innerWidth - 100;
     const minY = 50;
     const maxY = window.innerHeight - 100;
     const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
     const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-
+  
     if (nav.classList.contains("nav-open")) {
       nav.style.clipPath = `circle(150% at ${randomX}px ${randomY}px)`;
     } else {
@@ -385,61 +386,27 @@ useEffect(() => {
               </a>
             </div>
             <div className="col-2 col-offset-1 col-header-title">
-  {!isNavOpen ? (
-    <>
-      <h1
-        className={`header__text header__text--title ${
-          showHello ? "show" : "hide"
-        }`}
-      >
-        Hello
-      </h1>
-      <h1
-        className={`header__text header__text--title ${
-          showHome ? "show" : "hide"
-        }`}
-      >
-        {window.location.pathname === "/Services"
-          ? "Services"
-          : window.location.pathname === "/projects"
+  <h1 className={`header__text header__text--title ${showHome ? 'show' : 'hide'}`}>
+    Home
+  </h1>
+  <h1 className={`header__text header__text--title ${isNavOpen && !showHome ? 'show' : 'hide'}`}>
+    Index
+  </h1>
+  <h1 className={`header__text header__text--title ${!isNavOpen && !showHome ? 'show' : 'hide'}`}>
+    {window.location.pathname === "/"
+      ? "Hello"
+      : window.location.pathname === "/Services"
+        ? "Services"
+        : window.location.pathname === "/projects"
           ? "Projects"
           : window.location.pathname === "/us"
-          ? "Us"
-          : window.location.pathname === "/journal"
-          ? "Journal"
-          : window.location.pathname === "/contact"
-          ? "Contact"
-          : "Home"}
-      </h1>
-    </>
-  ) : (
-    <>
-      <h1
-        className={`header__text header__text--title ${
-          showHello ? "show" : "hide"
-        }`}
-      >
-        Index
-      </h1>
-      <h1
-        className={`header__text header__text--title ${
-          showHome ? "show" : "hide"
-        }`}
-      >
-        {window.location.pathname === "/Services"
-          ? "Services"
-          : window.location.pathname === "/projects"
-          ? "Projects"
-          : window.location.pathname === "/us"
-          ? "Us"
-          : window.location.pathname === "/journal"
-          ? "Journal"
-          : window.location.pathname === "/contact"
-          ? "Contact"
-          : "Home"}
-      </h1>
-    </>
-  )}
+            ? "Us"
+            : window.location.pathname === "/journal"
+              ? "Journal"
+              : window.location.pathname === "/contact"
+                ? "Contact"
+                : ""}
+  </h1>
 </div>
           </div>
           <div className="start-project">
