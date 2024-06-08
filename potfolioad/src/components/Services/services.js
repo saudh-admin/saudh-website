@@ -89,7 +89,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Branding')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/branding'>
+                            <a href='/Services/Branding'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='branding.webp' alt='landimg' />
                                 </div>
@@ -131,7 +131,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Development')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/development'>
+                            <a href='/Services/Development'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='dev.webp' alt='landimg' />
                                 </div>
@@ -174,7 +174,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Ongoing Support')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/ongoing-support'>
+                            <a href='/Services/Ongoing-support'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='support.webp' alt='landimg' />
                                 </div>
@@ -221,7 +221,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Interface Design')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/interface-design'>
+                            <a href='/Services/Interface-design'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='interface.webp' alt='landimg' />
                                 </div>
@@ -265,7 +265,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Digital Marketing')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/digital-marketing'>
+                            <a href='/Services/Digital-marketing'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='marketing.webp' alt='landimg' />
                                 </div>

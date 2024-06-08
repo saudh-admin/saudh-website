@@ -6,6 +6,7 @@ import {
   useViewportScroll,
   useTransform,
 } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -40,7 +41,7 @@ const Navbar = () => {
     const maxY = window.innerHeight - 100;
     const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
     const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
-  
+
     if (nav.classList.contains("nav-open")) {
       nav.style.clipPath = `circle(150% at ${randomX}px ${randomY}px)`;
     } else {
@@ -316,17 +317,17 @@ const Navbar = () => {
 
   const textRef = useRef(null);
 
-useEffect(() => {
-  const textElement = document.getElementById("text-element");
-  const spanElement = textRef.current;
+  useEffect(() => {
+    const textElement = document.getElementById("text-element");
+    const spanElement = textRef.current;
 
-  if (textElement && spanElement) {
-    const { width, height } = spanElement.getBoundingClientRect();
-    textElement.setAttribute("width", width);
-    textElement.setAttribute("height", height);
-    textElement.setAttribute("fontSize", "1");
-  }
-}, []);
+    if (textElement && spanElement) {
+      const { width, height } = spanElement.getBoundingClientRect();
+      textElement.setAttribute("width", width);
+      textElement.setAttribute("height", height);
+      textElement.setAttribute("fontSize", "1");
+    }
+  }, []);
 
   return (
     <>
@@ -386,28 +387,35 @@ useEffect(() => {
               </a>
             </div>
             <div className="col-2 col-offset-1 col-header-title">
-  <h1 className={`header__text header__text--title ${showHome ? 'show' : 'hide'}`}>
-    Home
-  </h1>
-  <h1 className={`header__text header__text--title ${isNavOpen && !showHome ? 'show' : 'hide'}`}>
-    Index
-  </h1>
-  <h1 className={`header__text header__text--title ${!isNavOpen && !showHome ? 'show' : 'hide'}`}>
-    {window.location.pathname === "/"
-      ? "Hello"
-      : window.location.pathname === "/Services"
-        ? "Services"
-        : window.location.pathname === "/projects"
-          ? "Projects"
-          : window.location.pathname === "/us"
-            ? "Us"
-            : window.location.pathname === "/journal"
-              ? "Journal"
-              : window.location.pathname === "/contact"
-                ? "Contact"
-                : ""}
-  </h1>
-</div>
+              <h6 className={`header__text header__text--title ${showHome ? 'show' : 'hide'}`}>
+                Home
+              </h6>
+              <h6 className={`header__text header__text--title ${isNavOpen && !showHome ? 'show' : 'hide'}`}>
+                Index
+              </h6>
+              <h6 className={`header__text header__text--title ${!isNavOpen && !showHome ? 'show' : 'hide'}`}>
+                {window.location.pathname === "/" ? (
+                  "Hello"
+                ) : window.location.pathname.startsWith("/Services") ? (
+                  <a href="/Services">
+                    Services
+                    {window.location.pathname.startsWith("/Services/") && (
+                      <span className="subtitle">{window.location.pathname.split("/")[2]}</span>
+                    )}
+                  </a>
+                ) : window.location.pathname === "/projects" ? (
+                  <Link to="/projects">Projects</Link>
+                ) : window.location.pathname === "/us" ? (
+                  <Link to="/us">Us</Link>
+                ) : window.location.pathname === "/journal" ? (
+                  <Link to="/journal">Journal</Link>
+                ) : window.location.pathname === "/contact" ? (
+                  <Link to="/contact">Contact</Link>
+                ) : (
+                  ""
+                )}
+              </h6>
+            </div>
           </div>
           <div className="start-project">
             <div className="start-cont">
@@ -426,35 +434,35 @@ useEffect(() => {
       <nav id="nav" className={`nav ${isNavOpen ? "nav-open" : ""}`}>
         <div id="nav-container" className="nav-container">
           <div className="nav__logo">
-          <div className="nav__logo-text">
-  <span ref={textRef}>AD</span>
-  {currentVideoUrl && (
-    <video
-      ref={videoRef}
-      src={currentVideoUrl}
-      autoPlay
-      loop
-      muted
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        clipPath: "url(#text-mask)",
-        WebkitClipPath: "url(#text-mask)",
-      }}
-    />
-  )}
-</div>
+            <div className="nav__logo-text">
+              <span ref={textRef}>AD</span>
+              {currentVideoUrl && (
+                <video
+                  ref={videoRef}
+                  src={currentVideoUrl}
+                  autoPlay
+                  loop
+                  muted
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    clipPath: "url(#text-mask)",
+                    WebkitClipPath: "url(#text-mask)",
+                  }}
+                />
+              )}
+            </div>
           </div>
           <svg width="0" height="0">
-  <defs>
-    <clipPath id="text-mask" clipPathUnits="objectBoundingBox">
-    <text x="0.5" y="0.53" textLength="0.85" lengthAdjust="spacingAndGlyphs" font-size="1" text-anchor="middle">AD</text> </clipPath>
-  </defs>
-</svg>
+            <defs>
+              <clipPath id="text-mask" clipPathUnits="objectBoundingBox">
+                <text x="0.5" y="0.53" textLength="0.85" lengthAdjust="spacingAndGlyphs" font-size="1" text-anchor="middle">AD</text> </clipPath>
+            </defs>
+          </svg>
           <div className="container">
             <div className="row row--items-middle nav-row">
               <ul

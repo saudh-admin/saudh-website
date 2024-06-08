@@ -23,11 +23,11 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/us" element={<Us />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/Services/branding" element={<Branding/>} />
-          <Route path="/Services/interface-design" element={<Interface />} />
-          <Route path="/Services/development" element={<Dev />} />
-          <Route path="/Services/digital-marketing" element={<Digital />} />
-          <Route path="/Services/ongoing-support" element={<Support />} />
+          <Route path="/Services/Branding" element={<Branding/>} />
+          <Route path="/Services/Interface-design" element={<Interface />} />
+          <Route path="/Services/Development" element={<Dev />} />
+          <Route path="/Services/Digital-marketing" element={<Digital />} />
+          <Route path="/Services/Ongoing-support" element={<Support />} />
           <Route path="/journal" element={<Journal />} />
         </Routes>
       </div>

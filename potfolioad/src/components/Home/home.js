@@ -50,7 +50,7 @@ const Home = () => {
   const pageHintRef = useRef(null);
 
 
-  
+
 
 
 
@@ -79,18 +79,18 @@ const Home = () => {
     const pageHint = pageHintRef.current;
     const adBg = document.querySelector(".ad-bg");
     const adTitle = document.querySelector(".ad-title");
-  
+
     const updatePageHint = () => {
       if (pageHint) {
         pageHint.classList.add("loaded");
       }
     };
-  
+
     const handleScroll = () => {
       if (adBg && adTitle && pageHint) {
         const adBgRect = adBg.getBoundingClientRect();
         const adTitleRect = adTitle.getBoundingClientRect();
-  
+
         if (
           adBgRect.top <= window.innerHeight &&
           adBgRect.bottom >= 0 &&
@@ -103,9 +103,9 @@ const Home = () => {
         }
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
-  
+
     const checkElementsLoaded = () => {
       if (adBg && adTitle) {
         updatePageHint();
@@ -113,9 +113,9 @@ const Home = () => {
         setTimeout(checkElementsLoaded, 100);
       }
     };
-  
+
     checkElementsLoaded();
-  
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -258,6 +258,43 @@ const Home = () => {
     setIsHovered(false);
   };
 
+  const serviceHeadinggRef = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [showImage, setShowImage] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const serviceHeadinggElement = serviceHeadinggRef.current;
+    if (serviceHeadinggElement) {
+      serviceHeadinggElement.classList.add('service-headingg-curtain');
+    }
+
+
+    setTimeout(() => {
+      setShowImage(true);
+    }, 100);
+
+
+    setTimeout(() => {
+      setShowBackground(true);
+    }, 100);
+  }, []);
+
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      setTimeout(() => {
+        setShowImage(true);
+        setTimeout(() => {
+          setShowBackground(true);
+        }, 100);
+      }, 100);
+    }, 100);
+  }, []);
+
   return (
     <>
       <Navbar></Navbar>
@@ -336,7 +373,6 @@ const Home = () => {
             <motion.div className="feature-heading" style={{ x: xRange2 }}>
               Featured projects
             </motion.div>
-            {/* <CarouselSlider /> */}
             <Sliderr />
           </div>
           <div ref={servicesHomeRef} className="services-home">
@@ -448,6 +484,7 @@ const Home = () => {
                 ></motion.div>
                 <motion.div
                   className="shape-center"
+                  style={{ width: '10rem', height: '10rem' }}
                   animate={{
                     x:
                       hoveredCategory === "Branding"
@@ -509,9 +546,32 @@ const Home = () => {
                 ></motion.div>
               </motion.div>
             </div>
-            <div className="service-logo">
-              <div class="ad-text">AD</div>
+            <div className="proj-logo" ref={serviceHeadinggRef} style={{ position: 'relative', textAlign: 'center' }}>
+              <svg className="proj-text" viewBox="0 0 200 100" style={{ fontSize: '20rem', fontWeight: 'bold', fill: 'transparent' }}>
+                <defs>
+                  <clipPath id="text-clip">
+                    <text x="50%" y="80" fontSize="100" fontWeight="normal" textAnchor="middle">
+                      AD
+                    </text>
+                  </clipPath>
+                </defs>
+                <text x="50%" y="80" fontSize="100" fontWeight="normal" textAnchor="middle">
+                  AD
+                </text>
+                {showImage && (
+                  <image className="proj-image" xlinkHref="marketing.webp" width="100%" height="100%" clipPath="url(#text-clip)" preserveAspectRatio="xMidYMid slice" style={{ opacity: showImage ? 1 : 0, animation: showImage ? 'fillImage 1s ease-in-out forwards' : 'none', animationDelay: '1s' }} />
+                )}
+              </svg>
+              {showBackground && (
+                <div className="proj-background" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '48%', transform: 'translateY(-100%)', animation: showBackground ? 'curtainFall 1s ease-in-out forwards' : 'none', animationDelay: '2s', zIndex: 1, backgroundColor: 'var(--color-green)' }}></div>
+              )}
+              <svg className="proj-outline" viewBox="0 0 200 100" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', fill: 'none', stroke: '#ccc', strokeWidth: '0.2px', zIndex: 2 }}>
+                <text x="50%" y="80" fontSize="100" fontWeight="normal" textAnchor="middle">
+                  AD
+                </text>
+              </svg>
             </div>
+
           </div>
           <div className="top-button">
             <hr /> <button>Top!</button>

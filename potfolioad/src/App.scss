@@ -40,33 +40,12 @@
   --color-twitter: #58cef2;
   --color-facebook: #4267b2;
   --color-youtube: rgba(255, 255, 0, 0);
-  --breakpoint-xxs: 320px;
-  --breakpoint-xs: 375px;
-  --breakpoint-sm: 480px;
-  --breakpoint-mm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-md-up: 769px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-lg-up: 1025px;
-  --breakpoint-vl: 1280px;
-  --breakpoint-vl-up: 1281px;
-  --breakpoint-xl: 1440px;
-  --breakpoint-xl-up: 1441px;
-  --breakpoint-xxl: 1680px;
-  --breakpoint-xxxl: 1920px;
-  --ease-default: cubic-bezier(0.4, 0.5, 0.15, 1);
-  --ease-classic: cubic-bezier(0.23, 1, 0.32, 1);
-  --viewport-h: 100vh;
   --scroll-y: 0;
   --navigation-top-bar-height: 38px;
   --navigation-height: 80px;
   --navigation-sub-section-height: 100vh;
   --color-navigation: var(--color-main-blue);
   --color-navigation-border: var(--color-white-20);
-  --finance-button-width: 96px;
-  --finance-button-height: 200px;
-  --v-spacing: 8px;
-  --maskHeight: calc(0.55*var(--viewport-h) + (100vw - 2*var(--gutter) - 16px)*1.16*0.427*0.61);
 }
 
 @import 'animate.css';
@@ -166,11 +145,15 @@ html{
 .header.scrolled {
   background-color: #fff; 
 }
-.header .col-header-subtitle,
+
 .header .col-header-title {
   display: flex;
-  justify-content: flex-end;
+
   align-self: center;
+
+  a{
+    font-size: 0.8rem !important;
+  }
 }
 
 .header__text--title,
@@ -181,17 +164,24 @@ html{
 }
 
 .header__text--title {
-  font-size: 1rem;
-  font-weight: 200;
+  font-size: 0.8rem !important;
+  font-weight: 100;
   letter-spacing: 2px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   margin-top: auto;
   margin-bottom: auto;
   opacity: 0;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
 
+.header__text--title .subtitle {
+  margin-left: 100%;
+}
+.header__text--title .subtitle {
+
+  font-size: 0.8rem;
+  font-weight: 100;
 }
 
 .header__text--title.show {
@@ -201,7 +191,7 @@ html{
 
 .header__text--title.hide {
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(20px);
 }
 
 .nav-open .header {
@@ -224,8 +214,8 @@ html{
 }
 
 .row>.col-2 {
-  flex: 0 0 20%;
-  max-width: 20%;
+  flex: 0 0 15%;
+  max-width: 15%;
 }
 
 .nav-btn {
@@ -1197,36 +1187,8 @@ margin-top: -10vh;
   z-index: 1;
 }
 
-.ad-text {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30rem;
-  color: transparent;
-  text-shadow: none;
-  padding: 0;
-  z-index: 1;
-  background-image: url('../public/about.webp');
-  background-size: cover;
-  background-position: center bottom;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-stroke: 1px #ddd;
-}
 
-.ad-text::before {
-  content: 'AD';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 57%;
-  background-color: #e2f7e5;
-  color: transparent;
-  -webkit-text-stroke: 1px #ddd;
- 
-}
+
 
 @media (min-width:320px)and (max-width:640px){
   .services-home {
