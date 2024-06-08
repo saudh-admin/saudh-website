@@ -56,9 +56,9 @@ const Branding = () => {
                         <img src="/branding.webp" alt="Branding"></img>
                         <div className='white-overlay'></div>
                         <div className='anim-circle'>
-                            <div className='shape-circle dark' style={{ transform: 'translate(-65px, -34px)' }}></div>
-                            <div className='shape-center'></div>
-                            <div className='shape-circle light' style={{ transform: 'translate(-65px, -95px)' }}></div>
+                            <div className='shape-circle dark' style={{ transform: 'translate(-65px, -32px)', width: `8rem`, height: `8rem` }}></div>
+                            <div className='shape-center' style={{ width: `4rem`, height: `4rem` }}></div>
+                            <div className='shape-circle light' style={{ transform: 'translate(-65px, -95px)', width: `8rem`, height: `8rem` }}></div>
                         </div>
 
                     </div>
