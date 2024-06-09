@@ -2,31 +2,7 @@
     margin-bottom: 10vh;
     padding-top: 0;
 }
-.service-heading {
-    margin-top: 0;
-    background-color: var(--color-green);
-    padding-left: 14vw;
-    padding-right: 14vw;
-    height:66.5vh;
 
-    .service-heading-text {
-        font-size: 4.5rem;
-        font-weight: 100;
-        letter-spacing: 2px;
-        padding-top: 8rem;
-        width: 70%;
-    }
-
-    .service-logo-service {
-        margin-top: -5vh;
-        font-size: 30rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        -webkit-text-stroke: 2px var(--color-gray);
-        color: transparent;
-    }
-}
 
 .contact-content {
     display: flex;
@@ -164,7 +140,8 @@
             font-weight: 100;
         }
         img{
-            width: 80%;
+            width: 60%;
+            padding-bottom: 1rem;
         }
     }
 }

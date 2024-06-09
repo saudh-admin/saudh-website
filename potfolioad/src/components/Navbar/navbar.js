@@ -20,6 +20,7 @@ const Navbar = () => {
 
   const [showHome, setShowHome] = useState(false);
   const [showHello, setShowHello] = useState(true);
+  const [isPageLoading, setIsPageLoading] = useState(true);
 
   const handleHover = () => {
     setShowHome(true);
@@ -109,47 +110,20 @@ const Navbar = () => {
   }, []);
   useEffect(() => {
     const pageHint = pageHintRef.current;
-    const adBg = document.querySelector(".ad-bg");
-    const adTitle = document.querySelector(".ad-title");
 
     const updatePageHint = () => {
       if (pageHint) {
         pageHint.classList.add("loaded");
+        setTimeout(() => {
+          setIsPageLoading(false);
+        }, 1000);
       }
     };
 
-    const handleScroll = () => {
-      if (adBg && adTitle && pageHint) {
-        const adBgRect = adBg.getBoundingClientRect();
-        const adTitleRect = adTitle.getBoundingClientRect();
-
-        if (
-          adBgRect.top <= window.innerHeight &&
-          adBgRect.bottom >= 0 &&
-          adTitleRect.top <= window.innerHeight &&
-          adTitleRect.bottom >= 0
-        ) {
-          pageHint.classList.add("visible");
-        } else {
-          pageHint.classList.remove("visible");
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    const checkElementsLoaded = () => {
-      if (adBg && adTitle) {
-        updatePageHint();
-      } else {
-        setTimeout(checkElementsLoaded, 100);
-      }
-    };
-
-    checkElementsLoaded();
+    const timer = setTimeout(updatePageHint, 1000);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timer);
     };
   }, []);
   useEffect(() => {
@@ -334,21 +308,19 @@ const Navbar = () => {
       <header className="header">
         <div className="container">
           <div class="page-hint visible" ref={pageHintRef}>
-            <span class="hint__text hint__text--loading">Loading</span>
-            <svg
-              aria-hidden="true"
-              width="11"
-              height="56"
-              viewBox="0 0 11 56"
-              class="icon-arrow-scroll"
-            >
-              <path
-                d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5"
-                stroke="#000"
-                stroke-width="1"
-                fill="none"
-              ></path>
-            </svg>
+            {isPageLoading ? (
+              <span class="hint__text hint__text--loading">
+                Loading
+                <div class="loading-circle"></div>
+              </span>
+            ) : (
+              <>
+                <span class="hint__text">Scroll</span>
+                <svg aria-hidden="true" width="11" height="56" viewBox="0 0 11 56" class="icon-arrow-scroll">
+                  <path d="M5.5,0 L5.5,56 M0,50.5 L5.5,56 L11,50.5" stroke="#000" stroke-width="1" fill="none"></path>
+                </svg>
+              </>
+            )}
           </div>
           <div className="row row--items-middle">
             <div className="col-1 col-nav-btn">
@@ -400,8 +372,11 @@ const Navbar = () => {
                   <a href="/Services">
                     Services
                     {window.location.pathname.startsWith("/Services/") && (
-                      <span className="subtitle">{window.location.pathname.split("/")[2]}</span>
+                      <span className="subtitle">
+                        {window.location.pathname.split("/")[2].replace(/-/g, " ")}
+                      </span>
                     )}
+
                   </a>
                 ) : window.location.pathname === "/projects" ? (
                   <Link to="/projects">Projects</Link>

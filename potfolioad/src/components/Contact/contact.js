@@ -67,7 +67,7 @@ useEffect(() => {
                                 AD
                             </text>
                         </svg>
-                        <h2 className="projects-title">Services</h2>
+                        <h2 className="projects-title">Let’s build something awesome together.</h2>
                     </div>
         </div>
         <div className='contact-content'>

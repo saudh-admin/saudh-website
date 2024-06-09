@@ -217,7 +217,6 @@ html{
   flex: 0 0 15%;
   max-width: 15%;
 }
-
 .nav-btn {
   display: flex;
   align-items: center;
@@ -229,16 +228,66 @@ html{
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: -1;
+}
+
+.nav-open .nav-btn::before {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
 }
 
 .nav-btn__bar {
   display: block;
   width: 20px;
   height: 2px;
-  margin: 4px 0;
+  margin: 8px 0;
   background-color: var(--color-dark);
   transition: transform 0.3s;
 }
+
+.nav-open .nav-btn__bar {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-open .nav-btn__bar-1 {
+  transform: translateY(-10px);
+}
+
+.nav-open .nav-btn__bar-2 {
+  transform: translateY(10px);
+}
+.nav-open .nav-btn__bar--closed.nav-btn__bar-1 {
+  transform: rotate(45deg) scaleX(1);
+  opacity: 1;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.nav-open .nav-btn__bar--closed.nav-btn__bar-2 {
+  transform: rotate(-45deg) scaleX(1);
+  opacity: 1;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+
 
 .nav-btn__bar--closed {
   position: absolute;
@@ -515,12 +564,37 @@ letter-spacing: -0.02em;
   left: 1rem;
   transform: translateY(-50%);
   opacity: 1;
-  transition-property: opacity, transform;
-  transition-timing-function: cubic-bezier(.19, 1, .22, 1);
-  transition-duration: 1.5s;
-  cursor: pointer;
+  transition: opacity 0.5s ease;
   z-index: 999;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+
+  .hint__text--loading {
+    display: flex;
+    align-items: center;
+  }
+
+  .loading-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-orange);
+    animation: loadingAnimation 1s infinite;
+    margin-left: 5px;
+  }
+}
+@keyframes loadingAnimation {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
 }
 
 .page-hint .hint__text {
