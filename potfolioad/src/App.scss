@@ -78,19 +78,6 @@
   transform: translate(-50%, -50%);
 }
 
-.nav-btn:hover ~ .cursor {
-  width: 800px;
-  height: 70px;
-  background-color: #747474;
-  border: #747474;
-}
-
-.learn-text:hover ~ .cursor {
-  width: 40px;
-  height: 40px;
-  background-color: var(--color-orange);
-  border: none;
-}
 
 * {
   margin: 0;

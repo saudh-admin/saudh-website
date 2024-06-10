@@ -327,6 +327,7 @@ const Navbar = () => {
           </div>
           <div className="row row--items-middle">
             <div className="col-1 col-nav-btn">
+            <Cursor />
               <button
                 id="nav-btn"
                 type="button"
@@ -351,7 +352,7 @@ const Navbar = () => {
                   className="nav-btn__bar nav-btn__bar-2 nav-btn__bar--closed"
                 ></span>
               </button>
-              <Cursor />
+              
             </div>
             <div
               className="col-6 col-offset-2 col-md-3 col-offset-md-0 col-lg-1 col-logo"
