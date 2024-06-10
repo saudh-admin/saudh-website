@@ -7,6 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Link } from 'react-router-dom';
+import Cursor from "../Cursor";
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -303,6 +304,8 @@ const Navbar = () => {
     }
   }, []);
 
+
+
   return (
     <>
       <header className="header">
@@ -348,6 +351,7 @@ const Navbar = () => {
                   className="nav-btn__bar nav-btn__bar-2 nav-btn__bar--closed"
                 ></span>
               </button>
+              <Cursor />
             </div>
             <div
               className="col-6 col-offset-2 col-md-3 col-offset-md-0 col-lg-1 col-logo"
@@ -397,6 +401,7 @@ const Navbar = () => {
               <a href="/contact" className="nav-contact">
                 <div className="start-circle">
                   <h3>Book a Demo</h3>
+                  <i className="call-icon"></i>
                 </div>
                 <span
                   className={`start-label ${hideStartLabel ? "hide" : ""}`}
@@ -424,7 +429,7 @@ const Navbar = () => {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover",
+                    objectFit: "fill",
                     clipPath: "url(#text-mask)",
                     WebkitClipPath: "url(#text-mask)",
                   }}
@@ -432,10 +437,11 @@ const Navbar = () => {
               )}
             </div>
           </div>
-          <svg width="0" height="0">
+          <svg width="100%" height="100%" viewBox="0 0 1000 1000">
             <defs>
-              <clipPath id="text-mask" clipPathUnits="objectBoundingBox">
-                <text x="0.5" y="0.53" textLength="0.85" lengthAdjust="spacingAndGlyphs" font-size="1" text-anchor="middle">AD</text> </clipPath>
+              <clipPath id="text-mask" clipPathUnits="userSpaceOnUse">
+                <text x="325" y="560" font-size="500" text-anchor="middle" stroke="#ddd" stroke-width="1" fill="none">AD</text>
+              </clipPath>
             </defs>
           </svg>
           <div className="container">
@@ -555,6 +561,7 @@ const Navbar = () => {
         </div>
 
       </nav>
+   
     </>
   )
 }

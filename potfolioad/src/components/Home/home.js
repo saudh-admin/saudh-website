@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import Sliderr from "../Contact/slider";
 import Navbar from "../Navbar/navbar";
+import Cursor from "../Cursor";
 
 const adBgVariants = {
   initial: {
@@ -295,6 +296,7 @@ const Home = () => {
     }, 100);
   }, []);
 
+
   return (
     <>
       <Navbar></Navbar>
@@ -362,7 +364,9 @@ const Home = () => {
                     transition={{ duration: 0.3 }}
                   />
                   Learn more about us
+                  <Cursor />
                 </div>
+                
               </div>
             </div>
           </div>
@@ -586,6 +590,7 @@ const Home = () => {
           </div>
         </div>
       </main>
+
       <footer ref={footerRef} class="hero-footer">
         <div class="footer-col footer-col1">
           <div class="footer-title">Reach us</div>
@@ -623,6 +628,7 @@ const Home = () => {
           </div>
         </div>
       </footer>
+    
     </>
   );
 };

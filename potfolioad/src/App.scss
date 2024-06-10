@@ -65,19 +65,32 @@
   font-style: normal;
   font-weight: 300;
 }
-
 .cursor {
-  border: 1px solid var(--color-orange, orange);
-  height: 16px;
-  width: 16px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #ff5e5e;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  cursor: none;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.3s, height 0.3s, background-color 0.3s, border 0.3s;
+  transform: translate(-50%, -50%);
 }
 
+.nav-btn:hover ~ .cursor {
+  width: 800px;
+  height: 70px;
+  background-color: #747474;
+  border: #747474;
+}
+
+.learn-text:hover ~ .cursor {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-orange);
+  border: none;
+}
 
 * {
   margin: 0;
@@ -352,6 +365,7 @@ html{
   z-index: 9998;
   padding: 2rem;
   padding-top: var(--navigation-height);
+margin-left: 0;
 }
 
 .nav-open .nav-container {
@@ -365,12 +379,12 @@ html{
 }
 .nav__logo {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30rem;
   color: transparent;
-  -webkit-text-stroke: 2px var(--color-white-15);
+  -webkit-text-stroke: 1px var(--color-light-gray);
   pointer-events: none;
   z-index: 1;
 }
@@ -386,16 +400,18 @@ html{
   line-height: 1;
   text-align: center;
   color: transparent;
-  -webkit-text-stroke: 2px var(--color-gray);
+  -webkit-text-stroke: 1px var(--color-light-gray);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 letter-spacing: -0.02em;
+z-index: 1;
 }
 .nav-list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -414,6 +430,11 @@ letter-spacing: -0.02em;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  position: relative;
+  top: -70%;
+left: -5%;
+transform: translate(-50%, -50%);
+z-index: 2;
 }
 
 .nav-open .nav-row {
@@ -526,6 +547,10 @@ letter-spacing: -0.02em;
   justify-content: center;
   align-items: center;
   padding: 0.8rem;
+  position: relative;
+}
+.call-icon {
+  display: none;
 }
 
 .start-circle h3 {
@@ -834,6 +859,21 @@ letter-spacing: -0.02em;
 
 }
 
+@media (max-width: 1024px) {
+  .start-circle h3 {
+    display: none;
+  }
+
+  .call-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+  }
+}
 
 
 

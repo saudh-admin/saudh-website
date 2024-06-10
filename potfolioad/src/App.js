@@ -12,11 +12,14 @@ import Dev from './components/Dev/dev';
 import Digital from './components/Digital/digital';
 import Support from './components/Support/support';
 import Journal from './components/Journal/journal';
+import Cursor from './components/Cursor';
 
 function App() {
   return (
+    
     <Router>
       <div className="App">
+      <Cursor />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Services" element={<Services />} />b
