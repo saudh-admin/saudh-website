@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './branding.scss';
 import Navbar from '../Navbar/navbar';
 import { FaChevronDown } from 'react-icons/fa';
+import { CATEGORIES } from '../../utils/constants';
 
 const Branding = () => {
 
@@ -45,11 +46,11 @@ const Branding = () => {
             <main>
             <div className='service-branding'>
                 <div className="service-logo-wrapper">
-                    <div className="service-logo-service-cat">AD</div>
+                    <div className="service-logo-service-cat">Saudh</div>
                 </div>
                 <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>
-                        Branding
+                        {CATEGORIES.MALL_IN_YOUR_POCKET}
                     </div>
                 </div>
                     <div className='img-heading'>
@@ -65,68 +66,44 @@ const Branding = () => {
 
                     <div className='service-content-layout'>
                         <div className='service-content-cat'>
-                            <h1>Words can only communicate so much. Your brand does the rest.</h1>
+                            <h1>Digitize the Entire Mall</h1>
                             <div className='service-content-dropdown-cat'>
-                                <div className="dropdown" onClick={() => toggleDropdown(1)}>
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Floor-Wise Navigation</h4>
+                                        </div>
+                                </div>
+                                <hr />
+                                <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <FaChevronDown className="dropdown-icon" />
-                                        <h4>Branding</h4>
-                                    </div>
-                                    <div className={`dropdown-content ${activeDropdowns[1] ? 'active' : ''}`}>
-                                        <h5>- Brand Identity</h5>
-                                        <h5>- Brand Name</h5>
-                                        <h5>- Tagline</h5>
-                                        <h5>- Logo</h5>
-                                        <h5>- Brand Identity</h5>
-                                        <h5>- Brand Name</h5>
-                                        <h5>- Color Palette</h5>
-                                        <h5>- Typography</h5>
-                                        <h5>- Tone of voice</h5>
-                                        <h5>- Imagery</h5>
+                                        <h4>Real-Time Promotions</h4>
                                     </div>
                                 </div>
                                 <hr />
-                                <div className="dropdown" onClick={() => toggleDropdown(2)}>
-                                    <div className="dropdown-header">
-                                        <FaChevronDown className="dropdown-icon" />
-                                        <h4>Print Collateral</h4>
-                                    </div>
-                                    <div className={`dropdown-content ${activeDropdowns[2] ? 'active' : ''}`}>
-                                        <h5>- Business Cards</h5>
-                                        <h5>- Brochures</h5>
-                                        <h5>- Flyers</h5>
-                                        <h5>- Posters</h5>
-                                        <h5>- Banners and Signs</h5>
-                                        <h5>- Labels & Stickers</h5>
-                                        <h5>- Catalogs</h5>
-                                        <h5>- Menus</h5>
-                                        <h5>- Invitations and Thank-You Cards</h5>
-                                    </div>
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Amenities & Facility Map</h4>
+                                        </div>
                                 </div>
                                 <hr />
-                                <div className="dropdown" onClick={() => toggleDropdown(3)}>
-                                    <div className="dropdown-header">
-                                        <FaChevronDown className="dropdown-icon" />
-                                        <h4>Digital Design</h4>
-                                    </div>
-                                    <div className={`dropdown-content ${activeDropdowns[3] ? 'active' : ''}`}>
-                                        <h5>- Social Media Content</h5>
-                                        <h5>- Design Led Presentation</h5>
-                                        <h5>- 3D Design</h5>
-                                        <h5>- Product Photography</h5>
-                                        <h5>- Promotional Video Content</h5>
-                                        <h5>- Inspirational Video Content</h5>
-                                        <h5>- Explainer Videos</h5>
-                                        <h5>- Visually Compelling ads</h5>
-                                    </div>
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Analytics Dashboard for Admins</h4>
+                                        </div>
                                 </div>
+                                <hr />
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Food Court Menus</h4>
+                                        </div>
+                                </div>
+                                <hr />
                             </div>
                         </div>
                         <div className='service-content-text-para'>
-                            People form habits around what makes them feel good. It could be pleasure, it could be responsibility, integrity, value, or prudence. Your brand is a powerful vehicle packed full of positive reinforcement.<br /><br />
-                            Your brand is also <b>you</b>. All of you — the founders, the architects, the daily contributors. Everything that has been put into a venture, by every individual. <br /><br />
-                            The first step to branding is understanding what you're all about. "Who" is your business? And what ecosystem of users, competitors, or partners does it inhabit? <br /><br />
-                            Once we understand your world, we bring you into ours. How can you consistently communicate the singular vision of your company, at just a glance? Well, that's where we come in.
+                        Today's malls are physical powerhouses but digital deserts. Visitors arrive with expectations shaped by apps, speed, and personalization — only to encounter printed maps and scattered signage. In a world of instant access, the mall experience remains oddly disconnected. <br /><br />
+                        MallOS transforms your property into an intuitive, QR-powered digital platform. From floor navigation to real-time offers, event listings to food menus — visitors access everything with a single tap, no app required. For mall management, it's a powerful backend system enabling smarter control, data-driven decisions, and seamless tenant coordination. <br /><br />
+                        With MallOS, every mall becomes future-ready. Discovery becomes effortless. Promotions gain visibility. And customers return for an experience that's as smart as it is physical. <br /><br />
                         </div>
                     </div>
                 </div>

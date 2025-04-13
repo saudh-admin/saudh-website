@@ -144,12 +144,19 @@ const Home = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const featureProjectsRef = useRef(null);
   const { scrollYProgress } = useViewportScroll();
-  const xRange1 = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
-  const xRange2 = useTransform(scrollYProgress, [0, 1], ["-100%", "100%"]);
+  const xRange1 = useTransform(scrollYProgress, [0, 1], ["95%", "-100%"]);
+  const xRange2 = useTransform(scrollYProgress, [0, 1], ["-2%", "100%"]);
 
   const [animationIndex, setAnimationIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const animationInterval = useRef(null);
+  const CATEGORIES = {
+    'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
+    'DIGITAL_CATALOUGES': 'Digital Catalogues',
+    'AI_ENABLED_ANALYTICS': 'AI enabled Analytics',
+    'WHATSAPP_AUTOMATION': 'Whatsapp Automation',
+    'GAMIFICATION': 'Gamification',
+  }
   const handleCategoryHover = (category) => {
     setHoveredCategory(category);
     if (category) {
@@ -303,14 +310,6 @@ const Home = () => {
       <main>
         <div className="main-content">
           <div className="container">
-            <motion.div
-              className="ad-bg"
-              variants={adBgVariants}
-              initial="initial"
-              animate="animate"
-            >
-              AD
-            </motion.div>
             <motion.h1
               className="ad-title"
               variants={adTitleVariants}
@@ -318,38 +317,18 @@ const Home = () => {
               animate="animate"
               when="afterChildren"
             >
-              We launch winning brands and build extraordinary digital
-              experiences.
+              We Build Extraordinary <br/> Digital Experiences.
             </motion.h1>
-            <div className="photo-cont">
-              <img className="homeimg" src="/home.png" alt="not workingg"></img>
-            </div>
-            <div className="scrollimg">
-              <div className="home-circle"></div>
-              <motion.div
-                className="landimg-container"
-                ref={scrollImgRef}
-                style={{ y: translateY + initialOffset }}
-              >
-                <img
-                  className="landimg"
-                  src="/landimg.avif"
-                  alt="not working"
-                ></img>
-              </motion.div>
-            </div>
+            
             <div className="heading-content">
               <div className="text-container">
-                At <b>Agarwal Digital</b>, we’re all about <b>action</b>. What
-                are the specific <b>actions</b> that fuel your company's growth?
-                Do you need more consumers to <b>buy</b> your product? Want more
-                people to <b>subscribe</b> to your list, <b>download</b> your
-                app, or <b>learn</b> about your brand? Or perhaps your goal is
-                simply to <b>generate</b> more leads for your products and
-                services? Whatever <b>actions</b> you're targeting,{" "}
-                <b>Agarwal Digital</b> can help.
+                At Saudh, we’re all about action.
+                Want more people to subscribe to your brand? Or perhaps your goal is simply to generate more leads for your company’s growth?
+                What are the specific actions that fuel your products and services?
+                What drives more consumers to buy your product, join your list, download your app, or learn about the actions you’re targeting?
+                Saudh can help.
               </div>
-              <div className="learn-content">
+              {/* <div className="learn-content">
                 <div className="Big-text">
                   Agarwal Digital has the people, the ideas, and the know-how to
                   get your business where you want it to go.{" "}
@@ -367,17 +346,17 @@ const Home = () => {
                   <Cursor />
                 </div>
                 
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="feature-projects" ref={featureProjectsRef}>
             <motion.div className="feature-heading" style={{ x: xRange1 }}>
-              Featured projects
+              Services
             </motion.div>
             <motion.div className="feature-heading" style={{ x: xRange2 }}>
-              Featured projects
+              We Offer
             </motion.div>
-            <Sliderr />
+            {/* <Sliderr /> */}
           </div>
           <div ref={servicesHomeRef} className="services-home">
             <div className="services-container">
@@ -386,61 +365,61 @@ const Home = () => {
                 <div className="service-categories">
                   <motion.h2
                     animate={
-                      hoveredCategory === "Branding" ? { x: 20 } : { x: 0 }
+                      hoveredCategory === CATEGORIES.MALL_IN_YOUR_POCKET ? { x: 20 } : { x: 0 }
                     }
                     transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover("Branding")}
+                    onMouseEnter={() => handleCategoryHover(CATEGORIES.MALL_IN_YOUR_POCKET)}
                     onMouseLeave={() => handleCategoryHover(null)}
                   >
-                    Branding
+                    {CATEGORIES.MALL_IN_YOUR_POCKET}
                   </motion.h2>
                   <motion.h2
                     animate={
-                      hoveredCategory === "Interface Design"
+                      hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                         ? { x: 20 }
                         : { x: 0 }
                     }
                     transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover("Interface Design")}
+                    onMouseEnter={() => handleCategoryHover(CATEGORIES.DIGITAL_CATALOUGES)}
                     onMouseLeave={() => handleCategoryHover(null)}
                   >
-                    Interface Design
+                    {CATEGORIES.DIGITAL_CATALOUGES}
                   </motion.h2>
                   <motion.h2
                     animate={
-                      hoveredCategory === "Development" ? { x: 20 } : { x: 0 }
+                      hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS ? { x: 20 } : { x: 0 }
                     }
                     transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover("Development")}
+                    onMouseEnter={() => handleCategoryHover(CATEGORIES.AI_ENABLED_ANALYTICS)}
                     onMouseLeave={() => handleCategoryHover(null)}
                   >
-                    Development
+                    {CATEGORIES.AI_ENABLED_ANALYTICS}
                   </motion.h2>
                   <motion.h2
                     animate={
-                      hoveredCategory === "Digital Marketing"
+                      hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                         ? { x: 20 }
                         : { x: 0 }
                     }
                     transition={{ duration: 0.5 }}
                     onMouseEnter={() =>
-                      handleCategoryHover("Digital Marketing")
+                      handleCategoryHover(CATEGORIES.WHATSAPP_AUTOMATION)
                     }
                     onMouseLeave={() => handleCategoryHover(null)}
                   >
-                    Digital Marketing
+                    {CATEGORIES.WHATSAPP_AUTOMATION}
                   </motion.h2>
                   <motion.h2
                     animate={
-                      hoveredCategory === "Ongoing Support"
+                      hoveredCategory === CATEGORIES.GAMIFICATION
                         ? { x: 20 }
                         : { x: 0 }
                     }
                     transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover("Ongoing Support")}
+                    onMouseEnter={() => handleCategoryHover(CATEGORIES.GAMIFICATION)}
                     onMouseLeave={() => handleCategoryHover(null)}
                   >
-                    Ongoing Support
+                    {CATEGORIES.GAMIFICATION}
                   </motion.h2>
                 </div>
                 <div className="service-action">
@@ -550,7 +529,7 @@ const Home = () => {
                 ></motion.div>
               </motion.div>
             </div>
-            <div className="proj-logo" ref={serviceHeadinggRef} style={{ position: 'relative', textAlign: 'center' }}>
+            {/* <div className="proj-logo" ref={serviceHeadinggRef} style={{ position: 'relative', textAlign: 'center' }}>
               <svg className="proj-text" viewBox="0 0 200 100" style={{ fontSize: '20rem', fontWeight: 'bold', fill: 'transparent' }}>
                 <defs>
                   <clipPath id="text-clip">
@@ -574,14 +553,14 @@ const Home = () => {
                   AD
                 </text>
               </svg>
-            </div>
+            </div> */}
 
           </div>
           <div className="top-button">
             <hr /> <button>Top!</button>
           </div>
           <div className="contact-home">
-            <h2>Have a project?</h2>
+            <h2>Want to take your Business Online</h2>
             <h2>Let's talk.</h2>
             <div className="contact-action">
               <div className="contact-action-circle"></div>
@@ -594,7 +573,8 @@ const Home = () => {
       <footer ref={footerRef} class="hero-footer">
         <div class="footer-col footer-col1">
           <div class="footer-title">Reach us</div>
-          <div class="footer-content">abc@gmail.com</div>
+          <div class="footer-content">contactsaudh@gmail.com</div>
+          <div class="footer-content">wa : 9234441398</div>
         </div>
         <div class="footer-col footer-col2">
           <div class="footer-title">Follow us</div>
@@ -615,7 +595,7 @@ const Home = () => {
         </div>
         <div class="footer-col footer-col3">
           <div class="footer-title">Legal Stuff</div>
-          <div class="footer-content">@AD</div>
+          <div class="footer-content">@SAUDH</div>
         </div>
         <div class="footer-col footer-col4">
           <div class="subscribe-title">

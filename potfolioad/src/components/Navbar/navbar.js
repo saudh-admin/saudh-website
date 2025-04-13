@@ -360,7 +360,7 @@ const Navbar = () => {
               onMouseLeave={handleHoverLeave}
             >
               <a href="/" id="logo" className="header__logo">
-                AD
+                Saudh
               </a>
             </div>
             <div className="col-2 col-offset-1 col-header-title">
@@ -415,8 +415,8 @@ const Navbar = () => {
       <nav id="nav" className={`nav ${isNavOpen ? "nav-open" : ""}`}>
         <div id="nav-container" className="nav-container">
           <div className="nav__logo">
-            <div className="nav__logo-text">
-              <span ref={textRef}>AD</span>
+            {/* <div className="nav__logo-text">
+              <span ref={textRef}>Saudh</span>
               {currentVideoUrl && (
                 <video
                   ref={videoRef}
@@ -436,7 +436,7 @@ const Navbar = () => {
                   }}
                 />
               )}
-            </div>
+            </div> */}
           </div>
           <svg width="100%" height="100%" viewBox="0 0 1000 1000">
             <defs>
@@ -493,7 +493,7 @@ const Navbar = () => {
                     </motion.span>
                   </motion.a>
                 </li>
-                <li
+                {/* <li
                   id="nav-item-us"
                   className="nav-item"
                   style={{ "--nav-item-index": 2 }}
@@ -513,8 +513,8 @@ const Navbar = () => {
                       Us
                     </motion.span>
                   </motion.a>
-                </li>
-                <li
+                </li> */}
+                {/* <li
                   id="nav-item-journal"
                   className="nav-item"
                   style={{ "--nav-item-index": 3 }}
@@ -534,7 +534,7 @@ const Navbar = () => {
                       Journal
                     </motion.span>
                   </motion.a>
-                </li>
+                </li> */}
                 <li
                   id="nav-item-contact-us"
                   className="nav-item"

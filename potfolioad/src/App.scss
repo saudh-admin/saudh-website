@@ -1,8 +1,10 @@
 
 
 :root {
+  --color-primary: #FFD00A;
   --color-white-15: hsla(0, 0%, 100%, 0.15);
   --color-white-20: hsla(0, 0%, 100%, 0.2);
+  --color-white-50: hsla(0, 0%, 100%, 0.5);
   --color-black-10: rgba(0, 0, 0, 0.1);
   --color-black-15: rgba(0, 0, 0, 0.15);
   --color-black-20: rgba(0, 0, 0, 0.2);
@@ -383,7 +385,7 @@ margin-left: 0;
 
 .nav__logo-text {
   position: relative;
-  font-size: 32rem;
+  font-size: 20rem;
   line-height: 1;
   text-align: center;
   color: transparent;
@@ -676,7 +678,6 @@ z-index: 2;
   .text-container {
     width: 100% !important;
     padding: 10vw !important;
-  
   }
   .learn-content {
     width: 100% !important;
@@ -1034,14 +1035,11 @@ z-index: 2;
 }
 
 .ad-title {
-  text-wrap: wrap;
-  width: 50%;
-  font-size: 4rem;
-  font-weight: 100;
-  letter-spacing: 6px;
+  font-size: 5rem;
+  font-weight: 700;
   z-index: 2;
-  margin: 0;
-
+  letter-spacing: 0.5rem;
+  text-align: center;
 }
 
 .photo-cont {
@@ -1093,16 +1091,14 @@ margin-top: -10vh;
 }
 
 .text-container {
-  width: 50%;
   font-size: 1.3rem;
-  padding-left: 15vw;
-  padding-right: 5vw;
   font-weight: lighter;
-  text-align: left;
+  text-align: center;
   line-height: 1.6;
   letter-spacing: 2px;
   color: var(--color-dark-90);
-
+  width: 70%;
+  margin: auto
 }
 
 
@@ -1150,7 +1146,7 @@ margin-top: -10vh;
 }
 
 .feature-heading {
-  font-size: 16rem;
+  font-size: 7rem;
   letter-spacing: 2px;
   font-weight: 100;
   white-space: nowrap;
@@ -1174,7 +1170,7 @@ margin-top: -10vh;
 .services-home {
   width: 100%;
   height: 116.5vh;
-  background-color: var(--color-green);
+  background-color: var(--color-primary);
   padding-top: 16vh;
   padding-left: 12vw;
   padding-right: 12vw;

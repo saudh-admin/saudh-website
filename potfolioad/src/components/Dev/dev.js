@@ -1,4 +1,5 @@
 
+import { CATEGORIES } from '../../utils/constants';
 import '../Branding/branding.scss';
 import Navbar from '../Navbar/navbar';
 
@@ -54,7 +55,7 @@ const Dev= () => {
                 </div>
                 <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>
-                    Development
+                    {CATEGORIES.AI_ENABLED_ANALYTICS}
                     </div>
                 </div>
                     <div className='img-heading'>
@@ -70,59 +71,54 @@ const Dev= () => {
 
                     <div className='service-content-layout'>
                         <div className='service-content-cat'>
-                            <h1>What's under the hood is just as important as what you see on the surface.</h1>
+                            <h1>Make Discovery Digital.</h1>
                             <div className='service-content-dropdown-cat'>
                                 <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <h4>Product Strategy</h4>
+                                        <h4>Product/Service Popularity</h4>
                                     </div>
                                 </div>
                                 <hr />
                                 <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <h4>iOS + Android Apps</h4>
+                                        <h4>Custom KPI Dashboard</h4>
                                     </div>
                                 </div>
                                 <hr />
                                 <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <h4>WordPress Dev</h4>
+                                        <h4>Event & Campaign Performance</h4>
                                     </div>
                                 </div>
                                 <hr />
                                 <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <h4>E-Commerce</h4>
+                                        <h4>Automated Weekly Reports</h4>
                                     </div>
                                 </div>
                                 <hr />
                                 <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <h4>SaaS Development</h4>
+                                        <h4>Customer Sentiment via Feedback</h4>
                                     </div>
                                 </div>
                                 <hr />
                                 <div className="dropdown">
                                     <div className="dropdown-header">
-                                        <h4>Quality Assurance</h4>
+                                        <h4>Visitor Flow Heatmaps</h4>
                                     </div>
                                 </div>
                                 <hr />
-                                <div className="dropdown">
-                                    <div className="dropdown-header">
-                                        <h4>Web Apps</h4>
-                                    </div>
-                                </div>
-                                <hr />
+                                
                                
                                 
                                 
                             </div>
                         </div>
                         <div className='service-content-text-para'>
-                        You can’t see it, but it’s there. The thousands of lines of code that are responsible for dynamically generating a user interface and channelling information into the palm of your customer's hand.<br /><br />
-                    At AD, all of that magic is handled by some of the world’s most talented and dedicated engineers who work alongside our creative team to ensure that every detail, every interaction, and every workflow is implemented as carefully and thoughtfully as it was designed.<br /><br />
-                    Our capabilities include all of the must-haves, like front-end/back-end dev, Javascript, CMS development in WordPress, Drupal, and Symphony, and eCommerce integrations. We also build custom web apps, SaaS products, and mobile apps for iOS and Android.
+                        Most businesses know what they offer — but few know what works. In a sea of menus, offers, and footfall, crucial insights often slip away. What attracts customers? What do they ignore? Where do they lose interest?<br /><br />
+                        Saudh Insights transforms data into clarity. Our AI-powered analytics track every catalogue interaction, offer redemption, scan pattern, and customer feedback — presented in intuitive dashboards. From time-of-day behavior to top-performing services, we help you make decisions backed by real signals.<br /><br />
+                        Better data leads to smarter campaigns, faster optimizations, and more confident growth. With Saudh Insights, your business doesn't just run — it evolves intelligently.
                      </div>
                     </div>
                 </div>

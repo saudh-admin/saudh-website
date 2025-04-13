@@ -2,6 +2,7 @@ import './services.scss';
 import { motion } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
+import { CATEGORIES } from '../../utils/constants';
 
 const Services = () => {
 
@@ -56,7 +57,7 @@ const Services = () => {
         <>
             <Navbar></Navbar>
             <main>
-                <div className="projects-heading">
+                {/* <div className="projects-heading">
                     <div className={`proj-logo ${showImage ? 'show-image' : ''} ${showBackground ? 'show-background' : ''}`} ref={serviceHeadinggRef}>
                         <svg className={`proj-text ${window.location.pathname === '/Services' ? 'white-background' : window.location.pathname === '/contact' ? 'white-background' : window.location.pathname === '/projects' ? 'gray-background' : ''}`} viewBox="0 0 200 100">
                             <defs>
@@ -83,7 +84,7 @@ const Services = () => {
                         </svg>
                         <h2 className="projects-title">Services</h2>
                     </div>
-                </div>
+                </div> */}
                 <div className='service-content'>
                     <div className='service-col-1'>
                         <motion.div className='service-col-heading'
@@ -109,7 +110,7 @@ const Services = () => {
                                 </motion.div>
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
-                                        <h1>Branding</h1>
+                                        <h1>{CATEGORIES.MALL_IN_YOUR_POCKET}</h1>
                                         <div className='explore'
                                             onMouseEnter={() => handleExploreHover(true)}
                                             onMouseLeave={() => handleExploreHover(false)}
@@ -124,7 +125,7 @@ const Services = () => {
                                             <h3>Explore</h3>
                                         </div>
                                     </div>
-                                    <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                                    <div className='para'>Digitize your mall with a single smart QR code. Give visitors instant access to floors, stores, offers, amenities, and more.</div>
                                 </div>
                             </a>
                         </motion.div>
@@ -152,7 +153,7 @@ const Services = () => {
                                 </motion.div>
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
-                                        <h1>Development</h1>
+                                        <h1>{CATEGORIES.AI_ENABLED_ANALYTICS}</h1>
                                         <div className='explore'
                                             onMouseEnter={() => handleExploreHover(true)}
                                             onMouseLeave={() => handleExploreHover(false)}
@@ -167,7 +168,7 @@ const Services = () => {
                                             <h3>Explore</h3>
                                         </div>
                                     </div>
-                                    <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                                    <div className='para'>Track visitor engagement, measure conversions, and optimize performance with real-time, AI-powered insights.</div>
                                 </div>
                             </a>
                         </motion.div>
@@ -194,7 +195,7 @@ const Services = () => {
                                 </motion.div>
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
-                                        <h1>Ongoing Support</h1>
+                                        <h1>{CATEGORIES.GAMIFICATION}</h1>
                                         <div className='explore'
                                             onMouseEnter={() => handleExploreHover(true)}
                                             onMouseLeave={() => handleExploreHover(false)}
@@ -209,7 +210,7 @@ const Services = () => {
                                             <h3>Explore</h3>
                                         </div>
                                     </div>
-                                    <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                                    <div className='para'>Drive engagement and boost conversions with interactive reward games that increase foot traffic.</div>
                                 </div>
                             </a>
                         </motion.div>
@@ -243,7 +244,7 @@ const Services = () => {
                                 </motion.div>
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
-                                        <h1>Interface Design</h1>
+                                        <h1>{CATEGORIES.DIGITAL_CATALOUGES}</h1>
                                         <div className='explore'
                                             onMouseEnter={() => handleExploreHover(true)}
                                             onMouseLeave={() => handleExploreHover(false)}
@@ -258,7 +259,7 @@ const Services = () => {
                                             <h3>Explore</h3>
                                         </div>
                                     </div>
-                                    <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                                    <div className='para'>Showcase business menus, services, and product listings in a tap-friendly, mobile-first format.</div>
                                 </div>
                             </a>
                         </motion.div>
@@ -287,7 +288,7 @@ const Services = () => {
                                 </motion.div>
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
-                                        <h1>Digital Marketing</h1>
+                                        <h1>{CATEGORIES.WHATSAPP_AUTOMATION}</h1>
                                         <div className='explore'
                                             onMouseEnter={() => handleExploreHover(true)}
                                             onMouseLeave={() => handleExploreHover(false)}
@@ -302,7 +303,7 @@ const Services = () => {
                                             <h3>Explore</h3>
                                         </div>
                                     </div>
-                                    <div className='para'>We help you to create a unique brand identity that will make you stand out from the crowd.</div>
+                                    <div className='para'>Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.</div>
                                 </div>
                             </a>
                         </motion.div>

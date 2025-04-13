@@ -1,4 +1,5 @@
 
+import { CATEGORIES } from '../../utils/constants';
 import '../Branding/branding.scss';
 import Navbar from '../Navbar/navbar';
 
@@ -54,7 +55,7 @@ const Digital = () => {
                                         </div>
                                         <div className='service-heading-cat'>
                                                 <div className='service-heading-text-cat'>
-                                                        Digital Marketing
+                                                        {CATEGORIES.WHATSAPP_AUTOMATION}
                                                 </div>
                                         </div>
                                         <div className='img-heading'>
@@ -70,75 +71,38 @@ const Digital = () => {
 
                                         <div className='service-content-layout'>
                                                 <div className='service-content-cat'>
-                                                        <h1>Putting your brand in front of the right people at the right time to spark long-lasting connections.</h1>
+                                                        <h1>Conversations that Convert.</h1>
                                                         <div className='service-content-dropdown-cat'>
                                                                 <div className="dropdown">
                                                                         <div className="dropdown-header">
-                                                                                <h4>Digital Marketing Campaigns</h4>
+                                                                                <h4>Product Enquiry Bots</h4>
                                                                         </div>
                                                                 </div>
                                                                 <hr />
                                                                 <div className="dropdown">
                                                                         <div className="dropdown-header">
-                                                                                <h4>Social Media Ads</h4>
+                                                                                <h4>Offer & Campaign Broadcasts</h4>
                                                                         </div>
                                                                 </div>
                                                                 <hr />
                                                                 <div className="dropdown">
                                                                         <div className="dropdown-header">
-                                                                                <h4>Social Media Management</h4>
+                                                                                <h4>Auto Replies + FAQ Answers</h4>
                                                                         </div>
                                                                 </div>
                                                                 <hr />
                                                                 <div className="dropdown">
                                                                         <div className="dropdown-header">
-                                                                                <h4>SEO</h4>
+                                                                                <h4>Customer Tagging & Segmentation</h4>
                                                                         </div>
                                                                 </div>
                                                                 <hr />
-                                                                <div className="dropdown">
-                                                                        <div className="dropdown-header">
-                                                                                <h4>Targeted Social Media Campaigns</h4>
-                                                                        </div>
-                                                                </div>
-                                                                <div className="dropdown">
-                                                                        <div className="dropdown-header">
-                                                                                <h4>Search Engine Advertising</h4>
-                                                                        </div>
-                                                                </div>
-                                                                <hr />
-                                                                <div className="dropdown">
-                                                                        <div className="dropdown-header">
-                                                                                <h4>Display Ads & Re-marketing</h4>
-                                                                        </div>
-                                                                </div>
-                                                                <hr />
-                                                                <div className="dropdown">
-                                                                        <div className="dropdown-header">
-                                                                                <h4>E-Mail & Automation</h4>
-                                                                        </div>
-                                                                </div>
-                                                                <hr />
-                                                                <div className="dropdown">
-                                                                        <div className="dropdown-header">
-                                                                                <h4>Performance Tracking</h4>
-                                                                        </div>
-                                                                </div>
-                                                                <hr />
-                                                                <div className="dropdown">
-                                                                        <div className="dropdown-header">
-                                                                                <h4>Aspirational Marketing</h4>
-                                                                        </div>
-                                                                </div>
-                                                                <hr />
-
-
-
                                                         </div>
                                                 </div>
                                                 <div className='service-content-text-para'>
-                                                        Digital Marketing is a form of modern alchemy starting with capturing attention, distilling that attention into trust, and transforming trust into profit.<br /><br />
-                                                        We tailor our digital marketing strategies to help you cut through the noise and attract the right customers for your brand. Our approach involves continual refinement and ongoing enhancements to optimize ROI and help you reach your goals. Our results are proven with custom performance tracking reports that provide KPIs at a glance.<br /><br />
+                                                Your customers live on WhatsApp — shouldn't your services be there too? From finding stores to exploring offers or booking services, people want quick, friendly answers on their preferred platforms.<br /><br />
+                                                FlowChat by Saudh powers smart, automated conversations that convert. Whether capturing leads, answering product questions, or sending offers — everything happens seamlessly within WhatsApp. Built for speed, it serves industries from salons to food courts, spas to fashion outlets.<br /><br />
+                                                In an era of shrinking attention spans, WhatsApp automation strengthens relationships, speeds up responses, and keeps your business top-of-mind — right in your customers' favorite chat app.
                                                 </div>
                                         </div>
                                 </div>

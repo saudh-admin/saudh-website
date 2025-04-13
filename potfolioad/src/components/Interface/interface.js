@@ -2,6 +2,7 @@ import '../Branding/branding.scss';
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/navbar';
 import { FaChevronDown } from 'react-icons/fa';
+import { CATEGORIES } from '../../utils/constants';
 
 const Interface = () => {
 
@@ -49,7 +50,7 @@ const Interface = () => {
                 </div>
                 <div className='service-heading-cat'>
                     <div className='service-heading-text-cat'>
-                       Interface Design
+                       {CATEGORIES.DIGITAL_CATALOUGES}
                     </div>
                 </div>
                     <div className='img-heading'>
@@ -66,48 +67,38 @@ const Interface = () => {
 
                     <div className='service-content-layout'>
                         <div className='service-content-cat'>
-                            <h1>It's really quite simple: Give your users what they want.</h1>
+                            <h1>Make Discovery Digital</h1>
                             <div className='service-content-dropdown-cat'>
-                                <div className="dropdown" onClick={() => toggleDropdown(1)}>
-                                    <div className="dropdown-header">
-                                        <FaChevronDown className="dropdown-icon" />
-                                        <h4>UX Strategy</h4>
-                                    </div>
-                                    <div className={`dropdown-content ${activeDropdowns[1] ? 'active' : ''}`}>
-                                    <h5>- User Research</h5>
-                                <h5>- Competitor Analysis</h5>
-                                <h5>- Value Proposition</h5>
-                                <h5>- Product Vision and Roadmap</h5>
-                                <h5>- Persona Development</h5>
-                                <h5>- Journey Mapping</h5>
-                                <h5>- Usability and Accessibility</h5>
-                                <h5>- Stakeholder Engagement</h5>
-                                <h5>- Metrics and Analytics</h5>
-                                <h5>- Prototyping and Validation</h5>
-                                    </div>
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>QR Code Menus & Product Lists</h4>
+                                        </div>
                                 </div>
                                 <hr />
-                                <div className="dropdown" onClick={() => toggleDropdown(2)}>
-                                    <div className="dropdown-header">
-                                        <FaChevronDown className="dropdown-icon" />
-                                        <h4>UI Design</h4>
-                                    </div>
-                                    <div className={`dropdown-content ${activeDropdowns[2] ? 'active' : ''}`}>
-                                    <h5>- Website Design</h5>
-                                <h5>- Visual Design</h5>
-                                <h5>- Interaction Design</h5>
-                                <h5>- User Experience(UX) Alignment</h5>
-                                <h5>- Consistency and Branding</h5>
-                                <h5>- Responsiveness and Adaptability</h5>
-                                    </div>
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Pricing & Availability Indicators</h4>
+                                        </div>
                                 </div>
+                                <hr />
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Multilingual Support</h4>
+                                        </div>
+                                </div>
+                                <hr />
+                                <div className="dropdown">
+                                        <div className="dropdown-header">
+                                                <h4>Brand Customization Options</h4>
+                                        </div>
+                                </div>
+                                <hr />
                             </div>
                         </div>
                         <div className='service-content-text-para'>
-                            People form habits around what makes them feel good. It could be pleasure, it could be responsibility, integrity, value, or prudence. Your brand is a powerful vehicle packed full of positive reinforcement.<br /><br />
-                            Your brand is also <b>you</b>. All of you — the founders, the architects, the daily contributors. Everything that has been put into a venture, by every individual. <br /><br />
-                            The first step to branding is understanding what you're all about. "Who" is your business? And what ecosystem of users, competitors, or partners does it inhabit? <br /><br />
-                            Once we understand your world, we bring you into ours. How can you consistently communicate the singular vision of your company, at just a glance? Well, that's where we come in.
+                        Printed menus and static product brochures age fast — and they cost time, money, and flexibility. Whether you're a salon updating services or a café introducing specials, paper can't keep up with how quickly your business evolves.<br /><br />
+                            Digital Catalogues give restaurants, spas, salons, and retail stores a sleek, real-time way to present their offerings. With just a QR scan, customers can explore detailed menus, product images, pricing, and even customizations — all in their preferred language and without downloading an app. Updates happen instantly, so your catalogue always reflects what’s available now. <br /><br />
+                            This isn’t just about going digital — it’s about creating a smoother, more informed customer journey. You reduce friction, increase conversions, and gain insights into what people browse the most. It’s the modern storefront your business deserves.
                         </div>
                     </div>
                 </div>

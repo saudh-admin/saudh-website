@@ -20,7 +20,7 @@
     position: relative;
     overflow: hidden;
     height: 55vh;
-    background-color: var(--color-green);
+    background-color: var(--color-primary);
     transform: translateY(-100%);
     transition: transform 1.5s ease;
 }
@@ -36,9 +36,9 @@
 }
 .service-logo-service-cat {
     padding-top: 10rem;
-    font-size: 40rem;
+    font-size: 30rem;
     text-align: center;
-    -webkit-text-stroke: 2px var(--color-gray);
+    -webkit-text-stroke: 2px var(--color-white-50);
     color: transparent;
     opacity: 0;
     transition: opacity 1s ease;
