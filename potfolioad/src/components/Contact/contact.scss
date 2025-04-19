@@ -145,3 +145,27 @@
         }
     }
 }
+
+@media (min-width:320px)and (max-width:640px){ 
+    .contact-content {
+        flex-direction: column-reverse;
+        margin-top: 8rem;
+        gap: 2rem;
+
+        .contact-title {
+            width: 100%;
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 400;
+                letter-spacing: 1px;
+            }
+            img {
+                display: none;
+            }
+        }
+
+        .contact-form {
+            width: 100%;
+        }
+    }
+}

@@ -703,6 +703,7 @@ z-index: 2;
   
   .ad-title {
     font-size: 2rem !important;
+    letter-spacing: 0.1rem !important;
   }
   
   .photo-cont {
@@ -723,8 +724,8 @@ z-index: 2;
   
   .text-container {
     width: 100% !important;
-    padding: 10vw !important;
-  
+    padding: 5vw !important;
+    font-size: 1.2rem !important;
   }
   .learn-content {
     width: 100% !important;
@@ -1035,6 +1036,7 @@ z-index: 2;
 }
 
 .ad-title {
+  padding-top: 4rem;
   font-size: 5rem;
   font-weight: 700;
   z-index: 2;
@@ -1092,7 +1094,7 @@ margin-top: -10vh;
 
 .text-container {
   font-size: 1.3rem;
-  font-weight: lighter;
+  font-weight: 300;
   text-align: center;
   line-height: 1.6;
   letter-spacing: 2px;
@@ -1162,7 +1164,7 @@ margin-top: -10vh;
 }
 
 .feature-heading {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 }
 
@@ -1291,7 +1293,6 @@ margin-top: -10vh;
   .services-home {
     width: 100%;
     height: 50vh;
-    background-color: var(--color-green);
     padding-top: 5vh;
     padding-left: 4vw;
     padding-right: 4vw;
@@ -1377,8 +1378,15 @@ display: flex;
   text-align: center;
 
   h2 {
-    font-size: 3rem;
-    letter-spacing: 2px;
+    font-size: 1rem !important;
+    letter-spacing: 1px;
+    font-weight: 400;
+    align-self: center !important;
+  }
+
+  h3 {
+    font-size: 1.2rem !important;
+    letter-spacing: 1px;
     align-self: center !important;
   }
 
@@ -1457,7 +1465,6 @@ display: flex;
   .services-home {
     width: 100%;
     height: 61vh;
-    background-color: var(--color-green);
     padding-top: 5vh;
     padding-left: 4vw;
     padding-right: 4vw;
@@ -1542,6 +1549,12 @@ display: flex;
   text-align: center;
 
   h2 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    align-self: center !important;
+  }
+
+  h3 {
     font-size: 4rem;
     letter-spacing: 2px;
     align-self: center !important;

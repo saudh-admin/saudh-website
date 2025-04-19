@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
 import { CATEGORIES } from '../../utils/constants';
+import Footer from '../Footer/footer';
 
 const Services = () => {
 
@@ -86,6 +87,9 @@ const Services = () => {
                     </div>
                 </div> */}
                 <div className='service-content'>
+                    <div className='heading-mobile'>
+                        <h1>What We Offer</h1>
+                    </div>
                     <div className='service-col-1'>
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Branding')}
@@ -320,32 +324,7 @@ const Services = () => {
                         <div className='contact-action-word'>Contact</div>
                     </div>
                 </div>
-                <footer class='hero-footer'>
-                    <div class='footer-col footer-col1'>
-                        <div class='footer-title'>Reach us</div>
-                        <div class='footer-content'>abc@gmail.com</div>
-                    </div>
-                    <div class='footer-col footer-col2'>
-                        <div class='footer-title'>Follow us</div>
-                        <div class='footer-content'>
-                            <a href='' class='footer-nav'>Twitter</a>
-                            <a href='' class='footer-nav'>Facebook</a>
-                            <a href='' class='footer-nav'>Instagram</a>
-                            <a href='' class='footer-nav'>LinkedIn</a>
-                        </div>
-                    </div>
-                    <div class='footer-col footer-col3'>
-                        <div class='footer-title'>Legal Stuff</div>
-                        <div class='footer-content'>@AD</div>
-                    </div>
-                    <div class='footer-col footer-col4'>
-                        <div class='subscribe-title'>INSPIRATION AND INNOVATION COME IN SHORT SUPPLY. GET A REFUEL ON US, DIRECT TO YOUR INBOX.</div>
-                        <div class='subscribe-box'>
-                            <h4>Enter your email</h4>
-                            <h5>Subscribe</h5>
-                        </div>
-                    </div>
-                </footer>
+                <Footer />
             </div>
         </>
     )

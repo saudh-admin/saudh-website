@@ -222,3 +222,44 @@
 .dropdown.active .dropdown-content {
     display: block;
 }
+
+
+@media (min-width:320px)and (max-width:640px){ 
+    .service-heading-cat {
+        .service-heading-text-cat {
+            width: 100%;
+            padding-top: 6rem;
+            font-size: 3rem;
+            letter-spacing: 0;    
+            padding-left: 0;
+            text-align: center;
+            font-weight: 500;
+        }
+    }
+    
+    .service-content-layout{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        .service-content-cat {
+            padding: 1rem 1.5rem;
+            width: 100%;
+            h1 {
+                font-size: 1.8rem;
+                font-weight: 400;
+            }
+
+            .service-content-dropdown-cat {
+                width: 100%;
+                margin: 1rem 0rem;
+            }
+        }
+
+        .service-content-text-para {
+            padding: 0rem 2rem;
+            width: 100%;       
+        }
+    }
+    
+}

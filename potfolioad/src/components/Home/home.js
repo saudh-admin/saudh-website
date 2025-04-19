@@ -9,6 +9,8 @@ import {
 import Sliderr from "../Contact/slider";
 import Navbar from "../Navbar/navbar";
 import Cursor from "../Cursor";
+import Footer from "../Footer/footer";
+import CTA from "../CTA/cta";
 
 const adBgVariants = {
   initial: {
@@ -559,55 +561,11 @@ const Home = () => {
           <div className="top-button">
             <hr /> <button>Top!</button>
           </div>
-          <div className="contact-home">
-            <h2>Want to take your Business Online</h2>
-            <h2>Let's talk.</h2>
-            <div className="contact-action">
-              <div className="contact-action-circle"></div>
-              <div className="contact-action-word">Contact</div>
-            </div>
-          </div>
+          <CTA />
         </div>
       </main>
 
-      <footer ref={footerRef} class="hero-footer">
-        <div class="footer-col footer-col1">
-          <div class="footer-title">Reach us</div>
-          <div class="footer-content">contactsaudh@gmail.com</div>
-          <div class="footer-content">wa : 9234441398</div>
-        </div>
-        <div class="footer-col footer-col2">
-          <div class="footer-title">Follow us</div>
-          <div class="footer-content">
-            <a href="" class="footer-nav">
-              Twitter
-            </a>
-            <a href="" class="footer-nav">
-              Facebook
-            </a>
-            <a href="" class="footer-nav">
-              Instagram
-            </a>
-            <a href="" class="footer-nav">
-              LinkedIn
-            </a>
-          </div>
-        </div>
-        <div class="footer-col footer-col3">
-          <div class="footer-title">Legal Stuff</div>
-          <div class="footer-content">@SAUDH</div>
-        </div>
-        <div class="footer-col footer-col4">
-          <div class="subscribe-title">
-            INSPIRATION AND INNOVATION COME IN SHORT SUPPLY. GET A REFUEL ON US,
-            DIRECT TO YOUR INBOX.
-          </div>
-          <div class="subscribe-box">
-            <h4>Enter your email</h4>
-            <h5>Subscribe</h5>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     
     </>
   );

@@ -1,6 +1,7 @@
 import './contact.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
+import Footer from '../Footer/footer'
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,7 +43,7 @@ useEffect(() => {
     <>
       <Navbar></Navbar>
       <main>
-        <div className="projects-heading">
+        {/* <div className="projects-heading">
         <div className={`proj-logo ${showImage ? 'show-image' : ''} ${showBackground ? 'show-background' : ''}`} ref={serviceHeadinggRef}>
                         <svg className={`proj-text ${window.location.pathname === '/Services' ? 'white-background' : window.location.pathname === '/contact' ? 'white-background' : window.location.pathname === '/projects' ? 'gray-background' : ''}`} viewBox="0 0 200 100">
                             <defs>
@@ -69,7 +70,7 @@ useEffect(() => {
                         </svg>
                         <h2 className="projects-title">Let’s build something awesome together.</h2>
                     </div>
-        </div>
+        </div> */}
         <div className='contact-content'>
           <div className='contact-form'>
             <form>
@@ -120,32 +121,7 @@ useEffect(() => {
           </div>
         </div>
       </main>
-      <footer class='hero-footer'>
-        <div class='footer-col footer-col1'>
-          <div class='footer-title'>Reach us</div>
-          <div class='footer-content'>abc@gmail.com</div>
-        </div>
-        <div class='footer-col footer-col2'>
-          <div class='footer-title'>Follow us</div>
-          <div class='footer-content'>
-            <a href='' class='footer-nav'>Twitter</a>
-            <a href='' class='footer-nav'>Facebook</a>
-            <a href='' class='footer-nav'>Instagram</a>
-            <a href='' class='footer-nav'>LinkedIn</a>
-          </div>
-        </div>
-        <div class='footer-col footer-col3'>
-          <div class='footer-title'>Legal Stuff</div>
-          <div class='footer-content'>@AD</div>
-        </div>
-        <div class='footer-col footer-col4'>
-          <div class='subscribe-title'>INSPIRATION AND INNOVATION COME IN SHORT SUPPLY. GET A REFUEL ON US, DIRECT TO YOUR INBOX.</div>
-          <div class='subscribe-box'>
-            <h4>Enter your email</h4>
-            <h5>Subscribe</h5>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 };

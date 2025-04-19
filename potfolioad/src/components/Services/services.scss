@@ -94,6 +94,10 @@
     display: flex;
     flex-direction: row;
 
+    .heading-mobile {
+      display: none;
+    }
+
     .service-col-1{
         max-width: 50%;
         align-items: flex-start;
@@ -312,3 +316,100 @@
     .shape-circle, .shape-center {
         transition: all 0.3s ease-out; 
         }
+
+@media (min-width:320px)and (max-width:640px){ 
+  .service-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0vw 4vw;
+
+    .heading-mobile {
+      display: block;
+      margin:  6rem 0 1rem 0;
+
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 300;
+      }
+    }
+    
+    .service-col-1 {
+      max-width: fit-content;
+      .service-col-heading {
+        margin-bottom: 5vh;
+        .service-col-heading-text {
+          flex-direction: column;
+          .head {
+            display: flex;
+            flex-direction: column;
+            h1 {
+              font-size: 2rem;
+            }
+          }
+          .para {
+            margin-top: 1rem;
+            width: 100%;
+          }
+        }
+        .img-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          .service-col-heading-img {
+            width: 80%;
+            margin: auto;
+            object-fit: cover;
+            max-height: 20vh;
+          }
+        }
+
+        .anim-circle{
+          visibility: hidden;
+        }
+      }
+    }
+    .service-col-2 {
+      max-width: fit-content;
+      .service-home-heading {
+        display: none;
+      }
+      .service-col-heading {
+        margin-bottom: 5vh;
+        .service-col-heading-text {
+          flex-direction: column;
+          .head {
+            display: flex;
+            flex-direction: column;
+            .explore {
+              padding-top: 0rem;
+            }
+            h1 {
+              font-size: 2rem;
+            }
+          }
+          .para {
+            margin-top: 1rem;
+            width: 100%;
+          }
+        }
+        .img-wrapper {
+          width: 100%;
+          max-height: 25vh;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          .service-col-heading-img {
+            width: 80%;
+            margin: auto;
+            object-fit: cover;
+            max-height: 20vh;
+          }
+        }
+
+        .anim-circle{
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}

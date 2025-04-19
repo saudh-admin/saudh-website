@@ -325,6 +325,9 @@ const Navbar = () => {
               </>
             )}
           </div>
+          <div>
+            
+          </div>
           <div className="row row--items-middle">
             <div className="col-1 col-nav-btn">
             <Cursor />
@@ -359,8 +362,8 @@ const Navbar = () => {
               onMouseEnter={handleHover}
               onMouseLeave={handleHoverLeave}
             >
-              <a href="/" id="logo" className="header__logo">
-                Saudh
+              <a href="/" id="logo" className="header__logo col-auto">
+                <img src="/saudh.png"  className="img-fluid"  />
               </a>
             </div>
             <div className="col-2 col-offset-1 col-header-title">
@@ -472,7 +475,7 @@ const Navbar = () => {
                     </span>
                   </a>
                 </li>
-                <li
+                {/* <li
                   id="nav-item-projects"
                   className="nav-item"
                   style={{ "--nav-item-index": 1 }}
@@ -492,7 +495,7 @@ const Navbar = () => {
                       Projects
                     </motion.span>
                   </motion.a>
-                </li>
+                </li> */}
                 {/* <li
                   id="nav-item-us"
                   className="nav-item"
