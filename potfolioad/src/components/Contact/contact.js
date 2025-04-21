@@ -7,6 +7,9 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showImage, setShowImage] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
   const serviceHeadinggRef = useRef(null);
   useEffect(() => {
     const serviceHeadinggElement = serviceHeadinggRef.current;
@@ -25,6 +28,26 @@ const Contact = () => {
     }, 800);
 }, []);
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = {
+    email, 
+    message
+  }
+
+  try {
+    console.log(process.env.REACT_APP_SHEETS_URL);
+    await fetch(process.env.REACT_APP_SHEETS_URL, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(resData => {console.log(resData)})
+  } catch (e) {
+    console.error("error submitting data")
+  }
+}
 
 
 useEffect(() => {
@@ -73,13 +96,13 @@ useEffect(() => {
         </div> */}
         <div className='contact-content'>
           <div className='contact-form'>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className='form-group'>
                 <input type='text' id='name' name='name' placeholder='Your name' required />
               </div>
 
               <div className='form-group'>
-                <input type='email' id='email' name='email' placeholder='Work email' required />
+                <input type='email' id='email' name='email' placeholder='Work email' required value={email} onChange={(e) => {setEmail(e.target.value)}} />
               </div>
 
               <div className='form-group'>
@@ -100,16 +123,16 @@ useEffect(() => {
                 </div>
               </div>
 
-              <div className='form-group'>
+              {/* <div className='form-group'>
                 <div className='budget-container'>
                   <label htmlFor='attachment' className='attach'>Any docs to attach?</label>
                   <input type='file' id='attachment' name='attachment' className='file-input' />
                   <label htmlFor='attachment' className='file-label'>Select a file</label>
                 </div>
-              </div>
+              </div> */}
 
               <div className='form-group'>
-                <textarea id='message' name='message' placeholder='Please tell us a bit about your project..' required></textarea>
+                <textarea value={message} onChange={(e) => {setMessage(e.target.value)}} id='message' name='message' placeholder='Please tell us a bit about your project..' required></textarea>
               </div>
 
               <button type='submit'>Send</button>
