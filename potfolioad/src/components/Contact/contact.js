@@ -37,11 +37,13 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    console.log(process.env.REACT_APP_SHEETS_URL);
     await fetch(process.env.REACT_APP_SHEETS_URL, {
       redirect: 'follow',
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
     })
     .then(res => res.json())
     .then(resData => {console.log(resData)})

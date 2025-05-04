@@ -1458,7 +1458,18 @@ display: flex;
     }
   }
 }
-  
+
+.nav-container {
+  margin-left: 0 !important;
+  .container {
+    top: -50% !important;
+
+  }
+  .row--items-middle {
+    justify-content: center;
+    left: 0% !important;
+  }
+}
 }
 
 @media (min-width:641px) and (max-width:768px){

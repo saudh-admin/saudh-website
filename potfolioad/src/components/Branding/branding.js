@@ -4,6 +4,7 @@ import Navbar from '../Navbar/navbar';
 import { FaChevronDown } from 'react-icons/fa';
 import { CATEGORIES } from '../../utils/constants';
 import Footer from '../Footer/footer';
+import FAQ from '../FAQ/faq';
 
 const Branding = () => {
 
@@ -45,7 +46,7 @@ const Branding = () => {
         <>
             <Navbar></Navbar>
             <main>
-            <div className='service-branding'>
+                <div className='service-branding'>
                 <div className="service-logo-wrapper">
                     <div className="service-logo-service-cat">Saudh</div>
                 </div>
@@ -108,6 +109,7 @@ const Branding = () => {
                         </div>
                     </div>
                 </div>
+                <FAQ />
                 <div className='top-button'><hr /> <button>Top!</button></div>
                 <div className='contact-home'>
                     <h2>Have a project?</h2>
