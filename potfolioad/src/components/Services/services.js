@@ -112,7 +112,7 @@ const Services = () => {
                                         y: hoveredCategory === 'Branding' ? -80 : -40,
                                     }}></motion.div>
                                 </motion.div>
-                                <div className='service-col-heading-text'>
+                                {/* <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>{CATEGORIES.MALL_IN_YOUR_POCKET}</h1>
                                         <div className='explore'
@@ -128,9 +128,9 @@ const Services = () => {
                                             />
                                             <h3>Explore</h3>
                                         </div>
-                                    </div>
-                                    <div className='para'>Digitize your mall with a single smart QR code. Give visitors instant access to floors, stores, offers, amenities, and more.</div>
-                                </div>
+                                    </div> 
+                                 <div className='para'>Digitize your mall with a single smart QR code. Give visitors instant access to floors, stores, offers, amenities, and more.</div> */}
+                                {/* </div> */}
                             </a>
                         </motion.div>
                         <motion.div className='service-col-heading'
@@ -138,9 +138,9 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Development'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='dev.webp' alt='landimg' />
+                                    {/* <img className='service-col-heading-img' src='dev.webp' alt='landimg' /> */}
                                 </div>
-                                <motion.div className='anim-circle'>
+                                {/* <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
                                         x: hoveredCategory === 'Development' ? -80 : -80,
                                         y: hoveredCategory === 'Development' ? -80 : -40,
@@ -154,7 +154,8 @@ const Services = () => {
                                         y: hoveredCategory === 'Development' ? 0 : -40,
 
                                     }}></motion.div>
-                                </motion.div>
+                                </motion.div> */}
+                                {/* //Ai enabled */}
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>{CATEGORIES.AI_ENABLED_ANALYTICS}</h1>
@@ -246,6 +247,7 @@ const Services = () => {
 
                                     }}></motion.div>
                                 </motion.div>
+                                {/* digital catalogue */}
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>{CATEGORIES.DIGITAL_CATALOUGES}</h1>
@@ -290,6 +292,7 @@ const Services = () => {
 
                                     }}></motion.div>
                                 </motion.div>
+                                {/* Whatsapp */}
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>{CATEGORIES.WHATSAPP_AUTOMATION}</h1>

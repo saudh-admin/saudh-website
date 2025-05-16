@@ -12,7 +12,7 @@ import Dev from './components/Dev/dev';
 import Digital from './components/Digital/digital';
 import Support from './components/Support/support';
 import Journal from './components/Journal/journal';
-import Cursor from './components/Cursor';
+import Cursor from './components/Cursor/Cursor';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       <Cursor />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Services" element={<Services />} />b
+          <Route path="/Services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/us" element={<Us />} />
           <Route path="/contact" element={<Contact />} />

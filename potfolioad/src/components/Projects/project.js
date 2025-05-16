@@ -177,7 +177,7 @@ const Projects = () => {
             </div>
             <div class="footer-col footer-col3">
                 <div class="footer-title">Legal Stuff</div>
-                <div class="footer-content">@AD</div>
+                <div class="footer-content">@Saudh</div>
             </div>
             <div class="footer-col footer-col4">
                 <div class="subscribe-title">

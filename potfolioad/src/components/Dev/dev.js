@@ -1,4 +1,4 @@
-
+//Ai enabled analytics
 import { CATEGORIES } from '../../utils/constants';
 import '../Branding/branding.scss';
 import Footer from '../Footer/footer';
