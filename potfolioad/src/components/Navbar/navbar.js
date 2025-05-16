@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Link } from 'react-router-dom';
-import Cursor from "../Cursor";
+import Cursor from "../Cursor/Cursor";
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);

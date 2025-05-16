@@ -413,3 +413,92 @@
     }
   }
 }
+
+
+.service-col-heading-text {
+  h1, .head h1 {
+    font-size: 2.05rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.21em !important;  
+    line-height: 1.12 !important;      
+    letter-spacing: -0.3px;
+  }
+
+  .para {
+    font-size: 1.08rem !important;
+    font-weight: 100 ;
+    line-height: 1.33 !important;        
+    margin-top: 0.16em !important;
+    margin-bottom: 0.16em !important;   
+    color: #222;
+  }
+
+  .explore {
+    display: flex;
+    align-items: center;
+    gap: 0.44em;
+    margin-top: 0.11em !important;
+    margin-bottom: 0.08em !important;  
+    font-size: 1.02rem;
+    font-weight: 400;
+    color: #111;
+    text-decoration: none;
+    h3 {
+      font-size: 1.04rem;
+      font-weight: 400;
+      margin-bottom: 0 !important;
+      margin-left: 0.3em;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.service-col-heading {
+  margin-bottom: 5vh !important;
+}
+.service-col-heading:last-child {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .service-col-heading-text {
+    h1, .head h1 {
+      font-size: 1.17rem !important;
+      margin-bottom: 0.14em !important;
+    }
+    .para {
+      font-size: 0.98rem ;
+      margin-bottom: 0.09em !important;
+      line-height: 1.26 !important;
+    }
+    .explore {
+      font-size: 0.96rem !important;
+      margin-top: 0.07em !important;
+      margin-bottom: 0.03em !important;
+    }
+  }
+  .service-col-heading {
+    margin-bottom: 3.3vh !important;
+  }
+}
+@media (max-width: 900px) {
+  .service-col-heading, .service-col-heading.reverse {
+    flex-direction: column !important;
+  }
+  .service-col-heading.reverse a,
+  .service-col-heading.reverse {
+    flex-direction: column !important;
+  }
+  .service-col-heading.reverse .img-wrapper {
+    order: 1 !important;   
+  }
+  .service-col-heading.reverse .service-col-heading-text {
+    order: 2 !important;   
+  }
+  .service-col-heading .img-wrapper {
+    order: 1 !important;
+  }
+  .service-col-heading .service-col-heading-text {
+    order: 2 !important;
+  }
+}

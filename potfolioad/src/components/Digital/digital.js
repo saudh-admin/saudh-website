@@ -1,26 +1,18 @@
-
+//whatsapp automation
 import { CATEGORIES } from '../../utils/constants';
 import '../Branding/branding.scss';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
-
-
 import React, { useState, useEffect } from 'react';
 
-
-
-
 const Digital = () => {
-
         const [activeDropdowns, setActiveDropdowns] = useState({});
-
         const toggleDropdown = (index) => {
                 setActiveDropdowns((prevState) => ({
                         ...prevState,
                         [index]: !prevState[index],
                 }));
         };
-
         useEffect(() => {
                 const serviceHeadingCat = document.querySelector('.service-heading-cat');
                 const imgHeading = document.querySelector('.img-heading');
@@ -52,7 +44,7 @@ const Digital = () => {
                         <main>
                                 <div className='service-branding'>
                                         <div className="service-logo-wrapper">
-                                                <div className="service-logo-service-cat">AD</div>
+                                                <div className="service-logo-service-cat">Saudh</div>
                                         </div>
                                         <div className='service-heading-cat'>
                                                 <div className='service-heading-text-cat'>
