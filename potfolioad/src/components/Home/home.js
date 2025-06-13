@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import Sliderr from "../Contact/slider";
 import Navbar from "../Navbar/navbar";
-import Cursor from "../Cursor";
+import Cursor from "../Cursor/Cursor";
 import Footer from "../Footer/footer";
 import CTA from "../CTA/cta";
 
@@ -51,11 +51,6 @@ const Home = () => {
   const minY = initialOffset - window.innerHeight / 2;
   const translateY = Math.max(Math.min(-scrollY * 0.9, 0), -maxScrollY);
   const pageHintRef = useRef(null);
-
-
-
-
-
 
   useEffect(() => {
     const nav = document.querySelector(".nav");
@@ -153,7 +148,7 @@ const Home = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const animationInterval = useRef(null);
   const CATEGORIES = {
-    'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
+    // 'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
     'DIGITAL_CATALOUGES': 'Digital Catalogues',
     'AI_ENABLED_ANALYTICS': 'AI enabled Analytics',
     'WHATSAPP_AUTOMATION': 'Whatsapp Automation',
@@ -182,7 +177,7 @@ const Home = () => {
 
   const animateCategories = () => {
     const categories = [
-      "Branding",
+      // "Branding",
       "Interface Design",
       "Development",
       "Digital Marketing",
@@ -442,8 +437,8 @@ const Home = () => {
                   animate={{
                     x:
                       hoveredCategory === "Branding"
-                        ? -175
-                        : hoveredCategory === "Interface Design"
+                        ? -175:
+                         hoveredCategory === "Interface Design"
                           ? -175
                           : hoveredCategory === "Development"
                             ? -175
@@ -454,8 +449,8 @@ const Home = () => {
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
-                        ? 20
-                        : hoveredCategory === "Interface Design"
+                        ? 20:
+                         hoveredCategory === "Interface Design"
                           ? -25
                           : hoveredCategory === "Development"
                             ? -185
@@ -473,8 +468,8 @@ const Home = () => {
                   animate={{
                     x:
                       hoveredCategory === "Branding"
-                        ? -90
-                        : hoveredCategory === "Interface Design"
+                        ? -90:
+                         hoveredCategory === "Interface Design"
                           ? -80
                           : hoveredCategory === "Development"
                             ? -80
@@ -485,8 +480,8 @@ const Home = () => {
                                 : -80,
                     y:
                       hoveredCategory === "Branding"
-                        ? 20
-                        : hoveredCategory === "Interface Design"
+                        ? 20:
+                         hoveredCategory === "Interface Design"
                           ? -185
                           : hoveredCategory === "Development"
                             ? 120
@@ -503,8 +498,8 @@ const Home = () => {
                   animate={{
                     x:
                       hoveredCategory === "Branding"
-                        ? -185
-                        : hoveredCategory === "Interface Design"
+                        ? -185:
+                         hoveredCategory === "Interface Design"
                           ? -175
                           : hoveredCategory === "Development"
                             ? -175
@@ -515,8 +510,8 @@ const Home = () => {
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
-                        ? -175
-                        : hoveredCategory === "Interface Design"
+                        ? -175:
+                         hoveredCategory === "Interface Design"
                           ? -185
                           : hoveredCategory === "Development"
                             ? 20
