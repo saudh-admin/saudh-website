@@ -326,11 +326,10 @@ const Navbar = () => {
             )}
           </div>
           <div>
-            
           </div>
           <div className="row row--items-middle">
             <div className="col-1 col-nav-btn">
-            <Cursor />
+              <Cursor />
               <button
                 id="nav-btn"
                 type="button"
@@ -355,7 +354,7 @@ const Navbar = () => {
                   className="nav-btn__bar nav-btn__bar-2 nav-btn__bar--closed"
                 ></span>
               </button>
-              
+
             </div>
             <div
               className="col-6 col-offset-2 col-md-3 col-offset-md-0 col-lg-1 col-logo"
@@ -363,7 +362,7 @@ const Navbar = () => {
               onMouseLeave={handleHoverLeave}
             >
               <a href="/" id="logo" className="header__logo col-auto">
-                <img src="/saudh.png"  className="img-fluid"  />
+                <img src="/saudh.png" className="img-fluid" />
               </a>
             </div>
             <div className="col-2 col-offset-1 col-header-title">
@@ -401,7 +400,12 @@ const Navbar = () => {
             </div>
           </div>
           <div className="start-project">
-            <div className="start-cont">
+            <a href="/contact">
+              <button className="new-btn">
+                Contact Us
+              </button>
+            </a>
+            {/* <div className="start-cont">
               <a href="/contact" className="nav-contact">
                 <div className="start-circle">
                   <h3>Book a Demo</h3>
@@ -411,7 +415,7 @@ const Navbar = () => {
                   className={`start-label ${hideStartLabel ? "hide" : ""}`}
                 ></span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>
@@ -565,7 +569,7 @@ const Navbar = () => {
         </div>
 
       </nav>
-   
+
     </>
   )
 }

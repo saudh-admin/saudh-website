@@ -91,7 +91,7 @@ const Services = () => {
                         <h1>What We Offer</h1>
                     </div>
                     <div className='service-col-1'>
-                        <motion.div className='service-col-heading'
+                        {/* <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Branding')}
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Branding'>
@@ -111,7 +111,7 @@ const Services = () => {
                                         x: hoveredCategory === 'Branding' ? -80 : -80,
                                         y: hoveredCategory === 'Branding' ? -80 : -40,
                                     }}></motion.div>
-                                </motion.div>
+                                </motion.div> */}
                                 {/* <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>{CATEGORIES.MALL_IN_YOUR_POCKET}</h1>
@@ -131,16 +131,16 @@ const Services = () => {
                                     </div> 
                                  <div className='para'>Digitize your mall with a single smart QR code. Give visitors instant access to floors, stores, offers, amenities, and more.</div> */}
                                 {/* </div> */}
-                            </a>
-                        </motion.div>
+                            {/* </a> */}
+                        {/* </motion.div> */}
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Development')}
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Development'>
                                 <div className='img-wrapper'>
-                                    {/* <img className='service-col-heading-img' src='dev.webp' alt='landimg' /> */}
+                                    <img className='service-col-heading-img' src='AIenabled.webp.jpg' alt='landimg' />
                                 </div>
-                                {/* <motion.div className='anim-circle'>
+                                <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
                                         x: hoveredCategory === 'Development' ? -80 : -80,
                                         y: hoveredCategory === 'Development' ? -80 : -40,
@@ -154,7 +154,7 @@ const Services = () => {
                                         y: hoveredCategory === 'Development' ? 0 : -40,
 
                                     }}></motion.div>
-                                </motion.div> */}
+                                </motion.div>
                                 {/* //Ai enabled */}
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
@@ -182,7 +182,7 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Ongoing-support'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='support.webp' alt='landimg' />
+                                    <img className='service-col-heading-img' src='Gamification.webp.jpg' alt='landimg' />
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
@@ -229,7 +229,7 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Interface-design'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='interface.webp' alt='landimg' />
+                                    <img className='service-col-heading-img' src='Digital Catalogue.webp.jpg' alt='landimg' />
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
@@ -274,7 +274,7 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Digital-marketing'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='marketing.webp' alt='landimg' />
+                                    <img className='service-col-heading-img' src='Whatsapp Automation.webp.jpg' alt='landimg' />
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
@@ -313,9 +313,13 @@ const Services = () => {
                                     <div className='para'>Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.</div>
                                 </div>
                             </a>
+                            
                         </motion.div>
+                        
                     </div>
+                    
                 </div>
+                
             </main>
             <div className='contact-footer'>
                 <div className='top-button'><hr /> <button>Top!</button></div>
