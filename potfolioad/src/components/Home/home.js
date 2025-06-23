@@ -314,9 +314,9 @@ const Home = () => {
               animate="animate"
               when="afterChildren"
             >
-              We Build Extraordinary <br/> Digital Experiences.
+              We Build Extraordinary <br /> Digital Experiences.
             </motion.h1>
-            
+
             <div className="heading-content">
               <div className="text-container">
                 At Saudh, we’re all about action.
@@ -437,8 +437,8 @@ const Home = () => {
                   animate={{
                     x:
                       hoveredCategory === "Branding"
-                        ? -175:
-                         hoveredCategory === "Interface Design"
+                        ? -175 :
+                        hoveredCategory === "Interface Design"
                           ? -175
                           : hoveredCategory === "Development"
                             ? -175
@@ -449,8 +449,8 @@ const Home = () => {
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
-                        ? 20:
-                         hoveredCategory === "Interface Design"
+                        ? 20 :
+                        hoveredCategory === "Interface Design"
                           ? -25
                           : hoveredCategory === "Development"
                             ? -185
@@ -468,8 +468,8 @@ const Home = () => {
                   animate={{
                     x:
                       hoveredCategory === "Branding"
-                        ? -90:
-                         hoveredCategory === "Interface Design"
+                        ? -90 :
+                        hoveredCategory === "Interface Design"
                           ? -80
                           : hoveredCategory === "Development"
                             ? -80
@@ -480,8 +480,8 @@ const Home = () => {
                                 : -80,
                     y:
                       hoveredCategory === "Branding"
-                        ? 20:
-                         hoveredCategory === "Interface Design"
+                        ? 20 :
+                        hoveredCategory === "Interface Design"
                           ? -185
                           : hoveredCategory === "Development"
                             ? 120
@@ -498,8 +498,8 @@ const Home = () => {
                   animate={{
                     x:
                       hoveredCategory === "Branding"
-                        ? -185:
-                         hoveredCategory === "Interface Design"
+                        ? -185 :
+                        hoveredCategory === "Interface Design"
                           ? -175
                           : hoveredCategory === "Development"
                             ? -175
@@ -510,8 +510,8 @@ const Home = () => {
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
-                        ? -175:
-                         hoveredCategory === "Interface Design"
+                        ? -175 :
+                        hoveredCategory === "Interface Design"
                           ? -185
                           : hoveredCategory === "Development"
                             ? 20
@@ -561,7 +561,7 @@ const Home = () => {
       </main>
 
       <Footer />
-    
+
     </>
   );
 };
