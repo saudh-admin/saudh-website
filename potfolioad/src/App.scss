@@ -85,6 +85,20 @@
   font-weight: 300;
 }
 
+body,
+html {
+  font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', Arial, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Orbitron', 'Atkinson Hyperlegible Next', Arial, sans-serif !important;
+}
+
 .cursor {
   width: 1.5rem;
   height: 1.5rem;
@@ -894,22 +908,49 @@ html {
 }
 
 @media (max-width: 1024px) {
-  .start-circle h3 {
-    display: none;
+  .header .col-logo img {
+    max-width: 120px;
+    height: auto;
   }
 
-  .call-icon {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.5rem;
+  .header__text--title {
+    font-size: 1rem !important;
+    letter-spacing: 1px;
   }
 }
 
+@media (max-width: 769px) {
+  .header .col-logo img {
+    max-width: 90px;
+    height: auto;
+  }
 
+  .header__text--title {
+    font-size: 0.8rem !important;
+    letter-spacing: 0.5px;
+  }
+
+  .header .col-header-title {
+    padding-left: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .col-logo img {
+    max-width: 60px;
+    height: auto;
+  }
+
+  .header__text--title {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.2px;
+    text-align: left;
+  }
+
+  .header .col-header-title {
+    padding-left: 0.2rem;
+  }
+}
 
 @media (max-width:769px) {
   .header {
@@ -1082,10 +1123,10 @@ html {
 
 .ad-title {
   padding-top: 4rem;
-  font-size: 5rem;
-  font-weight: 700;
+  font-size: 4.5rem;
+  font-weight: 400;
   z-index: 2;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.2rem;
   text-align: center;
 }
 
@@ -1202,14 +1243,13 @@ html {
 }
 
 @media (max-width:768px) {
-
   .feature-projects {
     padding-top: 5vh;
     padding-bottom: 5vh;
   }
 
   .feature-heading {
-    font-size: 4rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -1243,13 +1283,13 @@ html {
   }
 
   .service-categories {
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 100;
     margin-left: 0.8rem;
 
     h2 {
       font-weight: 200;
-      font-size: 4rem;
+      font-size: 2.2rem;
       letter-spacing: 2px;
     }
   }
@@ -1362,13 +1402,13 @@ html {
     }
 
     .service-categories {
-      font-size: 2rem;
+      font-size: 1.2rem;
       font-weight: 100;
       margin-left: 0.8rem;
 
       h2 {
         font-weight: 200;
-        font-size: 2rem;
+        font-size: 1.1rem;
         letter-spacing: 2px;
       }
     }
@@ -1546,13 +1586,13 @@ html {
     }
 
     .service-categories {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 100;
       margin-left: 0.8rem;
 
       h2 {
         font-weight: 200;
-        font-size: 2rem;
+        font-size: 1.3rem;
         letter-spacing: 2px;
       }
     }
@@ -1724,7 +1764,7 @@ html {
   .contact-action-circle {
     width: 7rem;
     height: 7rem;
-    background-color: var(--color-orange);
+    background-color: var(--color-primary);
     border-radius: 50%;
     position: relative;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1735,7 +1775,7 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 20px;
     white-space: nowrap;
@@ -1757,14 +1797,14 @@ html {
 
 .hero-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   padding-left: 12vw;
   padding-right: 12vw;
 }
 
 .footer-col {
-  flex: 0 1 30%;
+  flex: 1 1 0;
   padding: 10px;
 }
 
@@ -2210,6 +2250,7 @@ html {
   opacity: 0.7;
   transform: scaleX(1);
 }
+
 //diff class for email
 .footer-anim-email {
   position: relative;
@@ -2247,6 +2288,7 @@ html {
   transform: scaleX(1);
 
 }
+
 //diff class for phone
 .footer-anim-phone {
   position: relative;
@@ -2282,6 +2324,7 @@ html {
   opacity: 0.7;
   transform: scaleX(1);
 }
+
 //diff class for twitter
 .footer-anim-twitter {
   position: relative;
@@ -2331,8 +2374,8 @@ html {
   .footer-col1,
   .footer-col2,
   .footer-col3 {
-    width: 30%;
-    margin-top: 0 !important;
+    width: 100%;
+    max-width: 300px;
     padding-left: 0 !important;
     padding-bottom: 2vh !important;
     flex: 0 1 100% !important;
@@ -2343,6 +2386,7 @@ html {
     font-size: 1rem !important;
   }
 }
+
 //button
 .new-btn {
   background: #FFD00A;
@@ -2367,9 +2411,10 @@ html {
 
 .new-btn:hover,
 .new-btn:focus {
-  background: #fcbd03;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.589), 0 2px 3px 0 rgba(163, 155, 90, 0.13);
-  transform: translateY(-1px);
+  background: #FFD00A;
+
+  // box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.589), 0 2px 3px 0 rgba(163, 155, 90, 0.13);
+  // transform: translateY(-1px);
 }
 
 .new-btn:active {
@@ -2414,4 +2459,125 @@ html {
   .navbar-logo {
     width: 35px;
   }
+}
+
+/* Responsive styles for digital.js layout */
+.saudh-flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.saudh-flex-half {
+  flex: 1 1 320px;
+  min-width: 200px;
+}
+
+.saudh-hero-section,
+.saudh-main-section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.saudh-hero-section {
+  padding: 2.5rem 0 2.5rem 0;
+}
+
+.saudh-main-section {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  padding: 2.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.saudh-flex-half.text-block {
+  margin-bottom: 0;
+}
+
+.saudh-flex-half img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;
+}
+
+.saudh-flex-half.description-block {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 2rem 1.5rem;
+  font-size: 1.08rem;
+  color: #222;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .saudh-flex-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+  }
+
+  .saudh-flex-half {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .saudh-hero-section,
+  .saudh-main-section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .saudh-hero-section {
+    padding-top: 4rem;
+  }
+}
+
+.saudh-hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+}
+
+.saudh-hero-desc {
+  font-size: 1.25rem;
+  color: #444;
+  margin-bottom: 0;
+  max-width: 500px;
+}
+
+.saudh-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
+.saudh-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.saudh-feature-list li {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.saudh-main-bg {
+  background: #fff;
+  font-family: inherit;
+  scroll-behavior: smooth;
 }

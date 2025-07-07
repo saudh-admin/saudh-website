@@ -4,9 +4,9 @@ import Navbar from '../Navbar/navbar';
 import Footer from '../Footer/footer'
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showImage, setShowImage] = useState(false);
-  const [showBackground, setShowBackground] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [showImage, setShowImage] = useState(false);
+  // const [showBackground, setShowBackground] = useState(false);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
@@ -14,56 +14,56 @@ const Contact = () => {
   useEffect(() => {
     const serviceHeadinggElement = serviceHeadinggRef.current;
     if (serviceHeadinggElement) {
-        serviceHeadinggElement.classList.add('service-headingg-curtain');
+      serviceHeadinggElement.classList.add('service-headingg-curtain');
     }
 
 
-    setTimeout(() => {
-        setShowImage(true);
-    }, 500);
+    // setTimeout(() => {
+    //   setShowImage(true);
+    // }, 500);
 
 
-    setTimeout(() => {
-        setShowBackground(true);
-    }, 800);
-}, []);
+    // setTimeout(() => {
+    //   setShowBackground(true);
+    // }, 800);
+  }, []);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const data = {
-    email, 
-    message
+    const data = {
+      email,
+      message
+    }
+
+    try {
+      await fetch(process.env.REACT_APP_SHEETS_URL, {
+        redirect: 'follow',
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+      })
+        .then(res => res.json())
+        .then(resData => { console.log(resData) })
+    } catch (e) {
+      console.error("error submitting data")
+    }
   }
 
-  try {
-    await fetch(process.env.REACT_APP_SHEETS_URL, {
-      redirect: 'follow',
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-    })
-    .then(res => res.json())
-    .then(resData => {console.log(resData)})
-  } catch (e) {
-    console.error("error submitting data")
-  }
-}
 
-
-useEffect(() => {
-    setTimeout(() => {
-        setIsLoading(false);
-        setTimeout(() => {
-            setShowImage(true);
-            setTimeout(() => {
-                setShowBackground(true);
-            }, 500);
-        }, 500);
-    }, 800);
-}, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //     setTimeout(() => {
+  //       setShowImage(true);
+  //       // setTimeout(() => {
+  //       //   setShowBackground(true);
+  //       // }, 500);
+  //     }, 500);
+  //   }, 800);
+  // }, []);
 
   return (
     <>
@@ -94,7 +94,7 @@ useEffect(() => {
                                 AD
                             </text>
                         </svg>
-                        <h2 className="projects-title">Let’s build something awesome together.</h2>
+                        <h2 className="projects-title">Let's build something awesome together.</h2>
                     </div>
         </div> */}
         <div className='contact-content'>
@@ -105,14 +105,14 @@ useEffect(() => {
               </div>
 
               <div className='form-group'>
-                <input type='email' id='email' name='email' placeholder='Work email' required value={email} onChange={(e) => {setEmail(e.target.value)}} />
+                <input type='email' id='email' name='email' placeholder='Business email' required value={email} onChange={(e) => { setEmail(e.target.value) }} />
               </div>
 
               <div className='form-group'>
-                <input type='tel' id='phone' name='phone' placeholder='Phone' required />
+                <input type='tel' id='phone' name='phone' placeholder='WhatsApp Contact Number' required />
               </div>
 
-              <div className='form-group'>
+              {/* <div className='form-group'>
                 <div className='budget-container'>
                   <input type='text' id='budgetdiv' name='budgetdiv' placeholder='What is your budget?' required />
                   <select id='budget' name='budget' required>
@@ -124,7 +124,7 @@ useEffect(() => {
                     <option value='tbd'>TBD</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
 
               {/* <div className='form-group'>
                 <div className='budget-container'>
@@ -135,7 +135,7 @@ useEffect(() => {
               </div> */}
 
               <div className='form-group'>
-                <textarea value={message} onChange={(e) => {setMessage(e.target.value)}} id='message' name='message' placeholder='Please tell us a bit about your project..' required></textarea>
+                <textarea value={message} onChange={(e) => { setMessage(e.target.value) }} id='message' name='message' placeholder='Please tell us a bit about your project..' required></textarea>
               </div>
 
               <button type='submit'>Send</button>

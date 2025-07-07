@@ -6,11 +6,12 @@ import {
   useViewportScroll,
   useTransform,
 } from "framer-motion";
-import Sliderr from "../Contact/slider";
+// import Sliderr from "../Contact/slider";
 import Navbar from "../Navbar/navbar";
-import Cursor from "../Cursor/Cursor";
+// import Cursor from "../Cursor/Cursor";
 import Footer from "../Footer/footer";
 import CTA from "../CTA/cta";
+import { Link } from 'react-router-dom';
 
 const adBgVariants = {
   initial: {
@@ -319,10 +320,10 @@ const Home = () => {
 
             <div className="heading-content">
               <div className="text-container">
-                At Saudh, we’re all about action.
-                Want more people to subscribe to your brand? Or perhaps your goal is simply to generate more leads for your company’s growth?
+                At Saudh, we're all about action.
+                Want more people to subscribe to your brand? Or perhaps your goal is simply to generate more leads for your company's growth?
                 What are the specific actions that fuel your products and services?
-                What drives more consumers to buy your product, join your list, download your app, or learn about the actions you’re targeting?
+                What drives more consumers to buy your product, join your list, download your app, or learn about the actions you're targeting?
                 Saudh can help.
               </div>
               {/* <div className="learn-content">
@@ -360,64 +361,64 @@ const Home = () => {
               <div className="service-header">
                 <div className="service-title">What We Do</div>
                 <div className="service-categories">
-                  <motion.h2
-                    animate={
-                      hoveredCategory === CATEGORIES.MALL_IN_YOUR_POCKET ? { x: 20 } : { x: 0 }
-                    }
-                    transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover(CATEGORIES.MALL_IN_YOUR_POCKET)}
-                    onMouseLeave={() => handleCategoryHover(null)}
-                  >
-                    {CATEGORIES.MALL_IN_YOUR_POCKET}
-                  </motion.h2>
-                  <motion.h2
-                    animate={
-                      hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
-                        ? { x: 20 }
-                        : { x: 0 }
-                    }
-                    transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover(CATEGORIES.DIGITAL_CATALOUGES)}
-                    onMouseLeave={() => handleCategoryHover(null)}
-                  >
-                    {CATEGORIES.DIGITAL_CATALOUGES}
-                  </motion.h2>
-                  <motion.h2
-                    animate={
-                      hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS ? { x: 20 } : { x: 0 }
-                    }
-                    transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover(CATEGORIES.AI_ENABLED_ANALYTICS)}
-                    onMouseLeave={() => handleCategoryHover(null)}
-                  >
-                    {CATEGORIES.AI_ENABLED_ANALYTICS}
-                  </motion.h2>
-                  <motion.h2
-                    animate={
-                      hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
-                        ? { x: 20 }
-                        : { x: 0 }
-                    }
-                    transition={{ duration: 0.5 }}
-                    onMouseEnter={() =>
-                      handleCategoryHover(CATEGORIES.WHATSAPP_AUTOMATION)
-                    }
-                    onMouseLeave={() => handleCategoryHover(null)}
-                  >
-                    {CATEGORIES.WHATSAPP_AUTOMATION}
-                  </motion.h2>
-                  <motion.h2
-                    animate={
-                      hoveredCategory === CATEGORIES.GAMIFICATION
-                        ? { x: 20 }
-                        : { x: 0 }
-                    }
-                    transition={{ duration: 0.5 }}
-                    onMouseEnter={() => handleCategoryHover(CATEGORIES.GAMIFICATION)}
-                    onMouseLeave={() => handleCategoryHover(null)}
-                  >
-                    {CATEGORIES.GAMIFICATION}
-                  </motion.h2>
+                  <Link to="/Services/Interface-Design" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                          ? { x: 20 }
+                          : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.DIGITAL_CATALOUGES)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.DIGITAL_CATALOUGES}
+                    </motion.h2>
+                  </Link>
+                  <Link to="/Services/Development" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS ? { x: 20 } : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.AI_ENABLED_ANALYTICS)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.AI_ENABLED_ANALYTICS}
+                    </motion.h2>
+                  </Link>
+                  <Link to="/Services/Digital-marketing" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                          ? { x: 20 }
+                          : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.WHATSAPP_AUTOMATION)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.WHATSAPP_AUTOMATION}
+                    </motion.h2>
+                  </Link>
+                  <Link to="/Services/Ongoing-support" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.GAMIFICATION
+                          ? { x: 20 }
+                          : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.GAMIFICATION)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.GAMIFICATION}
+                    </motion.h2>
+                  </Link>
                 </div>
                 <div className="service-action">
                   <motion.img
