@@ -16,17 +16,16 @@ import Cursor from './components/Cursor/Cursor';
 
 function App() {
   return (
-    
     <Router>
       <div className="App">
-      <Cursor />
+        <Cursor />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/us" element={<Us />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/Services/Branding" element={<Branding/>} />
+          <Route path="/Services/Branding" element={<Branding />} />
           <Route path="/Services/Interface-design" element={<Interface />} />
           <Route path="/Services/Development" element={<Dev />} />
           <Route path="/Services/Digital-marketing" element={<Digital />} />

@@ -1,6 +1,6 @@
 import './project.scss';
 import { motion } from 'framer-motion';
-import { FaArrowRight } from 'react-icons/fa';
+// import { FaArrowRight } from 'react-icons/fa';
 
 const ProjectCard = ({ project }) => {
   return (
