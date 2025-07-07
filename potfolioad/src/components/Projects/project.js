@@ -15,20 +15,20 @@ const Projects = () => {
         if (serviceHeadinggElement) {
             serviceHeadinggElement.classList.add('service-headingg-curtain');
         }
-    
-    
+
+
         setTimeout(() => {
             setShowImage(true);
         }, 500);
-    
-    
+
+
         setTimeout(() => {
             setShowBackground(true);
         }, 800);
     }, []);
-    
-    
-    
+
+
+
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
@@ -49,7 +49,7 @@ const Projects = () => {
         { id: 4, title: 'Project 4', description: 'Description 1', category: 'Branding', image: 'branding.webp' },
         { id: 5, title: 'Project 5', description: 'Description 2', category: 'UX/UI Design', image: 'contact.webp' },
         { id: 6, title: 'Project 6', description: 'Description 3', category: 'Development', image: 'dev.webp' },
-      
+
     ]);
 
     const handleFilterClick = (filter) => {
@@ -65,32 +65,32 @@ const Projects = () => {
 
         <main className="main-content">
             <div className="projects-heading">
-            <div className={`proj-logo ${showImage ? 'show-image' : ''} ${showBackground ? 'show-background' : ''}`} ref={serviceHeadinggRef}>
-                        <svg className={`proj-text ${window.location.pathname === '/Services' ? 'white-background' : window.location.pathname === '/contact' ? 'white-background' : window.location.pathname === '/projects' ? 'gray-background' : ''}`} viewBox="0 0 200 100">
-                            <defs>
-                                <clipPath id="text-clip">
-                                    <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
-                                        AD
-                                    </text>
-                                </clipPath>
-                            </defs>
-                            <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle" fill="#fff" stroke="#ccc" strokeWidth="1">
-                                AD
-                            </text>
-                            {showImage && (
-                                <image className="proj-image" xlinkHref="marketing.webp" width="100%" height="100%" clipPath="url(#text-clip)" preserveAspectRatio="xMidYMid slice" />
-                            )}
-                        </svg>
-                        {showBackground && (
-                            <div className={`proj-background ${window.location.pathname === '/Services' ? 'green-background' : window.location.pathname === '/contact' ? 'blue-background' : window.location.pathname === '/projects' ? 'white-background' : ''}`}></div>
+                <div className={`proj-logo ${showImage ? 'show-image' : ''} ${showBackground ? 'show-background' : ''}`} ref={serviceHeadinggRef}>
+                    <svg className={`proj-text ${window.location.pathname === '/Services' ? 'white-background' : window.location.pathname === '/contact' ? 'white-background' : window.location.pathname === '/projects' ? 'gray-background' : ''}`} viewBox="0 0 200 100">
+                        <defs>
+                            <clipPath id="text-clip">
+                                <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                                    AD
+                                </text>
+                            </clipPath>
+                        </defs>
+                        <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle" fill="#fff" stroke="#ccc" strokeWidth="1">
+                            AD
+                        </text>
+                        {showImage && (
+                            <image className="proj-image" xlinkHref="marketing.webp" width="100%" height="100%" clipPath="url(#text-clip)" preserveAspectRatio="xMidYMid slice" />
                         )}
-                        <svg className="proj-outline" viewBox="0 0 200 100">
-                            <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
-                                AD
-                            </text>
-                        </svg>
-                        <h2 className="projects-title">Projects</h2>
-                    </div>
+                    </svg>
+                    {showBackground && (
+                        <div className={`proj-background ${window.location.pathname === '/Services' ? 'green-background' : window.location.pathname === '/contact' ? 'blue-background' : window.location.pathname === '/projects' ? 'white-background' : ''}`}></div>
+                    )}
+                    <svg className="proj-outline" viewBox="0 0 200 100">
+                        <text x="50%" y="100" fontSize="100" fontWeight="normal" textAnchor="middle">
+                            AD
+                        </text>
+                    </svg>
+                    <h2 className="projects-title">Projects</h2>
+                </div>
 
                 <div class="project-filters">
                     <div class="row justify-content-center">

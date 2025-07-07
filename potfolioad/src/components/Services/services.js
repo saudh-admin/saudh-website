@@ -23,25 +23,27 @@ const Services = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [showImage, setShowImage] = useState(false);
     const [showBackground, setShowBackground] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+
     useEffect(() => {
         const serviceHeadinggElement = serviceHeadinggRef.current;
         if (serviceHeadinggElement) {
             serviceHeadinggElement.classList.add('service-headingg-curtain');
         }
-    
-    
+
+
         setTimeout(() => {
             setShowImage(true);
         }, 500);
-    
-    
+
+
         setTimeout(() => {
             setShowBackground(true);
         }, 800);
     }, []);
-    
-    
-    
+
+
+
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
@@ -52,6 +54,12 @@ const Services = () => {
                 }, 500);
             }, 500);
         }, 800);
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 640);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
@@ -112,7 +120,7 @@ const Services = () => {
                                         y: hoveredCategory === 'Branding' ? -80 : -40,
                                     }}></motion.div>
                                 </motion.div> */}
-                                {/* <div className='service-col-heading-text'>
+                        {/* <div className='service-col-heading-text'>
                                     <div className='head'>
                                         <h1>{CATEGORIES.MALL_IN_YOUR_POCKET}</h1>
                                         <div className='explore'
@@ -130,8 +138,8 @@ const Services = () => {
                                         </div>
                                     </div> 
                                  <div className='para'>Digitize your mall with a single smart QR code. Give visitors instant access to floors, stores, offers, amenities, and more.</div> */}
-                                {/* </div> */}
-                            {/* </a> */}
+                        {/* </div> */}
+                        {/* </a> */}
                         {/* </motion.div> */}
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Development')}
@@ -182,7 +190,11 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Ongoing-support'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='Gamification.webp.jpg' alt='landimg' />
+                                    {isMobile ? (
+                                        <img className='service-col-heading-img' src='spinwinphone.jpg' alt='phone' />
+                                    ) : (
+                                        <img className='service-col-heading-img' src='Gamification.webp.jpg' alt='landimg' />
+                                    )}
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
@@ -229,7 +241,11 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Interface-design'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='Digital Catalogue.webp.jpg' alt='landimg' />
+                                    {isMobile ? (
+                                        <img className='service-col-heading-img' src='digitalcataloguemobile.jpg' alt='phone' />
+                                    ) : (
+                                        <img className='service-col-heading-img' src='Digital Catalogue.webp.jpg' alt='landimg' />
+                                    )}
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
@@ -274,7 +290,11 @@ const Services = () => {
                             onMouseLeave={() => handleCategoryHover(null)} >
                             <a href='/Services/Digital-marketing'>
                                 <div className='img-wrapper'>
-                                    <img className='service-col-heading-img' src='Whatsapp Automation.webp.jpg' alt='landimg' />
+                                    {isMobile ? (
+                                        <img className='service-col-heading-img' src='wamobile.jpg' alt='phone' />
+                                    ) : (
+                                        <img className='service-col-heading-img' src='Whatsapp Automation.webp.jpg' alt='landimg' />
+                                    )}
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
@@ -313,13 +333,13 @@ const Services = () => {
                                     <div className='para'>Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.</div>
                                 </div>
                             </a>
-                            
+
                         </motion.div>
-                        
+
                     </div>
-                    
+
                 </div>
-                
+
             </main>
             <div className='contact-footer'>
                 <div className='top-button'><hr /> <button>Top!</button></div>

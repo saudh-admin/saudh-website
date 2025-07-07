@@ -1,123 +1,142 @@
 //digital catalogue
 import '../Branding/branding.scss';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from '../Navbar/navbar';
-import { FaChevronDown } from 'react-icons/fa';
-import { CATEGORIES } from '../../utils/constants';
+// import { FaChevronDown } from 'react-icons/fa';
+// import { CATEGORIES } from '../../utils/constants';
 import Footer from '../Footer/footer';
+import { motion } from 'framer-motion';
 
 const Interface = () => {
 
-    const [activeDropdowns, setActiveDropdowns] = useState({});
-
-    const toggleDropdown = (index) => {
-        setActiveDropdowns((prevState) => ({
-            ...prevState,
-            [index]: !prevState[index],
-        }));
-    };
-
-    useEffect(() => {
-        const serviceHeadingCat = document.querySelector('.service-heading-cat');
-        const imgHeading = document.querySelector('.img-heading');
-        const serviceLogoServiceCat = document.querySelector('.service-logo-service-cat');
-        const serviceContentLayout = document.querySelector('.service-content-layout');
-        const serviceLogoWrapper = document.querySelector('.service-logo-wrapper');
-    
-        serviceContentLayout.style.opacity = '0';
-    
-        setTimeout(() => {
-            serviceLogoServiceCat.style.opacity = '1';
-        }, 500);
-    
-        setTimeout(() => {
-            serviceHeadingCat.style.transform = 'translateY(0)';
-            imgHeading.style.opacity = '1';
-            imgHeading.style.transform = 'translateY(0)';
-            serviceLogoWrapper.style.clipPath = 'inset(0 0 calc(100% - 55vh) 0)'; 
-        }, 2000);
-    
-        setTimeout(() => {
-            serviceContentLayout.style.opacity = '1';
-            serviceContentLayout.style.transition = 'opacity 1s ease';
-        }, 3500);
-    }, []);
     return (
         <>
             <Navbar></Navbar>
-            <main>
-            <div className='service-branding'>
-                <div className="service-logo-wrapper">
-                    <div className="service-logo-service-cat">Saudh</div>
-                </div>
-                <div className='service-heading-cat'>
-                    <div className='service-heading-text-cat'>
-                       {CATEGORIES.DIGITAL_CATALOUGES}
+            <main className="saudh-main-bg">
+                {/* Hero Section - Two Column Layout */}
+                <motion.section
+                    className="saudh-hero-section"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <div className="saudh-flex-row">
+                        {/* Left: Text */}
+                        <motion.div
+                            className="saudh-flex-half text-block"
+                            initial={{ x: -50, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                        >
+                            <h1 className="saudh-hero-title">
+                                Digital Catalogue
+                            </h1>
+                            <p className="saudh-hero-desc">
+                                Instantly update menus, product lists, and more—no printing required.
+                            </p>
+                        </motion.div>
+                        {/* Right: Image */}
+                        <motion.div
+                            className="saudh-flex-half"
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            <motion.img
+                                src="/Digital Catalogue.webp.jpg"
+                                alt="Digital Catalogue"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: 'spring', stiffness: 200 }}
+                            />
+                        </motion.div>
                     </div>
-                </div>
-                    <div className='img-heading'>
-                        <img src="/branding.webp" alt="Branding"></img>
-                        <div className='white-overlay'></div>
-                        <div className='anim-circle'>
-                            <div className='shape-circle dark' style={{ transform: 'translate(-65px, -25px)', width: `8rem`, height: `8rem`, scale:`0.9` }}></div>
-                            <div className='shape-center' style={{ transform: 'translate(-30px, -80px)',width: `4rem`, height: `4rem` }}></div>
-                            <div className='shape-circle light' style={{transform: 'translate(-50px, -55px)', width: `8rem`, height: `8rem`, scale:`1.2` }}></div>
-                        </div>
-
-                    </div>
-                    
-
-                    <div className='service-content-layout'>
-                        <div className='service-content-cat'>
-                            <h1>Make Discovery Digital</h1>
-                            <div className='service-content-dropdown-cat'>
-                                <div className="dropdown">
-                                        <div className="dropdown-header">
-                                                <h4>QR Code Menus & Product Lists</h4>
-                                        </div>
-                                </div>
-                                <hr />
-                                <div className="dropdown">
-                                        <div className="dropdown-header">
-                                                <h4>Pricing & Availability Indicators</h4>
-                                        </div>
-                                </div>
-                                <hr />
-                                <div className="dropdown">
-                                        <div className="dropdown-header">
-                                                <h4>Multilingual Support</h4>
-                                        </div>
-                                </div>
-                                <hr />
-                                <div className="dropdown">
-                                        <div className="dropdown-header">
-                                                <h4>Brand Customization Options</h4>
-                                        </div>
-                                </div>
-                                <hr />
-                            </div>
-                        </div>
-                        <div className='service-content-text-para'>
+                </motion.section>
+                {/* Main Content - Two Column Layout */}
+                <motion.section
+                    className="saudh-main-section"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    {/* Left: Heading and Features */}
+                    <motion.div
+                        className="saudh-flex-half"
+                        initial={{ x: -40, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                    >
+                        <h2 className="saudh-main-title">
+                            Make Discovery Digital
+                        </h2>
+                        <motion.ul
+                            className="saudh-feature-list"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={{
+                                hidden: {},
+                                visible: {
+                                    transition: {
+                                        staggerChildren: 0.15
+                                    }
+                                }
+                            }}
+                        >
+                            {['QR Code Menus & Product Lists', 'Pricing & Availability Indicators', 'Multilingual Support', 'Brand Customization Options'].map((item, idx) => (
+                                <motion.li
+                                    key={item}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.5 + idx * 0.15 }}
+                                >
+                                    {item}
+                                </motion.li>
+                            ))}
+                        </motion.ul>
+                    </motion.div>
+                    {/* Right: Description */}
+                    <motion.div
+                        className="saudh-flex-half description-block"
+                        initial={{ x: 40, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
                         Printed menus and static product brochures age fast — and they cost time, money, and flexibility. Whether you're a salon updating services or a café introducing specials, paper can't keep up with how quickly your business evolves.<br /><br />
-                            Digital Catalogues give restaurants, spas, salons, and retail stores a sleek, real-time way to present their offerings. With just a QR scan, customers can explore detailed menus, product images, pricing, and even customizations — all in their preferred language and without downloading an app. Updates happen instantly, so your catalogue always reflects what’s available now. <br /><br />
-                            This isn’t just about going digital — it’s about creating a smoother, more informed customer journey. You reduce friction, increase conversions, and gain insights into what people browse the most. It’s the modern storefront your business deserves.
-                        </div>
-                    </div>
-                </div>
-                <div className='top-button'><hr /> <button>Top!</button></div>
-                <div className='contact-home'>
+                        Digital Catalogues give restaurants, spas, salons, and retail stores a sleek, real-time way to present their offerings. With just a QR scan, customers can explore detailed menus, product images, pricing, and even customizations — all in their preferred language and without downloading an app. Updates happen instantly, so your catalogue always reflects what's available now. <br /><br />
+                        This isn't just about going digital — it's about creating a smoother, more informed customer journey. You reduce friction, increase conversions, and gain insights into what people browse the most. It's the modern storefront your business deserves.
+                    </motion.div>
+                </motion.section>
+                <motion.div
+                    className='top-button'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                ><hr /> <motion.button whileHover={{ scale: 1.1 }}>Top!</motion.button></motion.div>
+                <motion.div
+                    className='contact-home'
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
+                >
                     <h2>Have a project?</h2>
                     <h2>Let's talk.</h2>
-                    <div className='contact-action'>
+                    <motion.div
+                        className='contact-action'
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: 'spring', stiffness: 200 }}
+                    >
                         <div className='contact-action-circle'></div>
                         <div className='contact-action-word'>Contact</div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </main>
             <Footer />
-
         </>
-
     );
 }
 
