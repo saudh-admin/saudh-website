@@ -27,30 +27,29 @@ const Contact = () => {
     //   setShowBackground(true);
     // }, 800);
   }, []);
+  const [result, setResult] = React.useState("");
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    formData.append("access_key", "b9ff2703-1f23-448a-b852-bdb83a31a402");
 
-    const data = {
-      email,
-      message
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
     }
-
-    try {
-      await fetch(process.env.REACT_APP_SHEETS_URL, {
-        redirect: 'follow',
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-      })
-        .then(res => res.json())
-        .then(resData => { console.log(resData) })
-    } catch (e) {
-      console.error("error submitting data")
-    }
-  }
+  };
 
 
   // useEffect(() => {
@@ -99,7 +98,7 @@ const Contact = () => {
         </div> */}
         <div className='contact-content'>
           <div className='contact-form'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={onSubmit}>
               <div className='form-group'>
                 <input type='text' id='name' name='name' placeholder='Your name' required />
               </div>
@@ -139,6 +138,9 @@ const Contact = () => {
               </div>
 
               <button type='submit'>Send</button>
+              {result && (
+                <div className="form-result-message">{result}</div>
+              )}
             </form>
           </div>
           <div className='contact-title'>
