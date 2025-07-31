@@ -6,6 +6,7 @@ import Navbar from '../Navbar/navbar';
 // import { CATEGORIES } from '../../utils/constants';
 import Footer from '../Footer/footer';
 import { motion } from 'framer-motion';
+import FAQ from '../FAQ/faq';
 
 const Support = () => {
 
@@ -135,6 +136,7 @@ const Support = () => {
                     </motion.div>
                 </motion.div>
             </main>
+            <FAQ page="support" />
             <Footer />
         </>
     );

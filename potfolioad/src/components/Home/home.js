@@ -11,6 +11,7 @@ import Navbar from "../Navbar/navbar";
 // import Cursor from "../Cursor/Cursor";
 import Footer from "../Footer/footer";
 import CTA from "../CTA/cta";
+import FAQ from "../FAQ/faq";
 import { Link } from 'react-router-dom';
 
 const adBgVariants = {
@@ -180,7 +181,7 @@ const Home = () => {
     const categories = [
       // "Branding",
       "Interface Design",
-      "Development",
+      "Analytics",
       "Digital Marketing",
       "Ongoing Support",
     ];
@@ -361,7 +362,7 @@ const Home = () => {
               <div className="service-header">
                 <div className="service-title">What We Do</div>
                 <div className="service-categories">
-                  <Link to="/Services/Interface-Design" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Digital-catalogue" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -376,7 +377,7 @@ const Home = () => {
                       {CATEGORIES.DIGITAL_CATALOUGES}
                     </motion.h2>
                   </Link>
-                  <Link to="/Services/Development" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Analytics" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -389,7 +390,7 @@ const Home = () => {
                       {CATEGORIES.AI_ENABLED_ANALYTICS}
                     </motion.h2>
                   </Link>
-                  <Link to="/Services/Digital-marketing" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Whatsapp-automation" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -404,7 +405,7 @@ const Home = () => {
                       {CATEGORIES.WHATSAPP_AUTOMATION}
                     </motion.h2>
                   </Link>
-                  <Link to="/Services/Ongoing-support" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Gamification" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -441,7 +442,7 @@ const Home = () => {
                         ? -175 :
                         hoveredCategory === "Interface Design"
                           ? -175
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "Analytics"
                             ? -175
                             : hoveredCategory === "Digital Marketing"
                               ? -175
@@ -453,7 +454,7 @@ const Home = () => {
                         ? 20 :
                         hoveredCategory === "Interface Design"
                           ? -25
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "Analytics"
                             ? -185
                             : hoveredCategory === "Digital Marketing"
                               ? -185
@@ -472,7 +473,7 @@ const Home = () => {
                         ? -90 :
                         hoveredCategory === "Interface Design"
                           ? -80
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "Analytics"
                             ? -80
                             : hoveredCategory === "Digital Marketing"
                               ? -75
@@ -484,7 +485,7 @@ const Home = () => {
                         ? 20 :
                         hoveredCategory === "Interface Design"
                           ? -185
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "Analytics"
                             ? 120
                             : hoveredCategory === "Digital Marketing"
                               ? 5
@@ -502,7 +503,7 @@ const Home = () => {
                         ? -185 :
                         hoveredCategory === "Interface Design"
                           ? -175
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "Analytics"
                             ? -175
                             : hoveredCategory === "Digital Marketing"
                               ? -170
@@ -514,7 +515,7 @@ const Home = () => {
                         ? -175 :
                         hoveredCategory === "Interface Design"
                           ? -185
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "Analytics"
                             ? 20
                             : hoveredCategory === "Digital Marketing"
                               ? -130
@@ -557,7 +558,9 @@ const Home = () => {
           <div className="top-button">
             <hr /> <button>Top!</button>
           </div>
+
           <CTA />
+          <FAQ page="home" />
         </div>
       </main>
 

@@ -142,24 +142,24 @@ const Services = () => {
                         {/* </a> */}
                         {/* </motion.div> */}
                         <motion.div className='service-col-heading'
-                            onMouseEnter={() => handleCategoryHover('Development')}
+                            onMouseEnter={() => handleCategoryHover('Analytics')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Development'>
+                            <a href='/Services/Analytics'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='AIenabled.webp.jpg' alt='landimg' />
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
-                                        x: hoveredCategory === 'Development' ? -80 : -80,
-                                        y: hoveredCategory === 'Development' ? -80 : -40,
+                                        x: hoveredCategory === 'Analytics' ? -80 : -80,
+                                        y: hoveredCategory === 'Analytics' ? -80 : -40,
                                     }}></motion.div>
                                     <motion.div className='shape-center' animate={{
-                                        x: hoveredCategory === 'Development' ? -40 : -40,
-                                        y: hoveredCategory === 'Development' ? 40 : 0,
+                                        x: hoveredCategory === 'Analytics' ? -40 : -40,
+                                        y: hoveredCategory === 'Analytics' ? 40 : 0,
                                     }}></motion.div>
                                     <motion.div className='shape-circle light' animate={{
-                                        x: hoveredCategory === 'Development' ? -80 : -80,
-                                        y: hoveredCategory === 'Development' ? 0 : -40,
+                                        x: hoveredCategory === 'Analytics' ? -80 : -80,
+                                        y: hoveredCategory === 'Analytics' ? 0 : -40,
 
                                     }}></motion.div>
                                 </motion.div>
@@ -188,7 +188,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Ongoing Support')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Ongoing-support'>
+                            <a href='/Services/Gamification'>
                                 <div className='img-wrapper'>
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='spinwinphone.jpg' alt='phone' />
@@ -239,7 +239,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Interface Design')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Interface-design'>
+                            <a href='/Services/Digital-catalogue'>
                                 <div className='img-wrapper'>
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='digitalcataloguemobile.jpg' alt='phone' />
@@ -288,7 +288,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Digital Marketing')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Digital-marketing'>
+                            <a href='/Services/Whatsapp-automation'>
                                 <div className='img-wrapper'>
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='wamobile.jpg' alt='phone' />

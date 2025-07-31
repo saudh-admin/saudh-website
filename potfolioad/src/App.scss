@@ -187,7 +187,9 @@ html {
   align-self: center;
 
   a {
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 100;
+    font-family: 'Orbitron', sans-serif;
   }
 }
 
@@ -199,9 +201,10 @@ html {
 }
 
 .header__text--title {
-  font-size: 1.1rem !important;
+  font-size: 0.9rem !important;
   font-weight: 100;
-  letter-spacing: 2px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
   display: flex;
   align-items: center;
   margin-top: auto;
@@ -216,8 +219,9 @@ html {
 
 .header__text--title .subtitle {
 
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 100;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .header__text--title.show {
@@ -546,6 +550,15 @@ html {
 .nav-link:hover {
   color: #fff;
   transform: translateX(20px);
+}
+
+.nav-link-label {
+  font-size: 4vw;
+  transition: font-size 0.3s ease;
+}
+
+.nav-link:hover .nav-link-label {
+  font-size: 3.5vw;
 }
 
 .start-project {
@@ -1546,15 +1559,72 @@ html {
 
   .nav-container {
     margin-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 
     .container {
-      top: -50% !important;
-
+      top: 0 !important;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .row--items-middle {
       justify-content: center;
       left: 0% !important;
+      width: 100%;
+    }
+
+    .nav-list {
+      text-align: left;
+      padding-left: 2rem;
+
+      .nav-item {
+        margin-bottom: 1rem;
+        opacity: 0;
+        animation: slideInFromBottom 0.6s ease-out forwards;
+
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+
+        .nav-link {
+          font-size: 1rem;
+          font-family: 'Orbitron', sans-serif;
+          transition: all 0.3s ease;
+          color: white;
+          font-weight: 100;
+
+          &:hover {
+            color: #FFD700;
+            transform: translateX(10px);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes slideInFromBottom {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

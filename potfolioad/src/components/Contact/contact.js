@@ -1,7 +1,7 @@
 import './contact.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
-import Footer from '../Footer/footer'
+import Footer from '../Footer/footer';
 
 const Contact = () => {
   // const [isLoading, setIsLoading] = useState(true);

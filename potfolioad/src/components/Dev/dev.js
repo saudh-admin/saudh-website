@@ -4,6 +4,7 @@ import '../Branding/branding.scss';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
 import { motion } from 'framer-motion';
+import FAQ from '../FAQ/faq';
 
 import React from 'react';
 
@@ -137,6 +138,7 @@ const Dev = () => {
                     </motion.div>
                 </motion.div>
             </main>
+            <FAQ page="analytics" />
             <Footer />
 
         </>

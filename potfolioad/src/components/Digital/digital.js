@@ -5,6 +5,7 @@ import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
 import React from 'react';
 import { motion } from 'framer-motion';
+import FAQ from '../FAQ/faq';
 
 const Digital = () => {
         return (
@@ -134,6 +135,7 @@ const Digital = () => {
                                         </motion.div>
                                 </motion.div>
                         </main>
+                        <FAQ page="digital" />
                         <Footer />
                 </>
         );

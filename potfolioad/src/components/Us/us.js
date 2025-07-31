@@ -3,6 +3,7 @@ import '../../App.scss';
 import { motion } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Navbar/navbar';
+// import FAQ from '../FAQ/faq';
 
 const adBgVariants = {
   initial: {
@@ -150,6 +151,7 @@ const Us = () => {
           you're after — while you get to enjoy the ride.
         </h5>
       </div>
+      {/* <FAQ page="us" /> */}
       <div className="top-button">
         <hr /> <button>Top!</button>
       </div>
