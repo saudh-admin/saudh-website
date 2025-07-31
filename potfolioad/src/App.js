@@ -26,10 +26,10 @@ function App() {
           <Route path="/us" element={<Us />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/Services/Branding" element={<Branding />} />
-          <Route path="/Services/Interface-design" element={<Interface />} />
-          <Route path="/Services/Development" element={<Dev />} />
-          <Route path="/Services/Digital-marketing" element={<Digital />} />
-          <Route path="/Services/Ongoing-support" element={<Support />} />
+          <Route path="/Services/Digital-catalogue" element={<Interface />} />
+          <Route path="/Services/Analytics" element={<Dev />} />
+          <Route path="/Services/Whatsapp-automation" element={<Digital />} />
+          <Route path="/Services/Gamification" element={<Support />} />
           <Route path="/journal" element={<Journal />} />
         </Routes>
       </div>
