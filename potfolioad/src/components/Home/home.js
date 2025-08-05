@@ -316,7 +316,7 @@ const Home = () => {
               animate="animate"
               when="afterChildren"
             >
-              We Build Extraordinary <br /> Digital Experiences.
+              We build extraordinary <br /> digital experiences.
             </motion.h1>
 
             <div className="heading-content">
