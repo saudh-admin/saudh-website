@@ -440,25 +440,25 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -175 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -175
-                          : hoveredCategory === "Analytics"
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -175
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? -175
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? -185
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? 20 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -25
-                          : hoveredCategory === "Analytics"
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -185
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? -185
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? -55
                                 : -185,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
@@ -471,25 +471,25 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -90 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -80
-                          : hoveredCategory === "Analytics"
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -80
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? -75
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? -90
                                 : -80,
                     y:
                       hoveredCategory === "Branding"
                         ? 20 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -185
-                          : hoveredCategory === "Analytics"
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? 120
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? 5
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? 20
                                 : -80,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
@@ -501,28 +501,28 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -185 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === "CATEGORIES.DIGITAL_CATALOUGES"
                           ? -175
-                          : hoveredCategory === "Analytics"
+                          : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
                             ? -175
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
                               ? -170
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === "CATEGORIES.GAMIFICATION"
                                 ? -185
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? -175 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === "CATEGORY.DIGITAL_CATALOUGES"
                           ? -185
-                          : hoveredCategory === "Analytics"
+                          : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
                             ? 20
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
                               ? -130
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === "CATEGORIES.GAMIFICATION"
                                 ? -175
                                 : -185,
-                    scale: hoveredCategory === "Digital Marketing" ? 0.7 : 1,
+                    scale: hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION" ? 0.7 : 1,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
                 ></motion.div>
