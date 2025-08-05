@@ -497,6 +497,8 @@ const getFAQData = (page) => {
 
 const FAQ = ({ page = 'home' }) => {
     const [showAccordion, setShowAccordion] = useState([]);
+    const [showAllQuestions, setShowAllQuestions] = useState(false);
+    const [displayCount, setDisplayCount] = useState(5);
 
     const accordionData = getFAQData(page) || [];
 
@@ -504,6 +506,15 @@ const FAQ = ({ page = 'home' }) => {
     useEffect(() => {
         setShowAccordion(Array(accordionData.length).fill(false));
     }, [accordionData.length]);
+
+    // Handle view more/less toggle
+    const handleViewMore = () => {
+        setShowAllQuestions(!showAllQuestions);
+        setDisplayCount(showAllQuestions ? 5 : accordionData.length);
+    };
+
+    // Get questions to display
+    const displayedQuestions = showAllQuestions ? accordionData : accordionData.slice(0, 5);
 
     return (
         <motion.section
@@ -531,8 +542,6 @@ const FAQ = ({ page = 'home' }) => {
                     <p className="faq-subtitle">Find answers to common questions about our services and processes</p>
                 </motion.div>
 
-
-
                 <motion.div
                     className="faq-content"
                     initial={{ x: 40, opacity: 0 }}
@@ -540,7 +549,7 @@ const FAQ = ({ page = 'home' }) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    {accordionData.length > 0 ? (
+                    {displayedQuestions.length > 0 ? (
                         <motion.div
                             className="faq-accordion"
                             initial="hidden"
@@ -555,7 +564,7 @@ const FAQ = ({ page = 'home' }) => {
                                 }
                             }}
                         >
-                            {accordionData.map(({ answer, title, category }, index) => {
+                            {displayedQuestions.map(({ answer, title, category }, index) => {
                                 const originalIndex = accordionData.findIndex(item =>
                                     item.title === title && item.answer === answer
                                 );
@@ -588,6 +597,38 @@ const FAQ = ({ page = 'home' }) => {
                             </svg>
                             <h3>No questions found</h3>
                             <p>Try selecting a different category</p>
+                        </motion.div>
+                    )}
+
+                    {/* View More/Less Button */}
+                    {accordionData.length > 5 && (
+                        <motion.div
+                            className="faq-view-more-container"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                        >
+                            <motion.button
+                                className="faq-view-more-btn"
+                                onClick={handleViewMore}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <span>{showAllQuestions ? 'View Less' : 'View More'}</span>
+                                <motion.svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    animate={{ rotate: showAllQuestions ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </motion.svg>
+                            </motion.button>
                         </motion.div>
                     )}
                 </motion.div>
