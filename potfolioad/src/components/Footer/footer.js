@@ -62,9 +62,11 @@ const Footer = () => {
                                                         transition={{ duration: 0.6, delay: 0.2 }}
                                                 >
                                                         <a href='Services/digital-catalogue' className='footer-anim-link'>Digital Catalogues</a>
-                                                        <a href='/Services/Analytics' className='footer-anim-link'>AI Analytics</a>
-                                                        <a href='/Services/Whatsapp-Automation' className='footer-anim-link'>WhatsApp Automation</a>
-                                                        <a href='/Services/Gamification' className='footer-anim-link'>Gamification</a>
+                                                        <a href='/Services/Loyalty' className='footer-anim-link'>Loyalty Engine</a>
+                                                        <a href='/Services/Gamification' className='footer-anim-link'>Gamified Lead Generation</a>
+                                                        <a href='/Services/Analytics' className='footer-anim-link'>AI Enabled Insights</a>
+                                                        <a href='/Services/Whatsapp-Automation' className='footer-anim-link'>WhatsApp Business Automation</a>
+                                                        
                                                         {/* <a href='#branding' className='footer-anim-link'>Branding</a> */}
                                                         {/* <a href='#development' className='footer-anim-link'>Development</a> */}
                                                 </motion.div>
