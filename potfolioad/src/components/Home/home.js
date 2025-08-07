@@ -9,6 +9,7 @@ import {
 // import Sliderr from "../Contact/slider";
 import Navbar from "../Navbar/navbar";
 // import Cursor from "../Cursor/Cursor";
+
 import Footer from "../Footer/footer";
 import CTA from "../CTA/cta";
 import FAQ from "../FAQ/faq";
@@ -151,10 +152,11 @@ const Home = () => {
   const animationInterval = useRef(null);
   const CATEGORIES = {
     // 'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
-    'DIGITAL_CATALOUGES': 'Digital Catalogues',
-    'AI_ENABLED_ANALYTICS': 'AI enabled Analytics',
-    'WHATSAPP_AUTOMATION': 'Whatsapp Automation',
-    'GAMIFICATION': 'Gamification',
+    'DIGITAL_CATALOUGES': 'Digital Catalogue',
+    'LOYALTY': 'Loyalty Engine',
+    'AI_ENABLED_ANALYTICS': 'AI Enabled Insights',
+    'WHATSAPP_AUTOMATION': 'Whatsapp Business Automation',
+    'GAMIFICATION': 'Gamified Lead Generation',
   }
   const handleCategoryHover = (category) => {
     setHoveredCategory(category);
@@ -377,6 +379,36 @@ const Home = () => {
                       {CATEGORIES.DIGITAL_CATALOUGES}
                     </motion.h2>
                   </Link>
+                  <Link to="/Services/Loyalty" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000',  }}
+                      animate={
+                        hoveredCategory === CATEGORIES.LOYALTY
+                          ? { x: 20 }
+                          : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.LOYALTY)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.LOYALTY}
+                    </motion.h2>
+                  </Link>
+                   <Link to="/Services/Gamification" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.GAMIFICATION
+                          ? { x: 20 }
+                          : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.GAMIFICATION)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.GAMIFICATION}
+                    </motion.h2>
+                  </Link>
                   <Link to="/Services/Analytics" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
@@ -405,21 +437,7 @@ const Home = () => {
                       {CATEGORIES.WHATSAPP_AUTOMATION}
                     </motion.h2>
                   </Link>
-                  <Link to="/Services/Gamification" style={{ textDecoration: 'none' }}>
-                    <motion.h2
-                      style={{ cursor: 'pointer', color: '#000' }}
-                      animate={
-                        hoveredCategory === CATEGORIES.GAMIFICATION
-                          ? { x: 20 }
-                          : { x: 0 }
-                      }
-                      transition={{ duration: 0.5 }}
-                      onMouseEnter={() => handleCategoryHover(CATEGORIES.GAMIFICATION)}
-                      onMouseLeave={() => handleCategoryHover(null)}
-                    >
-                      {CATEGORIES.GAMIFICATION}
-                    </motion.h2>
-                  </Link>
+                 
                 </div>
                 <div className="service-action">
                   <motion.img
@@ -440,7 +458,9 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -175 :
-                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                      hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                        ? -175 :
+                        hoveredCategory === CATEGORIES.LOYALTY
                           ? -175
                           : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -175
@@ -453,6 +473,8 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? 20 :
                         hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                          ? -25
+                        : hoveredCategory === CATEGORIES.LOYALTY
                           ? -25
                           : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -185
@@ -473,6 +495,8 @@ const Home = () => {
                         ? -90 :
                         hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -80
+                        : hoveredCategory === CATEGORIES.LOYALTY
+                          ? -80
                           : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -80
                             : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
@@ -484,6 +508,9 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? 20 :
                         hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                          ? -185
+                         :
+                        hoveredCategory === CATEGORIES.LOYALTY
                           ? -185
                           : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? 120
@@ -502,6 +529,8 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? -185 :
                         hoveredCategory === "CATEGORIES.DIGITAL_CATALOUGES"
+                          ? -175:
+                        hoveredCategory === "CATEGORIES.LOYALTY"
                           ? -175
                           : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
                             ? -175
@@ -514,6 +543,8 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? -175 :
                         hoveredCategory === "CATEGORY.DIGITAL_CATALOUGES"
+                          ? -185
+                        : hoveredCategory === "CATEGORIES.LOYALTY"
                           ? -185
                           : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
                             ? 20
