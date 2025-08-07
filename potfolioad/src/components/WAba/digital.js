@@ -28,7 +28,7 @@ const Digital = () => {
                                                         transition={{ duration: 0.8, delay: 0.2 }}
                                                 >
                                                         <h1 className="saudh-hero-title">
-                                                                Whatsapp Automation
+                                                                Whatsapp Business Automation
                                                         </h1>
                                                         <p className="saudh-hero-desc">
                                                                 Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.

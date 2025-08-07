@@ -30,7 +30,7 @@ const Support = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <h1 className="saudh-hero-title">
-                                Gamification
+                                Gamified Lead Generation
                             </h1>
                             <p className="saudh-hero-desc">
                                 Turn attention into action with interactive campaigns and rewards.

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
+import { CATEGORIES } from "../../utils/constants";
 import "./faq.scss";
 
 const AccordionCard = ({ title, answer, category, show, index, showAccordion, setShowAccordion, isEven }) => {
@@ -227,36 +228,37 @@ const getFAQData = (page) => {
             {
                 title: "What is the Saudh Catalogue?",
                 answer: "The Saudh Catalogue is a digital version of your business’s offerings — from food menus to salon services and retail products — accessible through a simple QR code or web link.It’s fast, visually engaging, and built to drive customer decisions.",
-                // category: "Design",
+                category: CATEGORIES.DIGITAL_CATALOGUES,
                 show: false
             },
             {
                 title: " How is this different from a basic QR menu?",
                 answer: "Most QR menus are static PDFs or images. Saudh’s Catalogue is dynamic, interactive, and mobile- optimized.It supports live updates, ordering features, shared carts, rich visuals, and even insights — all designed to convert views into action.",
-                // category: "Design",
+                category: CATEGORIES.DIGITAL_CATALOGUES,
                 show: false
             },
             {
                 title: "Can I use this for services like salons or spas, not just food?",
                 answer: "Yes. The Saudh Catalogue makes it easy to tailor for salons, spas, clinics, retail, and more.You can showcase services, durations, pricing, and add- ons — just like a digital service brochure",
-                // category: "Design",
+                category: CATEGORIES.DIGITAL_CATALOGUES,
                 show: false
             },
             {
                 title: "What is the shared cart and how does it work?",
                 answer: "Shared Cart allows multiple users — like a group dining at a food court — to add items to a single, unified cart from different outlets.It’s perfect for collaborative ordering and improves coordination without needing a waiter.",
-                // category: "Design",
+                category: CATEGORIES.DIGITAL_CATALOGUES,
                 show: false
             },
             {
                 title: "Can customers pre-order through the catalogue?",
                 answer: "Yes. With our pre-ordering feature, customers can place their orders in advance and get notified when it’s ready — reducing wait times and improving throughput for your staff.",
-                category: "Technology",
+                category: CATEGORIES.DIGITAL_CATALOGUES,
                 show: false
             },
             {
                 title: "Can I customize the look and feel of my catalogue?",
                 answer: "Absolutely. Choose from industry-specific templates or let us customize your catalogue with your brand colors, logo, fonts, and visual style — so it feels uniquely yours.",
+                category: CATEGORIES.DIGITAL_CATALOGUES,
                 show: false
             },
             {
