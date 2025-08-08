@@ -1,4 +1,4 @@
-//Gamification
+//digital catalogue
 import '../Branding/branding.scss';
 import React from 'react';
 import Navbar from '../Navbar/navbar';
@@ -6,8 +6,9 @@ import Navbar from '../Navbar/navbar';
 // import { CATEGORIES } from '../../utils/constants';
 import Footer from '../Footer/footer';
 import { motion } from 'framer-motion';
+import FAQ from '../FAQ/faq';
 
-const Support = () => {
+const Interface = () => {
 
     return (
         <>
@@ -29,10 +30,10 @@ const Support = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <h1 className="saudh-hero-title">
-                                Gamification
+                                Digital Catalogue
                             </h1>
                             <p className="saudh-hero-desc">
-                                Turn attention into action with interactive campaigns and rewards.
+                                Instantly update menus, product lists, and more—no printing required.
                             </p>
                         </motion.div>
                         {/* Right: Image */}
@@ -43,8 +44,8 @@ const Support = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
                             <motion.img
-                                src="/Gamification.webp.jpg"
-                                alt="Gamification"
+                                src="/Digital Catalogue.webp.jpg"
+                                alt="Digital Catalogue"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: 'spring', stiffness: 200 }}
                             />
@@ -68,7 +69,7 @@ const Support = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <h2 className="saudh-main-title">
-                            Campaigns that Engage.
+                            Make Discovery Digital
                         </h2>
                         <motion.ul
                             className="saudh-feature-list"
@@ -84,7 +85,7 @@ const Support = () => {
                                 }
                             }}
                         >
-                            {['Spin-the-Wheel Campaigns', 'Offer & Campaign Broadcasts', 'Auto Replies + FAQ Answers', 'Customer Tagging & Segmentation'].map((item, idx) => (
+                            {['QR Code Menus & Product Lists', 'Pricing & Availability Indicators', 'Multilingual Support', 'Brand Customization Options'].map((item, idx) => (
                                 <motion.li
                                     key={item}
                                     initial={{ opacity: 0, x: -20 }}
@@ -104,9 +105,9 @@ const Support = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Discounts are everywhere — but experiences stand out. In a crowded marketplace, giving customers a reason to engage can transform casual visits into loyal relationships.<br /><br />
-                        SpinEngage by Saudh transforms promotions into fun, memorable games. Whether through Spin the Wheel, scratch cards, or time-limited streak bonuses — our gamification engine helps you reward interaction, drive footfall, and track engagement with real-time insights. <br /><br />
-                        It's not just play — it's smart business. Higher interaction. More conversions. Better data. SpinEngage helps businesses deliver more than deals — it creates delight.
+                        Printed menus and static product brochures age fast — and they cost time, money, and flexibility. Whether you're a salon updating services or a café introducing specials, paper can't keep up with how quickly your business evolves.<br /><br />
+                        Digital Catalogues give restaurants, spas, salons, and retail stores a sleek, real-time way to present their offerings. With just a QR scan, customers can explore detailed menus, product images, pricing, and even customizations — all in their preferred language and without downloading an app. Updates happen instantly, so your catalogue always reflects what's available now. <br /><br />
+                        This isn't just about going digital — it's about creating a smoother, more informed customer journey. You reduce friction, increase conversions, and gain insights into what people browse the most. It's the modern storefront your business deserves.
                     </motion.div>
                 </motion.section>
                 <motion.div
@@ -135,10 +136,11 @@ const Support = () => {
                     </motion.div>
                 </motion.div>
             </main>
+            <FAQ page="interface" />
             <Footer />
         </>
     );
 }
 
-export default Support;
+export default Interface;
 

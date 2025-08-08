@@ -1,15 +1,14 @@
-//Ai enabled analytics
-// import { CATEGORIES } from '../../utils/constants';
+//Gamification
 import '../Branding/branding.scss';
-import Footer from '../Footer/footer';
-import Navbar from '../Navbar/navbar';
-import { motion } from 'framer-motion';
-
 import React from 'react';
+import Navbar from '../Navbar/navbar';
+// import { FaChevronDown } from 'react-icons/fa';
+// import { CATEGORIES } from '../../utils/constants';
+import Footer from '../Footer/footer';
+import { motion } from 'framer-motion';
+import FAQ from '../FAQ/faq';
 
-
-
-const Dev = () => {
+const Support = () => {
 
     return (
         <>
@@ -31,10 +30,10 @@ const Dev = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <h1 className="saudh-hero-title">
-                                AI Enabled Analytics
+                                Gamified Lead Generation
                             </h1>
                             <p className="saudh-hero-desc">
-                                Track, analyze, and optimize every customer interaction with AI-powered insights.
+                                Turn attention into action with interactive campaigns and rewards.
                             </p>
                         </motion.div>
                         {/* Right: Image */}
@@ -45,8 +44,8 @@ const Dev = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
                             <motion.img
-                                src="/AIenabled.webp.jpg"
-                                alt="AI enabled Analytics"
+                                src="/Gamification.webp.jpg"
+                                alt="Gamification"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: 'spring', stiffness: 200 }}
                             />
@@ -70,7 +69,7 @@ const Dev = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <h2 className="saudh-main-title">
-                            Insights that Drive Growth.
+                            Campaigns that Engage.
                         </h2>
                         <motion.ul
                             className="saudh-feature-list"
@@ -86,7 +85,7 @@ const Dev = () => {
                                 }
                             }}
                         >
-                            {['Product/Service Popularity', 'Custom KPI Dashboard', 'Event & Campaign Performance', 'Automated Weekly Reports', 'Customer Sentiment via Feedback', 'Visitor Flow Heatmaps'].map((item, idx) => (
+                            {['Spin-the-Wheel Campaigns', 'Offer & Campaign Broadcasts', 'Auto Replies + FAQ Answers', 'Customer Tagging & Segmentation'].map((item, idx) => (
                                 <motion.li
                                     key={item}
                                     initial={{ opacity: 0, x: -20 }}
@@ -106,9 +105,9 @@ const Dev = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Most businesses know what they offer — but few know what works. In a sea of menus, offers, and footfall, crucial insights often slip away. What attracts customers? What do they ignore? Where do they lose interest?<br /><br />
-                        Saudh Insights transforms data into clarity. Our AI-powered analytics track every catalogue interaction, offer redemption, scan pattern, and customer feedback — presented in intuitive dashboards. From time-of-day behavior to top-performing services, we help you make decisions backed by real signals.<br /><br />
-                        Better data leads to smarter campaigns, faster optimizations, and more confident growth. With Saudh Insights, your business doesn't just run — it evolves intelligently.
+                        Discounts are everywhere — but experiences stand out. In a crowded marketplace, giving customers a reason to engage can transform casual visits into loyal relationships.<br /><br />
+                        SpinEngage by Saudh transforms promotions into fun, memorable games. Whether through Spin the Wheel, scratch cards, or time-limited streak bonuses — our gamification engine helps you reward interaction, drive footfall, and track engagement with real-time insights. <br /><br />
+                        It's not just play — it's smart business. Higher interaction. More conversions. Better data. SpinEngage helps businesses deliver more than deals — it creates delight.
                     </motion.div>
                 </motion.section>
                 <motion.div
@@ -137,13 +136,11 @@ const Dev = () => {
                     </motion.div>
                 </motion.div>
             </main>
+            <FAQ page="support" />
             <Footer />
-
         </>
-
     );
 }
 
-export default Dev;
-
+export default Support;
 

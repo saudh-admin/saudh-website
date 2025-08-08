@@ -1,7 +1,8 @@
 export const CATEGORIES = {
     // 'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
     'DIGITAL_CATALOUGES': 'Digital Catalogues',
-    'AI_ENABLED_ANALYTICS': 'AI enabled Analytics',
+    'LOYALTY': 'Loyalty Engine',
+    'AI_ENABLED_ANALYTICS': 'AI Enabled Analytics',
     'WHATSAPP_AUTOMATION': 'Whatsapp Automation',
-    'GAMIFICATION': 'Gamification',
+    'GAMIFICATION': 'Gamified Lead Generation',
 }

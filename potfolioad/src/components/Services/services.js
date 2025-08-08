@@ -142,24 +142,24 @@ const Services = () => {
                         {/* </a> */}
                         {/* </motion.div> */}
                         <motion.div className='service-col-heading'
-                            onMouseEnter={() => handleCategoryHover('Development')}
+                            onMouseEnter={() => handleCategoryHover('Analytics')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Development'>
+                            <a href='/Services/Analytics'>
                                 <div className='img-wrapper'>
                                     <img className='service-col-heading-img' src='AIenabled.webp.jpg' alt='landimg' />
                                 </div>
                                 <motion.div className='anim-circle'>
                                     <motion.div className='shape-circle dark' animate={{
-                                        x: hoveredCategory === 'Development' ? -80 : -80,
-                                        y: hoveredCategory === 'Development' ? -80 : -40,
+                                        x: hoveredCategory === 'Analytics' ? -80 : -80,
+                                        y: hoveredCategory === 'Analytics' ? -80 : -40,
                                     }}></motion.div>
                                     <motion.div className='shape-center' animate={{
-                                        x: hoveredCategory === 'Development' ? -40 : -40,
-                                        y: hoveredCategory === 'Development' ? 40 : 0,
+                                        x: hoveredCategory === 'Analytics' ? -40 : -40,
+                                        y: hoveredCategory === 'Analytics' ? 40 : 0,
                                     }}></motion.div>
                                     <motion.div className='shape-circle light' animate={{
-                                        x: hoveredCategory === 'Development' ? -80 : -80,
-                                        y: hoveredCategory === 'Development' ? 0 : -40,
+                                        x: hoveredCategory === 'Analytics' ? -80 : -80,
+                                        y: hoveredCategory === 'Analytics' ? 0 : -40,
 
                                     }}></motion.div>
                                 </motion.div>
@@ -188,7 +188,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Ongoing Support')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Ongoing-support'>
+                            <a href='/Services/Gamification'>
                                 <div className='img-wrapper'>
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='spinwinphone.jpg' alt='phone' />
@@ -231,6 +231,55 @@ const Services = () => {
                                 </div>
                             </a>
                         </motion.div>
+                        <motion.div className='service-col-heading'
+                            onMouseEnter={() => handleCategoryHover('Digital Marketing')}
+                            onMouseLeave={() => handleCategoryHover(null)} >
+                            <a href='/Services/Whatsapp-automation'>
+                                <div className='img-wrapper'>
+                                    {isMobile ? (
+                                        <img className='service-col-heading-img' src='wamobile.jpg' alt='phone' />
+                                    ) : (
+                                        <img className='service-col-heading-img' src='Whatsapp Automation.webp.jpg' alt='landimg' />
+                                    )}
+                                </div>
+                                <motion.div className='anim-circle'>
+                                    <motion.div className='shape-circle dark' animate={{
+                                        x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
+                                        y: hoveredCategory === 'Digital Marketing' ? -40 : -40,
+                                    }}></motion.div>
+                                    <motion.div className='shape-center' animate={{
+                                        x: hoveredCategory === 'Digital Marketing' ? -40 : -40,
+                                        y: hoveredCategory === 'Digital Marketing' ? 40 : 0,
+                                    }}></motion.div>
+                                    <motion.div className='shape-circle light' animate={{
+                                        x: hoveredCategory === 'Digital Marketing' ? -80 : -80,
+                                        y: hoveredCategory === 'Digital Marketing' ? -25 : -40,
+                                        scale: hoveredCategory === 'Digital Marketing' ? 0.8 : 1,
+
+                                    }}></motion.div>
+                                </motion.div>
+                                {/* Whatsapp */}
+                                <div className='service-col-heading-text'>
+                                    <div className='head'>
+                                        <h1>{CATEGORIES.WHATSAPP_AUTOMATION}</h1>
+                                        <div className='explore'
+                                            onMouseEnter={() => handleExploreHover(true)}
+                                            onMouseLeave={() => handleExploreHover(false)}
+                                        >
+                                            <motion.img
+                                                src="right-arrow.png"
+                                                alt="Right Arrow"
+                                                className="arrow-icon-service"
+                                                animate={{ opacity: exploreHovered ? 0 : 1, x: exploreHovered ? 10 : 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                            <h3>Explore</h3>
+                                        </div>
+                                    </div>
+                                    <div className='para'>Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.</div>
+                                </div>
+                            </a>
+                        </motion.div>
                     </div>
                     <div className='service-col-2'>
                         <div className='service-home-heading'>
@@ -239,7 +288,7 @@ const Services = () => {
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Interface Design')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Interface-design'>
+                            <a href='/Services/Digital-catalogue'>
                                 <div className='img-wrapper'>
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='digitalcataloguemobile.jpg' alt='phone' />
@@ -285,15 +334,16 @@ const Services = () => {
                                 </div>
                             </a>
                         </motion.div>
+{/* loyalty */}
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Digital Marketing')}
                             onMouseLeave={() => handleCategoryHover(null)} >
-                            <a href='/Services/Digital-marketing'>
+                            <a href='/Services/Loyalty'>
                                 <div className='img-wrapper'>
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='wamobile.jpg' alt='phone' />
                                     ) : (
-                                        <img className='service-col-heading-img' src='Whatsapp Automation.webp.jpg' alt='landimg' />
+                                        <img className='service-col-heading-img' src='loyalty2.png' alt='landimg' />
                                     )}
                                 </div>
                                 <motion.div className='anim-circle'>
@@ -312,10 +362,10 @@ const Services = () => {
 
                                     }}></motion.div>
                                 </motion.div>
-                                {/* Whatsapp */}
+                                {/* Loyalty */}
                                 <div className='service-col-heading-text'>
                                     <div className='head'>
-                                        <h1>{CATEGORIES.WHATSAPP_AUTOMATION}</h1>
+                                        <h1>{CATEGORIES.LOYALTY}</h1>
                                         <div className='explore'
                                             onMouseEnter={() => handleExploreHover(true)}
                                             onMouseLeave={() => handleExploreHover(false)}
@@ -330,7 +380,7 @@ const Services = () => {
                                             <h3>Explore</h3>
                                         </div>
                                     </div>
-                                    <div className='para'>Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.</div>
+                                    <div className='para'>Build customer loyalty and drive repeat business with a custom rewards program.</div>
                                 </div>
                             </a>
 

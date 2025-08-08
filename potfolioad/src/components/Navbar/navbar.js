@@ -181,7 +181,7 @@ const Navbar = () => {
     const categories = [
       "Branding",
       "Interface Design",
-      "Development",
+      "Analytics",
       "Digital Marketing",
       "Ongoing Support",
     ];
@@ -380,7 +380,7 @@ const Navbar = () => {
                     Services
                     {window.location.pathname.startsWith("/Services/") && (
                       <span className="subtitle">
-                        {window.location.pathname.split("/")[2].replace(/-/g, " ")}
+                        {window.location.pathname.split("/")[2].split("-")[0]}
                       </span>
                     )}
 
