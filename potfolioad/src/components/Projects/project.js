@@ -2,6 +2,7 @@ import './project.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './projectcard';
 import Navbar from '../Navbar/navbar';
+import FAQ from '../FAQ/faq';
 
 const Projects = () => {
     const serviceHeadinggRef = useRef(null);
@@ -45,10 +46,10 @@ const Projects = () => {
     const [projects, setProjects] = useState([
         { id: 1, title: 'Project 1', description: 'Description 1', category: 'Branding', image: 'branding.webp' },
         { id: 2, title: 'Project 2', description: 'Description 2', category: 'UX/UI Design', image: 'contact.webp' },
-        { id: 3, title: 'Project 3', description: 'Description 3', category: 'Development', image: 'dev.webp' },
+        { id: 3, title: 'Project 3', description: 'Description 3', category: 'Analytics', image: 'dev.webp' },
         { id: 4, title: 'Project 4', description: 'Description 1', category: 'Branding', image: 'branding.webp' },
         { id: 5, title: 'Project 5', description: 'Description 2', category: 'UX/UI Design', image: 'contact.webp' },
-        { id: 6, title: 'Project 6', description: 'Description 3', category: 'Development', image: 'dev.webp' },
+        { id: 6, title: 'Project 6', description: 'Description 3', category: 'Analytics', image: 'dev.webp' },
 
     ]);
 
@@ -117,9 +118,9 @@ const Projects = () => {
                                     onClick={() => handleFilterClick('Photo/Video Production')}>
                                     Photo/Video Production
                                 </li>
-                                <li class={selectedFilter === 'Development' ? 'active' : ''}
-                                    onClick={() => handleFilterClick('Development')}>
-                                    Development
+                                <li class={selectedFilter === 'Analytics' ? 'active' : ''}
+                                    onClick={() => handleFilterClick('Analytics')}>
+                                    Analytics
                                 </li>
                                 <li class={selectedFilter === 'SaaS Development' ? 'active' : ''}
                                     onClick={() => handleFilterClick('SaaS Development')}>
@@ -141,6 +142,7 @@ const Projects = () => {
             </div>
         </main>
 
+        <FAQ page="projects" />
         <div className="top-button">
             <hr /> <button>Top!</button>
         </div>

@@ -2,64 +2,66 @@ import React, { useState, useEffect, useRef } from 'react';
 import './journal.scss';
 import Navbar from '../Navbar/navbar';
 
+
 const Journal = () => {
   const footerRef = useRef(null);
   return (
     <>
-    <Navbar></Navbar>
-    <div className="journal-container">
-      <h1 className="journal-heading">Journal</h1>
-      <div className="journal-grid">
-        <div className="journal-item empty"></div>
-        <div className="journal-item">
-          <div className="journal-item-content">
-            <img src="branding.webp" alt="Image 1" />
-            <div className="journal-item-text">
-              <h2>Is it Time for a Logo Redesign?</h2>
+      <Navbar></Navbar>
+      <div className="journal-container">
+        <h1 className="journal-heading">Journal</h1>
+        <div className="journal-grid">
+          <div className="journal-item empty"></div>
+          <div className="journal-item">
+            <div className="journal-item-content">
+              <img src="branding.webp" alt="Image 1" />
+              <div className="journal-item-text">
+                <h2>Is it Time for a Logo Redesign?</h2>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="journal-item">
-          <div className="journal-item-content">
-            <img src="contact.webp" alt="Image 2" />
-            <div className="journal-item-text">
-              <h2>Three Branding Questions For Growing Businesses</h2>
+          <div className="journal-item">
+            <div className="journal-item-content">
+              <img src="contact.webp" alt="Image 2" />
+              <div className="journal-item-text">
+                <h2>Three Branding Questions For Growing Businesses</h2>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="journal-item empty"></div>
-        <div className="journal-item empty"></div>
-        <div className="journal-item">
-          <div className="journal-item-content">
-            <img src="marketing.webp" alt="Image 3" />
-            <div className="journal-item-text">
-              <h2>Building Deeper Connections With a Content Strategy</h2>
+          <div className="journal-item empty"></div>
+          <div className="journal-item empty"></div>
+          <div className="journal-item">
+            <div className="journal-item-content">
+              <img src="marketing.webp" alt="Image 3" />
+              <div className="journal-item-text">
+                <h2>Building Deeper Connections With a Content Strategy</h2>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="journal-item">
-          <div className="journal-item-content">
-            <img src="dev.webp" alt="Image 4" />
-            <div className="journal-item-text">
-              <h2>The Power of Storytelling in Marketing</h2>
+          <div className="journal-item">
+            <div className="journal-item-content">
+              <img src="dev.webp" alt="Image 4" />
+              <div className="journal-item-text">
+                <h2>The Power of Storytelling in Marketing</h2>
+              </div>
             </div>
           </div>
+          <div className="journal-item empty"></div>
         </div>
-        <div className="journal-item empty"></div>
       </div>
-    </div>
-    <div className="top-button">
-            <hr /> <button>Top!</button>
-          </div>
-          <div className="contact-home">
-            <h2>Have a project?</h2>
-            <h2>Let's talk.</h2>
-            <div className="contact-action">
-              <div className="contact-action-circle"></div>
-              <div className="contact-action-word">Contact</div>
-            </div>
-          </div>
-        
+      {/* <FAQ page="journal" /> */}
+      <div className="top-button">
+        <hr /> <button>Top!</button>
+      </div>
+      <div className="contact-home">
+        <h2>Have a project?</h2>
+        <h2>Let's talk.</h2>
+        <div className="contact-action">
+          <div className="contact-action-circle"></div>
+          <div className="contact-action-word">Contact</div>
+        </div>
+      </div>
+
       <footer ref={footerRef} class="hero-footer">
         <div class="footer-col footer-col1">
           <div class="footer-title">Reach us</div>

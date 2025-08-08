@@ -1,10 +1,11 @@
-//whatsapp automation
+//loyalty engine
 // import { CATEGORIES } from '../../utils/constants';
 import '../Branding/branding.scss';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
 import React from 'react';
 import { motion } from 'framer-motion';
+import FAQ from '../FAQ/faq';
 
 const Digital = () => {
         return (
@@ -27,10 +28,10 @@ const Digital = () => {
                                                         transition={{ duration: 0.8, delay: 0.2 }}
                                                 >
                                                         <h1 className="saudh-hero-title">
-                                                                Whatsapp Automation
+                                                               Loyalty Engine
                                                         </h1>
                                                         <p className="saudh-hero-desc">
-                                                                Let stores capture leads, send offers, answer FAQs, and take orders—all through WhatsApp.
+                                                                Build lasting relationships with your customers through personalized rewards and engagement.
                                                         </p>
                                                 </motion.div>
                                                 {/* Right: Image */}
@@ -41,7 +42,7 @@ const Digital = () => {
                                                         transition={{ duration: 0.8, delay: 0.4 }}
                                                 >
                                                         <motion.img
-                                                                src="/Whatsapp Automation.webp.jpg"
+                                                                src="/loyalty2.png"
                                                                 alt="Whatsapp Automation"
                                                                 whileHover={{ scale: 1.05 }}
                                                                 transition={{ type: 'spring', stiffness: 200 }}
@@ -67,7 +68,7 @@ const Digital = () => {
                                                 transition={{ duration: 0.8, delay: 0.3 }}
                                         >
                                                 <h2 className="saudh-main-title">
-                                                        Conversations that Convert.
+                                                        Loyalty that Lasts.
                                                 </h2>
                                                 <motion.ul
                                                         className="saudh-feature-list"
@@ -83,7 +84,7 @@ const Digital = () => {
                                                                 }
                                                         }}
                                                 >
-                                                        {['Product Enquiry Bots', 'Offer & Campaign Broadcasts', 'Auto Replies + FAQ Answers', 'Customer Tagging & Segmentation'].map((item, idx) => (
+                                                        {['Points-Based Reward System','Tiered Loyalty Programs','Customer Lifetime Value Tracking','Automated Birthday & Milestone Rewards'].map((item, idx) => (
                                                                 <motion.li
                                                                         key={item}
                                                                         initial={{ opacity: 0, x: -20 }}
@@ -103,9 +104,17 @@ const Digital = () => {
                                                 viewport={{ once: true }}
                                                 transition={{ duration: 0.8, delay: 0.4 }}
                                         >
-                                                Your customers live on WhatsApp — shouldn't your services be there too? From finding stores to exploring offers or booking services, people want quick, friendly answers on their preferred platforms.<br /><br />
-                                                FlowChat by Saudh powers smart, automated conversations that convert. Whether capturing leads, answering product questions, or sending offers — everything happens seamlessly within WhatsApp. Built for speed, it serves industries from salons to food courts, spas to fashion outlets.<br /><br />
-                                                In an era of shrinking attention spans, WhatsApp automation strengthens relationships, speeds up responses, and keeps your business top-of-mind — right in your customers' favorite chat app.
+                                                
+                                                Loyalty isn’t bought — it’s built. Let’s build it better.
+<br /><br />
+Your best customers deserve more than just a “thank you.” With Saudh’s Loyalty Engine, you can reward them in ways that matter — from points-based perks to exclusive tiered benefits, all tailored to fit your brand and audience.
+<br /><br />
+Whether you're running a café, salon, fashion outlet, or fitness studio, our system is built to drive repeat business, grow customer lifetime value, and keep your brand top-of-mind.
+<br /><br />
+Smart rewards, seamless tracking, and powerful insights — all working together to turn first-time buyers into loyal brand advocates.
+                                                    
+
+                                                
                                         </motion.div>
                                 </motion.section>
                                 <motion.div
@@ -134,6 +143,7 @@ const Digital = () => {
                                         </motion.div>
                                 </motion.div>
                         </main>
+                        <FAQ page="digital" />
                         <Footer />
                 </>
         );

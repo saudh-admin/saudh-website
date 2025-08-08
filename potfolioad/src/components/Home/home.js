@@ -9,8 +9,10 @@ import {
 // import Sliderr from "../Contact/slider";
 import Navbar from "../Navbar/navbar";
 // import Cursor from "../Cursor/Cursor";
+
 import Footer from "../Footer/footer";
 import CTA from "../CTA/cta";
+import FAQ from "../FAQ/faq";
 import { Link } from 'react-router-dom';
 
 const adBgVariants = {
@@ -150,10 +152,11 @@ const Home = () => {
   const animationInterval = useRef(null);
   const CATEGORIES = {
     // 'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
-    'DIGITAL_CATALOUGES': 'Digital Catalogues',
-    'AI_ENABLED_ANALYTICS': 'AI enabled Analytics',
-    'WHATSAPP_AUTOMATION': 'Whatsapp Automation',
-    'GAMIFICATION': 'Gamification',
+    'DIGITAL_CATALOUGES': 'Digital Catalogue',
+    'LOYALTY': 'Loyalty Engine',
+    'AI_ENABLED_ANALYTICS': 'AI Enabled Insights',
+    'WHATSAPP_AUTOMATION': 'Whatsapp Business Automation',
+    'GAMIFICATION': 'Gamified Lead Generation',
   }
   const handleCategoryHover = (category) => {
     setHoveredCategory(category);
@@ -180,7 +183,7 @@ const Home = () => {
     const categories = [
       // "Branding",
       "Interface Design",
-      "Development",
+      "Analytics",
       "Digital Marketing",
       "Ongoing Support",
     ];
@@ -315,7 +318,7 @@ const Home = () => {
               animate="animate"
               when="afterChildren"
             >
-              We Build Extraordinary <br /> Digital Experiences.
+              We build extraordinary <br /> digital experiences.
             </motion.h1>
 
             <div className="heading-content">
@@ -361,7 +364,7 @@ const Home = () => {
               <div className="service-header">
                 <div className="service-title">What We Do</div>
                 <div className="service-categories">
-                  <Link to="/Services/Interface-Design" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Digital-catalogue" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -376,35 +379,22 @@ const Home = () => {
                       {CATEGORIES.DIGITAL_CATALOUGES}
                     </motion.h2>
                   </Link>
-                  <Link to="/Services/Development" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Loyalty" style={{ textDecoration: 'none' }}>
                     <motion.h2
-                      style={{ cursor: 'pointer', color: '#000' }}
+                      style={{ cursor: 'pointer', color: '#000',  }}
                       animate={
-                        hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS ? { x: 20 } : { x: 0 }
-                      }
-                      transition={{ duration: 0.5 }}
-                      onMouseEnter={() => handleCategoryHover(CATEGORIES.AI_ENABLED_ANALYTICS)}
-                      onMouseLeave={() => handleCategoryHover(null)}
-                    >
-                      {CATEGORIES.AI_ENABLED_ANALYTICS}
-                    </motion.h2>
-                  </Link>
-                  <Link to="/Services/Digital-marketing" style={{ textDecoration: 'none' }}>
-                    <motion.h2
-                      style={{ cursor: 'pointer', color: '#000' }}
-                      animate={
-                        hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                        hoveredCategory === CATEGORIES.LOYALTY
                           ? { x: 20 }
                           : { x: 0 }
                       }
                       transition={{ duration: 0.5 }}
-                      onMouseEnter={() => handleCategoryHover(CATEGORIES.WHATSAPP_AUTOMATION)}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.LOYALTY)}
                       onMouseLeave={() => handleCategoryHover(null)}
                     >
-                      {CATEGORIES.WHATSAPP_AUTOMATION}
+                      {CATEGORIES.LOYALTY}
                     </motion.h2>
                   </Link>
-                  <Link to="/Services/Ongoing-support" style={{ textDecoration: 'none' }}>
+                   <Link to="/Services/Gamification" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -419,6 +409,35 @@ const Home = () => {
                       {CATEGORIES.GAMIFICATION}
                     </motion.h2>
                   </Link>
+                  <Link to="/Services/Analytics" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS ? { x: 20 } : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.AI_ENABLED_ANALYTICS)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.AI_ENABLED_ANALYTICS}
+                    </motion.h2>
+                  </Link>
+                  <Link to="/Services/Whatsapp-automation" style={{ textDecoration: 'none' }}>
+                    <motion.h2
+                      style={{ cursor: 'pointer', color: '#000' }}
+                      animate={
+                        hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                          ? { x: 20 }
+                          : { x: 0 }
+                      }
+                      transition={{ duration: 0.5 }}
+                      onMouseEnter={() => handleCategoryHover(CATEGORIES.WHATSAPP_AUTOMATION)}
+                      onMouseLeave={() => handleCategoryHover(null)}
+                    >
+                      {CATEGORIES.WHATSAPP_AUTOMATION}
+                    </motion.h2>
+                  </Link>
+                 
                 </div>
                 <div className="service-action">
                   <motion.img
@@ -439,25 +458,29 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -175 :
-                        hoveredCategory === "Interface Design"
+                      hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                        ? -175 :
+                        hoveredCategory === CATEGORIES.LOYALTY
                           ? -175
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -175
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? -175
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? -185
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? 20 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -25
-                          : hoveredCategory === "Development"
+                        : hoveredCategory === CATEGORIES.LOYALTY
+                          ? -25
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -185
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? -185
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? -55
                                 : -185,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
@@ -470,25 +493,30 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -90 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -80
-                          : hoveredCategory === "Development"
+                        : hoveredCategory === CATEGORIES.LOYALTY
+                          ? -80
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? -80
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? -75
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? -90
                                 : -80,
                     y:
                       hoveredCategory === "Branding"
                         ? 20 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -185
-                          : hoveredCategory === "Development"
+                         :
+                        hoveredCategory === CATEGORIES.LOYALTY
+                          ? -185
+                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                             ? 120
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
                               ? 5
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === CATEGORIES.GAMIFICATION
                                 ? 20
                                 : -80,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
@@ -500,28 +528,32 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -185 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === "CATEGORIES.DIGITAL_CATALOUGES"
+                          ? -175:
+                        hoveredCategory === "CATEGORIES.LOYALTY"
                           ? -175
-                          : hoveredCategory === "Development"
+                          : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
                             ? -175
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
                               ? -170
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === "CATEGORIES.GAMIFICATION"
                                 ? -185
                                 : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? -175 :
-                        hoveredCategory === "Interface Design"
+                        hoveredCategory === "CATEGORY.DIGITAL_CATALOUGES"
                           ? -185
-                          : hoveredCategory === "Development"
+                        : hoveredCategory === "CATEGORIES.LOYALTY"
+                          ? -185
+                          : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
                             ? 20
-                            : hoveredCategory === "Digital Marketing"
+                            : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
                               ? -130
-                              : hoveredCategory === "Ongoing Support"
+                              : hoveredCategory === "CATEGORIES.GAMIFICATION"
                                 ? -175
                                 : -185,
-                    scale: hoveredCategory === "Digital Marketing" ? 0.7 : 1,
+                    scale: hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION" ? 0.7 : 1,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
                 ></motion.div>
@@ -557,7 +589,9 @@ const Home = () => {
           <div className="top-button">
             <hr /> <button>Top!</button>
           </div>
+
           <CTA />
+          <FAQ page="home" />
         </div>
       </main>
 
