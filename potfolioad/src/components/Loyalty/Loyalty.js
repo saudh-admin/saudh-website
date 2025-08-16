@@ -1,5 +1,5 @@
 //loyalty engine
-// import { CATEGORIES } from '../../utils/constants';
+import { CATEGORIES } from '../../utils/constants';
 import '../Branding/branding.scss';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
@@ -28,7 +28,7 @@ const Digital = () => {
                                                         transition={{ duration: 0.8, delay: 0.2 }}
                                                 >
                                                         <h1 className="saudh-hero-title">
-                                                               Loyalty Engine
+                                                              Loyalty Program
                                                         </h1>
                                                         <p className="saudh-hero-desc">
                                                                 Build lasting relationships with your customers through personalized rewards and engagement.

@@ -23,6 +23,37 @@ const Navbar = () => {
   const [showHello, setShowHello] = useState(true);
   const [isPageLoading, setIsPageLoading] = useState(true);
 
+  // Add scroll function for the arrow
+  const [lastScrollPosition, setLastScrollPosition] = useState(0);
+
+  const handleScrollDown = () => {
+    const currentScrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    let nextSectionY;
+
+    // If this is the first click or we're at the top, scroll down by one viewport
+    if (currentScrollY === 0 || currentScrollY <= lastScrollPosition) {
+      nextSectionY = Math.min(currentScrollY + windowHeight, documentHeight - windowHeight);
+    } else {
+      // On subsequent clicks, scroll down by another viewport height
+      nextSectionY = Math.min(currentScrollY + windowHeight, documentHeight - windowHeight);
+
+      // If we're near the bottom, go all the way to the bottom
+      if (nextSectionY >= documentHeight - windowHeight - 100) {
+        nextSectionY = documentHeight - windowHeight;
+      }
+    }
+
+    setLastScrollPosition(currentScrollY);
+
+    window.scrollTo({
+      top: nextSectionY,
+      behavior: 'smooth'
+    });
+  };
+
   const handleHover = () => {
     setShowHome(true);
     setShowHello(false);
@@ -310,7 +341,7 @@ const Navbar = () => {
     <>
       <header className="header">
         <div className="container">
-          <div class="page-hint visible" ref={pageHintRef}>
+          <div class="page-hint visible" ref={pageHintRef} onClick={handleScrollDown} style={{ cursor: 'pointer' }}>
             {isPageLoading ? (
               <span class="hint__text hint__text--loading">
                 Loading
