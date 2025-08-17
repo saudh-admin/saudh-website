@@ -77,7 +77,8 @@ const PricingPage = () => {
             'Complete digital catalog setup',
             'Mobile-responsive design',
             'Basic analytics',
-            'Email support'
+            'Email support',
+            'Contact support'
           ]
         },
         {
@@ -365,23 +366,7 @@ const PricingPage = () => {
                         selectedPlan === plan.id ? 'selected-plan' : ''
                       }`}
                       variants={cardVariants}
-                      whileHover={{ 
-                        y: -10,
-                        scale: 1.02,
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
                       whileTap={{ scale: 0.98 }}
-                      animate={{
-                        y: selectedPlan === plan.id ? -15 : 0,
-                        scale: selectedPlan === plan.id ? 1.05 : 1,
-                        boxShadow: selectedPlan === plan.id 
-                          ? "0 20px 40px rgba(0, 0, 0, 0.15)" 
-                          : "0 10px 20px rgba(0, 0, 0, 0.08)",
-                        borderColor: selectedPlan === plan.id 
-                          ? plan.popular ? "#fbbf24" : "#3b82f6"
-                          : "transparent"
-                      }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
                       custom={index}
                       style={{ cursor: 'pointer' }}
                     >
@@ -484,7 +469,7 @@ const PricingPage = () => {
                           // Handle actual plan selection/purchase here
                         }}
                       >
-                        {selectedPlan === plan.id ? 'Selected' : 'Get Started'}
+                        {selectedPlan === plan.id ? 'Get Started' : 'Get Started'}
                       </motion.button>
                     </motion.div>
                   ))}

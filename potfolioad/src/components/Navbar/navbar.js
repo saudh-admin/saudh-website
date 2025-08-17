@@ -424,6 +424,8 @@ const Navbar = () => {
                   <Link to="/journal">Journal</Link>
                 ) : window.location.pathname === "/contact" ? (
                   <Link to="/contact">Contact</Link>
+                ) : window.location.pathname === "/contact" ? (
+                  <Link to="/contact">Contact</Link>
                 ) : (
                   ""
                 )}
@@ -591,6 +593,27 @@ const Navbar = () => {
                       className="nav-link-label"
                     >
                       Contact
+                    </motion.span>
+                  </motion.a>
+                </li>
+                <li
+                  id="nav-item-contact-us"
+                  className="nav-item"
+                  style={{ "--nav-item-index": 4 }}
+                  onMouseEnter={handleNavItemHover}
+                  onMouseLeave={() => setCurrentVideoUrl('')}
+                >
+                  <motion.a
+                    whileHover={{ x: 25 }}
+                    id="nav-link-contact-us"
+                    href="/pricing"
+                    className="nav-link"
+                  >
+                    <motion.span
+                      whileHover={{ x: 25 }}
+                      className="nav-link-label"
+                    >
+                      Pricing
                     </motion.span>
                   </motion.a>
                 </li>
