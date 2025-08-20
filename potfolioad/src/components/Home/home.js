@@ -153,10 +153,10 @@ const Home = () => {
   const CATEGORIES = {
     // 'MALL_IN_YOUR_POCKET': 'Mall in your pocket',
     'DIGITAL_CATALOUGES': 'Digital Catalogue',
-    'LOYALTY': 'Loyalty Engine',
-    'AI_ENABLED_ANALYTICS': 'AI Enabled Insights',
-    'WHATSAPP_AUTOMATION': 'Whatsapp Business Automation',
-    'GAMIFICATION': 'Gamified Lead Generation',
+    'LOYALTY': 'Loyalty Program',
+    'AI_ENABLED_ANALYTICS': 'AI Analytics',
+    'WHATSAPP_AUTOMATION': 'Whatsapp Automation',
+    'GAMIFICATION': ' Lead Generation',
   }
   const handleCategoryHover = (category) => {
     setHoveredCategory(category);
@@ -381,7 +381,7 @@ const Home = () => {
                   </Link>
                   <Link to="/Services/Loyalty" style={{ textDecoration: 'none' }}>
                     <motion.h2
-                      style={{ cursor: 'pointer', color: '#000',  }}
+                      style={{ cursor: 'pointer', color: '#000', }}
                       animate={
                         hoveredCategory === CATEGORIES.LOYALTY
                           ? { x: 20 }
@@ -394,7 +394,7 @@ const Home = () => {
                       {CATEGORIES.LOYALTY}
                     </motion.h2>
                   </Link>
-                   <Link to="/Services/Gamification" style={{ textDecoration: 'none' }}>
+                  <Link to="/Services/Gamification" style={{ textDecoration: 'none' }}>
                     <motion.h2
                       style={{ cursor: 'pointer', color: '#000' }}
                       animate={
@@ -437,7 +437,7 @@ const Home = () => {
                       {CATEGORIES.WHATSAPP_AUTOMATION}
                     </motion.h2>
                   </Link>
-                 
+
                 </div>
                 <div className="service-action">
                   <motion.img
@@ -458,31 +458,31 @@ const Home = () => {
                     x:
                       hoveredCategory === "Branding"
                         ? -175 :
-                      hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
-                        ? -175 :
-                        hoveredCategory === CATEGORIES.LOYALTY
-                          ? -175
-                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
+                        hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
+                          ? -175 :
+                          hoveredCategory === CATEGORIES.LOYALTY
                             ? -175
-                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                            : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                               ? -175
-                              : hoveredCategory === CATEGORIES.GAMIFICATION
-                                ? -185
-                                : -175,
+                              : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                                ? -175
+                                : hoveredCategory === CATEGORIES.GAMIFICATION
+                                  ? -185
+                                  : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? 20 :
                         hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -25
-                        : hoveredCategory === CATEGORIES.LOYALTY
-                          ? -25
-                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
-                            ? -185
-                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                          : hoveredCategory === CATEGORIES.LOYALTY
+                            ? -25
+                            : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
                               ? -185
-                              : hoveredCategory === CATEGORIES.GAMIFICATION
-                                ? -55
-                                : -185,
+                              : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                                ? -185
+                                : hoveredCategory === CATEGORIES.GAMIFICATION
+                                  ? -55
+                                  : -185,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
                 ></motion.div>
@@ -495,30 +495,30 @@ const Home = () => {
                         ? -90 :
                         hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -80
-                        : hoveredCategory === CATEGORIES.LOYALTY
-                          ? -80
-                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
+                          : hoveredCategory === CATEGORIES.LOYALTY
                             ? -80
-                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
-                              ? -75
-                              : hoveredCategory === CATEGORIES.GAMIFICATION
-                                ? -90
-                                : -80,
+                            : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
+                              ? -80
+                              : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                                ? -75
+                                : hoveredCategory === CATEGORIES.GAMIFICATION
+                                  ? -90
+                                  : -80,
                     y:
                       hoveredCategory === "Branding"
                         ? 20 :
                         hoveredCategory === CATEGORIES.DIGITAL_CATALOUGES
                           ? -185
-                         :
-                        hoveredCategory === CATEGORIES.LOYALTY
-                          ? -185
-                          : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
-                            ? 120
-                            : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
-                              ? 5
-                              : hoveredCategory === CATEGORIES.GAMIFICATION
-                                ? 20
-                                : -80,
+                          :
+                          hoveredCategory === CATEGORIES.LOYALTY
+                            ? -185
+                            : hoveredCategory === CATEGORIES.AI_ENABLED_ANALYTICS
+                              ? 120
+                              : hoveredCategory === CATEGORIES.WHATSAPP_AUTOMATION
+                                ? 5
+                                : hoveredCategory === CATEGORIES.GAMIFICATION
+                                  ? 20
+                                  : -80,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
                 ></motion.div>
@@ -529,30 +529,30 @@ const Home = () => {
                       hoveredCategory === "Branding"
                         ? -185 :
                         hoveredCategory === "CATEGORIES.DIGITAL_CATALOUGES"
-                          ? -175:
-                        hoveredCategory === "CATEGORIES.LOYALTY"
-                          ? -175
-                          : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
+                          ? -175 :
+                          hoveredCategory === "CATEGORIES.LOYALTY"
                             ? -175
-                            : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
-                              ? -170
-                              : hoveredCategory === "CATEGORIES.GAMIFICATION"
-                                ? -185
-                                : -175,
+                            : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
+                              ? -175
+                              : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
+                                ? -170
+                                : hoveredCategory === "CATEGORIES.GAMIFICATION"
+                                  ? -185
+                                  : -175,
                     y:
                       hoveredCategory === "Branding"
                         ? -175 :
                         hoveredCategory === "CATEGORY.DIGITAL_CATALOUGES"
                           ? -185
-                        : hoveredCategory === "CATEGORIES.LOYALTY"
-                          ? -185
-                          : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
-                            ? 20
-                            : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
-                              ? -130
-                              : hoveredCategory === "CATEGORIES.GAMIFICATION"
-                                ? -175
-                                : -185,
+                          : hoveredCategory === "CATEGORIES.LOYALTY"
+                            ? -185
+                            : hoveredCategory === "CATEGORIES.AI_ENABLED_ANALYTICS"
+                              ? 20
+                              : hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION"
+                                ? -130
+                                : hoveredCategory === "CATEGORIES.GAMIFICATION"
+                                  ? -175
+                                  : -185,
                     scale: hoveredCategory === "CATEGORIES.WHATSAPP_AUTOMATION" ? 0.7 : 1,
                     transition: { type: "spring", stiffness: 200, damping: 20 },
                   }}
@@ -586,15 +586,37 @@ const Home = () => {
             </div> */}
 
           </div>
-          <div className="top-button">
-            <hr /> <button>Top!</button>
-          </div>
+          
 
-          <CTA />
+          <motion.div
+            className='top-button'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          ><hr /> <motion.button whileHover={{ scale: 1.1 }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Top!</motion.button></motion.div>
+          <motion.div
+            className='contact-home'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <h2>Have a project?</h2>
+            <h2>Let's talk.</h2>
+            <motion.div
+              className='contact-action'
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+            >
+              <div className='contact-action-circle'></div>
+              <div className='contact-action-word'>Contact</div>
+            </motion.div>
+          </motion.div>
           <FAQ page="home" />
         </div>
       </main>
-
+      
       <Footer />
 
     </>

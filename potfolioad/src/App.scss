@@ -132,10 +132,12 @@ html {
   align-items: center;
   width: 100%;
   height: var(--navigation-height, 56px); //height of the navigation bar
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.95);
   padding-top: 1rem;
   top: 0;
-  transition: background-color 0.5s ease;
+  transition: all 0.5s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
   .header .container {
     position: relative;
@@ -482,7 +484,7 @@ html {
   padding: 0;
   transform: translateX(-20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  margin-bottom: -2rem;
+  margin-top: -1.5rem;
 }
 
 .nav-open .nav-item {
@@ -626,8 +628,8 @@ html {
 }
 
 .main-content {
-  margin-top: var(--navigation-height);
-  padding-top: 2rem;
+  margin-top: calc(var(--navigation-height) - 30px);
+  padding-top: 1rem;
 }
 
 .page-hint {
@@ -638,7 +640,7 @@ html {
   opacity: 1;
   transition: opacity 0.5s ease;
   z-index: 999;
-  pointer-events: none;
+  pointer-events: auto;
   display: flex;
   align-items: center;
 
@@ -708,6 +710,17 @@ html {
 
 .page-hint.loaded .icon-arrow-scroll {
   opacity: 1;
+}
+
+.page-hint:hover {
+  transform: translateY(-50%) scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.page-hint:hover .icon-arrow-scroll {
+  opacity: 1;
+  transform: translateY(2px);
+  transition: all 0.2s ease;
 }
 
 @media (max-width:380px) {
@@ -1292,22 +1305,25 @@ html {
   .service-title {
     font-size: 1.3rem;
     font-weight: 100;
+    margin-left: -2.5rem;
 
   }
 
   .service-categories {
     font-size: 3.5rem; // increased from 3rem
     font-weight: 100;
-    margin-left: 0.8rem;
+    margin-left: -2.6rem;
+    margin-top: auto;
 
     h2 {
       font-weight: 200;
-      font-size: 3rem; // increased from 2.2rem
+      font-size: 2.8rem; // increased from 2.2rem
       letter-spacing: 2px;
     }
   }
 
   .service-action {
+    margin-left: -2.5rem;
     font-size: 1.2rem;
     font-weight: 100;
     color: var(--color-gray-hover);
@@ -1411,7 +1427,7 @@ html {
 
     .service-title {
       font-size: 1rem;
-
+      margin-left: 0.7rem;
     }
 
     .service-categories {
@@ -1422,11 +1438,12 @@ html {
       h2 {
         font-weight: 100;
         font-size: 1rem;
-        
+        margin-top: auto;
       }
     }
 
     .service-action {
+      margin-left: 1rem;
       font-size: 1rem;
       font-weight: 100;
       color: var(--color-gray-hover);
@@ -1470,17 +1487,17 @@ html {
   }
 
   .contact-home {
-    height: 40vh;
+    height: 60vh;
     padding-left: auto;
     padding-right: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    
     h2 {
       font-size: 1rem !important;
-      letter-spacing: 1px;
+      letter-spacing: 0px;
       font-weight: 400;
       align-self: center !important;
     }
@@ -1643,18 +1660,21 @@ html {
 
     .service-title {
       font-size: 1rem;
+      margin-left: 1.7rem;
 
     }
 
     .service-categories {
-      font-size: 0.5rem;
+      font-size: 0.9rem;
       font-weight: 100;
-      margin-left: 0.8rem;
+      margin-left: 1.8rem;
+      margin-top: -1rem;
 
       h2 {
         font-weight: 100;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         letter-spacing: 0px;
+
       }
     }
 
@@ -1662,7 +1682,7 @@ html {
       font-size: 1rem;
       font-weight: 100;
       color: var(--color-gray-hover);
-
+      margin-left: 2rem;
 
       img {
         width: 1.2rem;
@@ -1770,7 +1790,8 @@ html {
 }
 
 .contact-footer {
-  margin-top: auto;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
 }
 
 .top-button {
@@ -1801,8 +1822,9 @@ html {
   padding-right: 12vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-top: 0vh;
 
   h2 {
     font-size: 3rem;
@@ -1812,21 +1834,23 @@ html {
   .contact-action {
     position: relative;
     display: inline-block;
+    // top:0%;
     margin-top: 20px;
   }
 
   .contact-action-circle {
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     background-color: var(--color-primary);
     border-radius: 50%;
     position: relative;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: -1.5rem;
   }
 
   .contact-action-word {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
     color: black;
@@ -1836,6 +1860,7 @@ html {
     opacity: 1;
     transition: opacity 0.3s ease-in-out, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 100;
+
   }
 
   .contact-action:hover .contact-action-word {
@@ -1864,7 +1889,7 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 0.5px;
   background: linear-gradient(90deg, transparent 0%, #808080 50%, transparent 100%);
 }
 
@@ -2495,7 +2520,8 @@ html {
   font-size: 1rem;
   border: black;
   border-radius: 50px !important; //border radius of the new button
-  padding: 0.50em 1.50em;
+  padding: 0.50em 1.450em;
+
 
   box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.788), 0 1.5px 4px 0 rgba(23, 1, 1, 0.413);
   cursor: pointer;
@@ -2661,6 +2687,19 @@ html {
 
   .saudh-hero-section {
     padding-top: 4rem;
+  }
+}
+
+/* Desktop-only tweaks for Analytics hero */
+@media (min-width: 901px) {
+  .analytics-hero .saudh-flex-half img {
+    margin-top: 1.5rem;
+    /* push image down a bit on desktop */
+  }
+
+  .analytics-hero .text-block {
+    margin-top: 0.75rem;
+    /* nudge text down slightly on desktop */
   }
 }
 
