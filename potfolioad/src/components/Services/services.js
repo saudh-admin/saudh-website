@@ -334,7 +334,7 @@ const Services = () => {
                                 </div>
                             </a>
                         </motion.div>
-{/* loyalty */}
+                        {/* loyalty */}
                         <motion.div className='service-col-heading'
                             onMouseEnter={() => handleCategoryHover('Digital Marketing')}
                             onMouseLeave={() => handleCategoryHover(null)} >
@@ -392,13 +392,13 @@ const Services = () => {
 
             </main>
             <div className='contact-footer'>
-                <div className='top-button'><hr /> <button>Top!</button></div>
+                <div className='top-button'><hr /> <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Top!</button></div>
                 <div className='contact-home'>
-                    <h2>Have a project?</h2>
+                    <h2 className='contact-title'>Have a project?</h2>
                     <h2>Let's talk.</h2>
                     <div className='contact-action'>
                         <div className='contact-action-circle'></div>
-                        <div className='contact-action-word'>Contact</div>
+                        <div className='contact-action-word '>Contact</div>
                     </div>
                 </div>
                 <Footer />

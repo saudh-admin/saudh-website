@@ -14,7 +14,8 @@ import Support from './components/Support/support';
 import Journal from './components/Journal/journal';
 import Cursor from './components/Cursor/Cursor';
 import Loyalty from './components/Loyalty/Loyalty';
-
+import PricingPage from './components/Pricing/PricingPage';
+;
 function App() {
   return (
     <Router>
@@ -27,7 +28,7 @@ function App() {
           <Route path="/us" element={<Us />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/Services/Branding" element={<Branding />} />
-
+          <Route path= "/Pricing" element={<PricingPage/>}/>
           <Route path="/Services/Digital-catalogue" element={<Interface />} />
           <Route path="/Services/Loyalty" element={<Loyalty />} />
           <Route path="/Services/Analytics" element={<Dev />} />

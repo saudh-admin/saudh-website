@@ -1,0 +1,532 @@
+// PricingPage.scss
+
+// Variables
+$primary-color: #FFD00A; // yellow-500
+$primary-hover: #ca8a04; // yellow-600
+$primary-light: #fef3c7; // yellow-100
+$primary-lighter: #fffbeb; // yellow-50
+$success-color: #22c55e; // green-500
+$text-primary: #111827; // gray-900
+$text-secondary: #4b5563; // gray-600
+$text-muted: #6b7280; // gray-500
+$background-light: #f9fafb; // gray-50
+$border-color: #e5e7eb; // gray-200
+$border-hover: #fde047; // yellow-300
+$white: #ffffff;
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin gradient-bg {
+    background: linear-gradient(135deg, $primary-lighter 0%, $primary-light 100%);
+}
+
+@mixin gradient-primary {
+    background: linear-gradient(90deg, $primary-color 0%, $primary-hover 100%);
+}
+
+@mixin transition {
+    transition: all 0.3s ease;
+}
+
+@mixin button-base {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    @include transition;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+}
+
+// Popular/Selected card styling mixin
+@mixin popular-selected-card {
+    border-color: $primary-color;
+    background-color: $primary-lighter;
+    box-shadow: $shadow-xl;
+    transform: scale(1.05);
+    z-index: 10;
+    position: relative;
+}
+
+// Base styles
+.pricing-page {
+    min-height: 100vh;
+    // background-color: $white;
+    font-family: 'Orbitron', sans-serif;
+    
+}
+
+.container {
+    // max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+        padding: 0 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 0 2rem;
+    }
+}
+
+// Hero Section
+.hero-section {
+    
+    padding: 7rem 0;
+    text-align: center;
+
+    .hero-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $text-primary;
+        font-family: Orbitron;
+        
+
+        @media (min-width: 768px) {
+            font-size: 3.75rem;
+        }
+
+        .highlight {
+            color: $primary-color;
+        }
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: $text-secondary;
+        max-width: 35rem;
+        margin: 0 auto;
+        margin-bottom: 0rem;
+    }
+}
+
+// Main Content
+.main-content {
+    padding: 0rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: $text-primary;
+    margin-bottom: 2rem;
+}
+
+// Product Selection
+.product-selection {
+    margin-bottom:8rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.product-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid $border-color;
+    background: $white;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    @include transition;
+
+    &:hover:not(.disabled) {
+        // border-color: $border-hover;
+        box-shadow: $shadow-md;
+    }
+
+    &.selected {
+        border-color: $primary-color;
+        background-color: $primary-lighter;
+        box-shadow: $shadow-md;
+
+        .product-icon {
+            color: $primary-hover;
+        }
+    }
+
+    &.disabled {
+        background-color: $background-light;
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .coming-soon-badge {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        background-color: $primary-color;
+        color: black;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 9999px;
+        font-weight: 600;
+    }
+
+    .product-icon {
+        margin-bottom: 0.75rem;
+        color: $text-secondary;
+        @include transition;
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    .product-name {
+        font-weight: 600;
+        color: $text-primary;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .product-description {
+        font-size: 0.875rem;
+        color: $text-secondary;
+        margin: 0;
+    }
+}
+
+// Pricing Section
+.pricing-section {
+    margin-bottom: 2rem;
+}
+
+.pricing-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: $text-primary;
+    margin-bottom: 3.6rem;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.plan-card {
+    position: relative;
+    border-radius: 1rem;
+    border: 2px solid $border-color;
+    padding: 2rem;
+    background: $white;
+    box-shadow: $shadow-md;
+    cursor: pointer;
+    @include transition;
+
+    // Selected card styling - gets the elevated appearance
+    &.selected-plan {
+        @include popular-selected-card;
+    }
+
+    // Hover effects
+    &:hover:not(.selected-plan) {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    &:hover.selected-plan {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -1rem;
+        left: 35%;
+        transform: translateX(-50%);
+        background-color: #FFD00A;
+        border-color: #111827;
+        color: black;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        z-index: 20;
+    }
+
+    .bonus-badge {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        background-color: $white;
+        color: black;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 999px;
+        border: 2px solid #424040;
+        font-weight: 600;
+        z-index: 15;
+    }
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    .plan-duration {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 0.5rem;
+
+        
+    }
+
+   
+    .plan-pricing {
+        margin-bottom: 0.5rem;
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $text-primary;
+        }
+
+        .original-price {
+            font-size: 1.125rem;
+            color: $text-muted;
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+        }
+    }
+
+    .payment-note {
+        color: $text-secondary;
+        margin: 0;
+    }
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+
+        .check-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: $primary-color;
+            margin-right: 0.75rem;
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+        }
+
+        span {
+            color: $text-secondary;
+        }
+    }
+}
+
+.plan-button {
+    @include button-base;
+    width: 100%;
+    background-color: $text-primary;
+    color: $white;
+
+    &:hover {
+        background-color: #374151; // gray-800
+    }
+
+    // Selected button styling - gets the yellow popular styling
+    &.selected-button {
+        background-color: $primary-color;
+        color: black;
+        box-shadow: $shadow-md;
+
+        &:hover {
+            background-color: $primary-hover;
+        }
+    }
+}
+
+// Coming Soon & Contact Sections
+.coming-soon-section,
+.contact-section {
+    text-align: center;
+    padding: 4rem 0;
+
+    .coming-soon-icon,
+    .contact-icon {
+        @include flex-center;
+        width: 4rem;
+        height: 4rem;
+        background-color: $primary-light;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+
+        .icon {
+            width: 2rem;
+            height: 2rem;
+            color: $primary-hover;
+        }
+    }
+
+    .coming-soon-title,
+    .contact-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 1rem;
+    }
+
+    .coming-soon-description,
+    .contact-description {
+        color: $text-secondary;
+        max-width: 28rem;
+        margin: 0 auto 2rem;
+    }
+
+    .notify-button,
+    .contact-button {
+        @include button-base;
+        background-color: $primary-color;
+        color: $white;
+        padding: 0.75rem 2rem;
+
+        &:hover {
+            background-color: $primary-hover;
+        }
+    }
+}
+
+// FAQ Section
+.faq-section {
+    margin-top: 5rem;
+    background-color: $background-light;
+    border-radius: 1rem;
+    padding: 2rem;
+
+    .faq-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        color: $text-primary;
+        margin-bottom: 2rem;
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .faq-item {
+        .faq-question {
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            color: $text-secondary;
+            margin: 0;
+            line-height: 1.6;
+        }
+    }
+}
+
+// CTA Section
+.cta-section {
+    margin-top: 4rem;
+    text-align: center;
+    @include gradient-primary;
+    border-radius: 1rem;
+    padding: 3rem;
+    color: $white;
+
+    .cta-title {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .cta-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+
+        @media (min-width: 640px) {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    .cta-primary {
+        @include button-base;
+        background-color: $white;
+        color: $primary-hover;
+        padding: 0.75rem 2rem;
+
+        &:hover {
+            background-color: $background-light;
+        }
+    }
+
+    .cta-secondary {
+        @include button-base;
+        background-color: transparent;
+        color: $white;
+        border: 2px solid $white;
+        padding: 0.75rem 2rem;
+
+        &:hover {
+            background-color: $white;
+            color: $primary-hover;
+        }
+    }
+}
+
+// Icon base styles
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}

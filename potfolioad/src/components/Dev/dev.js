@@ -18,7 +18,7 @@ const Dev = () => {
             <main className="saudh-main-bg">
                 {/* Hero Section - Two Column Layout */}
                 <motion.section
-                    className="saudh-hero-section"
+                    className="saudh-hero-section analytics-hero"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -118,7 +118,7 @@ const Dev = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                ><hr /> <motion.button whileHover={{ scale: 1.1 }}>Top!</motion.button></motion.div>
+                ><hr /> <motion.button whileHover={{ scale: 1.1 }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Top!</motion.button></motion.div>
                 <motion.div
                     className='contact-home'
                     initial={{ opacity: 0, y: 30 }}
