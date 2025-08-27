@@ -42,7 +42,7 @@ const Digital = () => {
                                                         transition={{ duration: 0.8, delay: 0.4 }}
                                                 >
                                                         <motion.img
-                                                                src="/loyalty2.png"
+                                                                src="/loyalty.png"
                                                                 alt="Whatsapp Automation"
                                                                 whileHover={{ scale: 1.05 }}
                                                                 transition={{ type: 'spring', stiffness: 200 }}

@@ -343,7 +343,7 @@ const Services = () => {
                                     {isMobile ? (
                                         <img className='service-col-heading-img' src='wamobile.jpg' alt='phone' />
                                     ) : (
-                                        <img className='service-col-heading-img' src='loyalty2.png' alt='landimg' />
+                                        <img className='service-col-heading-img' src='loyalty.png' alt='landimg' />
                                     )}
                                 </div>
                                 <motion.div className='anim-circle'>
