@@ -26,6 +26,29 @@ const Navbar = () => {
   // Add scroll function for the arrow
   const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
+  const urls = [
+    {
+      id: "services",
+      name: "Services",
+      url: "/Services",
+      nodeId: "49",
+      hasMotion: false,
+    },
+    {
+      id: "contact-us",
+      name: "Contact",
+      url: "/contact",
+      hasMotion: true
+    },
+    {
+      id: "pricing",
+      name: "Pricing", 
+      url: "/pricing",
+      hasMotion: true
+    }
+  ];
+  
+
   const handleScrollDown = () => {
     const currentScrollY = window.scrollY;
     const windowHeight = window.innerHeight;
@@ -438,17 +461,6 @@ const Navbar = () => {
                 Contact Us
               </button>
             </a>
-            {/* <div className="start-cont">
-              <a href="/contact" className="nav-contact">
-                <div className="start-circle">
-                  <h3>Book a Demo</h3>
-                  <i className="call-icon"></i>
-                </div>
-                <span
-                  className={`start-label ${hideStartLabel ? "hide" : ""}`}
-                ></span>
-              </a>
-            </div> */}
           </div>
         </div>
       </header>
@@ -478,147 +490,50 @@ const Navbar = () => {
               )}
             </div> */}
           </div>
-          <svg width="100%" height="100%" viewBox="0 0 1000 1000">
-            <defs>
-              <clipPath id="text-mask" clipPathUnits="userSpaceOnUse">
-                <text x="325" y="560" font-size="500" text-anchor="middle" stroke="#ddd" stroke-width="1" fill="none">AD</text>
-              </clipPath>
-            </defs>
-          </svg>
-          <div className="container">
-            <div className="row row--items-middle nav-row">
-              <ul
-                id="nav-list"
-                className="col-11 col-offset-1 col-md-6 col-offset-md-3 nav-list nopad"
-              >
+          <div className="row row--items-middle nav-row">
+            <ul
+              id="nav-list"
+              className=" col-offset-md-3 nav-list nopad"
+            >
+              {urls.map((url, index) => (
                 <li
-                  id="nav-item-services"
-                  data-node-id="49"
+                  key={index}
+                  data-node-id={url.nodeId}
                   className="nav-item"
+                  style={{ "--nav-item-index": index }}
                   onMouseEnter={handleNavItemHover}
                   onMouseLeave={() => setCurrentVideoUrl('')}
                 >
-                  <a
-                    id="nav-link-services"
-                    href="/Services"
-                    className="nav-link"
-                  >
-                    <span
-                      className="nav-link-label"
-                      onMouseEnter={handleHoverS}
-                      onMouseLeave={handleMouseLeave}
+                  {url.hasMotion ? (
+                    <motion.a
+                      whileHover={{ x: 25 }}
+                      href={url.url}
+                      className="nav-link"
                     >
-                      Services
-                    </span>
-                  </a>
+                      <motion.span
+                        whileHover={{ x: 25 }}
+                        className="nav-link-label"
+                      >
+                        {url.name}
+                      </motion.span>
+                    </motion.a>
+                  ) : (
+                    <a
+                      href={url.url}
+                      className="nav-link"
+                    >
+                      <span
+                        className="nav-link-label"
+                        onMouseEnter={url.customHoverHandler || undefined}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {url.name}
+                      </span>
+                    </a>
+                  )}
                 </li>
-                {/* <li
-                  id="nav-item-projects"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 1 }}
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={() => setCurrentVideoUrl('')}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-projects"
-                    href="/projects"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Projects
-                    </motion.span>
-                  </motion.a>
-                </li> */}
-                {/* <li
-                  id="nav-item-us"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 2 }}
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={() => setCurrentVideoUrl('')}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-us"
-                    href="/us"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Us
-                    </motion.span>
-                  </motion.a>
-                </li> */}
-                {/* <li
-                  id="nav-item-journal"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 3 }}
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={() => setCurrentVideoUrl('')}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-journal"
-                    href="/journal"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Journal
-                    </motion.span>
-                  </motion.a>
-                </li> */}
-                <li
-                  id="nav-item-contact-us"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 4 }}
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={() => setCurrentVideoUrl('')}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-contact-us"
-                    href="/contact"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Contact
-                    </motion.span>
-                  </motion.a>
-                </li>
-                <li
-                  id="nav-item-contact-us"
-                  className="nav-item"
-                  style={{ "--nav-item-index": 4 }}
-                  onMouseEnter={handleNavItemHover}
-                  onMouseLeave={() => setCurrentVideoUrl('')}
-                >
-                  <motion.a
-                    whileHover={{ x: 25 }}
-                    id="nav-link-contact-us"
-                    href="/pricing"
-                    className="nav-link"
-                  >
-                    <motion.span
-                      whileHover={{ x: 25 }}
-                      className="nav-link-label"
-                    >
-                      Pricing
-                    </motion.span>
-                  </motion.a>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
         </div>
 

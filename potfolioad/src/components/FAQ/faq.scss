@@ -54,6 +54,7 @@
         font-weight: 600;
         color: var(--color-dark);
         margin-bottom: 0.5rem;
+        margin-top: 1rem;
 
         @media (max-width: 768px) {
             font-size: 1.3rem;
@@ -717,10 +718,6 @@
 
     .faq-container {
         padding: 0 1rem;
-    }
-
-    .faq-header .faq-title {
-        font-size: 1.75rem;
     }
 
     .faq-accordion-header {
