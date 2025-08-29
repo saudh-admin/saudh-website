@@ -20,12 +20,11 @@
   &.hovering {
     transform: translate(-50%, -50%) scale(2);
     border-color: rgba(255, 99, 99, 0.85);
-    
+    transition: transform 0.19s cubic-bezier(0.25, 1, 0.5, 1);
   }
   &.clicking {
     transform: translate(-50%, -50%) scale(2);
     border-color: rgb(255, 99, 99, 0.85);
-    
     transition: transform 0.19s cubic-bezier(0.25, 1, 0.5, 1);
   }
   &.contact-active {
