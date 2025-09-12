@@ -24,7 +24,7 @@ const AccordionCard = ({ title, answer, category, show, index, showAccordion, se
                 <motion.div
                     className={`faq-accordion-icon ${show ? 'rotated' : ''}`}
                     animate={{ rotate: show ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.15, ease: "easeInOut" }}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -39,15 +39,21 @@ const AccordionCard = ({ title, answer, category, show, index, showAccordion, se
                     opacity: show ? 1 : 0
                 }}
                 transition={{
-                    duration: 0.4,
-                    ease: "easeInOut"
+                    duration: 0.3,
+                    ease: "easeInOut",
+                    height: { duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] },
+                    opacity: { duration: 0.2, ease: "easeInOut" }
                 }}
             >
                 <div className="faq-accordion-body">
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: show ? 1 : 0, y: show ? 0 : 10 }}
-                        transition={{ duration: 0.4, delay: 0.1 }}
+                        transition={{ 
+                            duration: 0.25, 
+                            delay: show ? 0.1 : 0,
+                            ease: "easeInOut" 
+                        }}
                     >
                         {answer}
                     </motion.p>
@@ -56,7 +62,11 @@ const AccordionCard = ({ title, answer, category, show, index, showAccordion, se
                             className="faq-category-tag"
                             initial={{ opacity: 0, y: 5 }}
                             animate={{ opacity: show ? 1 : 0, y: show ? 0 : 5 }}
-                            transition={{ duration: 0.3, delay: 0.2 }}
+                            transition={{ 
+                                duration: 0.2, 
+                                delay: show ? 0.15 : 0,
+                                ease: "easeInOut" 
+                            }}
                         >
                             <span>{category}</span>
                         </motion.div>
@@ -499,24 +509,18 @@ const getFAQData = (page) => {
 
 const FAQ = ({ page = 'home' }) => {
     const [showAccordion, setShowAccordion] = useState([]);
-    const [showAllQuestions, setShowAllQuestions] = useState(false);
-    const [displayCount, setDisplayCount] = useState(5);
 
     const accordionData = getFAQData(page) || [];
 
     // Initialize accordion state
     useEffect(() => {
-        setShowAccordion(Array(accordionData.length).fill(false));
-    }, [accordionData.length]);
+        // For home page, open all FAQs by default; for other pages, keep them closed
+        const defaultState = page === 'home' ? true : false;
+        setShowAccordion(Array(accordionData.length).fill(defaultState));
+    }, [accordionData.length, page]);
 
-    // Handle view more/less toggle
-    const handleViewMore = () => {
-        setShowAllQuestions(!showAllQuestions);
-        setDisplayCount(showAllQuestions ? 5 : accordionData.length);
-    };
-
-    // Get questions to display
-    const displayedQuestions = showAllQuestions ? accordionData : accordionData.slice(0, 5);
+    // Display all questions
+    const displayedQuestions = accordionData;
 
     return (
         <motion.section
@@ -602,37 +606,6 @@ const FAQ = ({ page = 'home' }) => {
                         </motion.div>
                     )}
 
-                    {/* View More/Less Button */}
-                    {accordionData.length > 5 && (
-                        <motion.div
-                            className="faq-view-more-container"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                        >
-                            <motion.button
-                                className="faq-view-more-btn"
-                                onClick={handleViewMore}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <span>{showAllQuestions ? 'View Less' : 'View More'}</span>
-                                <motion.svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    animate={{ rotate: showAllQuestions ? 180 : 0 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </motion.svg>
-                            </motion.button>
-                        </motion.div>
-                    )}
                 </motion.div>
 
                 <motion.div
