@@ -69,8 +69,8 @@ const PricingPage = () => {
       plans: [
         {
           id: 'dc-2months',
-          duration: '2 Months',
-          price: '₹2,000',
+          duration: '1 Month',
+          price: '₹1,500',
           originalPrice: null,
           popular: false,
           features: [
@@ -84,7 +84,7 @@ const PricingPage = () => {
         {
           id: 'dc-6months',
           duration: '6 Months',
-          price: '₹5,000',
+          price: '₹6,999',
           originalPrice: '₹6,000',
           popular: true,
           bonus: '1 Month FREE',
@@ -99,7 +99,7 @@ const PricingPage = () => {
         {
           id: 'dc-12months',
           duration: '12 Months',
-          price: '₹10,000',
+          price: '₹11,999',
           originalPrice: '₹12,000',
           popular: false,
           bonus: '2 Months FREE',
@@ -409,11 +409,6 @@ const PricingPage = () => {
                           <span className="plan-price">
                             {plan.price}
                           </span>
-                          {plan.originalPrice && (
-                            <span className="original-price">
-                              {plan.originalPrice}
-                            </span>
-                          )}
                         </motion.div>
                         <motion.p 
                           className="payment-note"
