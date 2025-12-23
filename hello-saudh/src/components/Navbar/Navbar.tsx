@@ -216,8 +216,8 @@ const Navbar = () => {
             >
               <span className={`block w-5 h-0.5 mb-1.5 bg-[#111] transition-all duration-300 ${isNavOpen ? 'opacity-0 -translate-y-2' : ''}`}></span>
               <span className={`block w-5 h-0.5 mt-1.5 bg-[#111] transition-all duration-300 ${isNavOpen ? 'opacity-0 translate-y-2' : ''}`}></span>
-              <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-white transition-all duration-500 ${isNavOpen ? 'opacity-100 rotate-45' : 'opacity-0'}`}></span>
-              <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-white transition-all duration-500 ${isNavOpen ? 'opacity-100 -rotate-45' : 'opacity-0'}`}></span>
+              <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-[#111] transition-all duration-500 ${isNavOpen ? 'opacity-100 rotate-45' : 'opacity-0'}`}></span>
+              <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-[#111] transition-all duration-500 ${isNavOpen ? 'opacity-100 -rotate-45' : 'opacity-0'}`}></span>
             </button>
 
             <a 
@@ -256,18 +256,6 @@ const Navbar = () => {
       </header>
 
       <nav id="nav" className={`nav fixed top-0 left-0 w-screen h-screen bg-white z-9998 flex items-center justify-center overflow-y-auto transition-all duration-450ms ${isNavOpen ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'}`}>
-        {/* Close button - visible in top right */}
-        <button
-          onClick={toggleNav}
-          className={`fixed top-4 right-4 sm:top-8 sm:right-8 z-9999 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 transition-all duration-300 ${isNavOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-          aria-label="Close menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-
         <div id="nav-container" className={`nav-container flex flex-col justify-center items-center h-full relative z-9998 px-4 sm:px-6 md:px-8 pt-[70px] w-[95%] sm:w-[90%] max-w-[1200px] text-center transition-all duration-500 ${isNavOpen ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-8'}`}>
           <div className="nav-row">
             <ul id="nav-list" className="nav-list flex flex-col justify-center list-none p-0 m-0 items-start relative z-100 bg-transparent">
