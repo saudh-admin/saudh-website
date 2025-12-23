@@ -13,9 +13,9 @@ interface AccordionCardProps {
   isEven: boolean;
 }
 
-const AccordionCard = ({ title, answer, category, show, index, showAccordion, setShowAccordion, isEven }: AccordionCardProps) => {
+const AccordionCard = ({ title, answer, category, show, index, showAccordion, setShowAccordion }: AccordionCardProps) => {
   const handleClick = () => {
-    let items = [...showAccordion];
+    const items = [...showAccordion];
     items[index] = !items[index];
     setShowAccordion(items);
   };
@@ -393,7 +393,9 @@ const FAQ: React.FC<FAQProps> = ({ page = 'home' }) => {
 
   useEffect(() => {
     const defaultState = page === 'home' ? true : false;
-    setShowAccordion(Array(accordionData.length).fill(defaultState));
+    setTimeout(() => {
+      setShowAccordion(Array(accordionData.length).fill(defaultState));
+    }, 0);
   }, [accordionData.length, page]);
 
   const displayedQuestions = accordionData;

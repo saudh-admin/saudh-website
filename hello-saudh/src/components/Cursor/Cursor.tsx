@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -32,16 +32,13 @@ const Cursor = () => {
     const handleLinkHover = () => setIsHovering(true);
     const handleLinkLeave = () => setIsHovering(false);
 
-    let contactEl = document.querySelector('[data-cursor-contact]');
-    let contactOver = false;
-    let contactDownTimeout: NodeJS.Timeout | null = null;
+    const contactEl = document.querySelector('[data-cursor-contact]');
+    let contactDownTimeout: ReturnType<typeof setTimeout> | null = null;
 
     const handleContactEnter = () => {
-      contactOver = true;
       setIsHovering(true);
     };
     const handleContactLeave = () => {
-      contactOver = false;
       setIsHovering(false);
       setContactActive(false);
     };
@@ -61,8 +58,8 @@ const Cursor = () => {
       contactEl.addEventListener('keydown', handleContactDown);
     }
 
-    const links = document.querySelectorAll('a, button, input, [data-cursor-hover]');
-    links.forEach(link => {
+    const links = document.querySelectorAll<HTMLAnchorElement>('a, button, input, [data-cursor-hover]');
+    links.forEach((link: HTMLAnchorElement) => {
       if (contactEl && link === contactEl) return; 
       link.addEventListener('mouseenter', handleLinkHover);
       link.addEventListener('mouseleave', handleLinkLeave);
@@ -100,7 +97,8 @@ const Cursor = () => {
         contactEl.removeEventListener('keydown', handleContactDown);
       }
 
-      links.forEach(link => {
+      links.forEach((link: HTMLAnchorElement) => {
+        if (!link) return;
         if (contactEl && link === contactEl) return;
         link.removeEventListener('mouseenter', handleLinkHover);
         link.removeEventListener('mouseleave', handleLinkLeave);
@@ -114,14 +112,14 @@ const Cursor = () => {
     <div
       ref={cursorRef}
       className={`
-        pointer-events-none fixed w-5 h-5 rounded-full left-0 top-0 z-[9999] opacity-0 bg-transparent
+        pointer-events-none fixed w-5 h-5 rounded-full left-0 top-0 z-9999 opacity-0 bg-transparent
         -translate-x-1/2 -translate-y-1/2 scale-100
         border-[1.5px] border-[rgba(255,208,10,0.85)]
         transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
         md:block hidden
-        ${isHovering ? 'scale-[2] !transition-transform !duration-[190ms] !ease-[cubic-bezier(0.25,1,0.5,1)]' : ''}
-        ${isClicking ? 'scale-[2] !border-[rgba(255,208,10,0.85)] !transition-transform !duration-[190ms] !ease-[cubic-bezier(0.25,1,0.5,1)]' : ''}
-        ${contactActive ? 'scale-[4.3] !border-[rgba(255,208,10,1)] !bg-[rgba(255,208,10,0.14)] !transition-transform !duration-[380ms] !ease-[cubic-bezier(0.22,1,0.36,1)]' : ''}
+        ${isHovering ? 'scale-[2] !transition-transform! duration-190ms! ease-[cubic-bezier(0.25,1,0.5,1)]!' : ''}
+        ${isClicking ? 'scale-[2] !border-[rgba(255,208,10,0.85)]! transition-transform!duration-190! ease-cubic-bezier(0.25,1,0.5,1)' : ''}
+        ${contactActive ? 'scale-[4.3] !border-[rgba(255,208,10,1)]! !bg-[rgba(255,208,10,0.14)]! transition-transform!duration-380!ease-cubic-bezier(0.22,1,0.36,1)' : ''}
       `}
     />
   );
