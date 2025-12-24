@@ -31,7 +31,7 @@ const Home = () => {
           {/* Hero Section */}
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-12 sm:pt-16 pb-16 sm:pb-20 md:pb-24 text-center">
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-normal text-gray-900 mb-8 sm:mb-10 md:mb-12 leading-tight tracking-wide px-2"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-normal text-foreground dark:text-foreground mb-8 sm:mb-10 md:mb-12 leading-tight tracking-wide px-2"
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.5 }}
@@ -40,7 +40,7 @@ const Home = () => {
             </motion.h1>
 
             <div className="heading-content max-w-3xl mx-auto px-4">
-              <div className="text-container text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+              <div className="text-container text-base sm:text-lg md:text-xl text-muted-foreground dark:text-muted-foreground leading-relaxed">
                 At Saudh, we're all about action.
                 Want more people to subscribe to your brand? Or perhaps your goal is simply to generate more leads for your company's growth?
                 What are the specific actions that fuel your products and services?
@@ -52,17 +52,16 @@ const Home = () => {
 
           {/* Services Heading */}
           <div 
-            className="feature-projects py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
-            style={{ backgroundImage: 'linear-gradient(135deg, rgb(248, 249, 250), rgb(233, 236, 239))' }}
+            className="feature-projects py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden bg-muted/50 dark:bg-muted/20"
           >
             <motion.div
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-gray-900 whitespace-nowrap"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-foreground dark:text-foreground whitespace-nowrap"
               style={{ x: xRange1 }}
             >
               Services
             </motion.div>
             <motion.div
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-gray-900 whitespace-nowrap"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-foreground dark:text-foreground whitespace-nowrap"
               style={{ x: xRange2 }}
             >
               We Offer
@@ -75,7 +74,7 @@ const Home = () => {
               <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 md:gap-16 items-start justify-between">
                 {/* Service Categories */}
                 <div className="service-header flex-1 w-full lg:w-auto">
-                  <div className="service-title text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6 sm:mb-8">
+                  <div className="service-title text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6 sm:mb-8">
                     What We Do
                   </div>
                   <div className="service-categories space-y-4 sm:space-y-5 md:space-y-6">
@@ -142,7 +141,7 @@ const Home = () => {
 
                   <motion.a
                     href="/Services"
-                    className="service-action mt-12 inline-flex items-center gap-3 text-gray-700 hover:text-[#ffd00a] transition-colors"
+                    className="service-action mt-12 inline-flex items-center gap-3 text-gray-900 hover:text-white transition-colors"
                     whileHover={{ x: 10 }}
                   >
                     <motion.img
@@ -161,7 +160,7 @@ const Home = () => {
                 <motion.div className="relative w-full lg:w-[500px] min-h-[300px] sm:min-h-[400px] md:min-h-[500px] hidden lg:flex items-center justify-center">
                   {/* First circle - dark with border */}
                   <motion.div
-                    className="absolute w-88 h-88 rounded-full bg-transparent border border-black  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-88 h-88 rounded-full bg-transparent border-2 border-black top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     style={{ transform: 'translateX(0px) translateY(0px)' }}
                     initial={{ x: 0, y: 0 }}
                     animate={{
@@ -178,7 +177,7 @@ const Home = () => {
                   
                   {/* Center circle - colored */}
                   <motion.div
-                    className="absolute w-40 h-40 rounded-full bg-transparent border border-gray-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-40 h-40 rounded-full bg-transparent border-2 border-gray-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     style={{ transform: 'translateX(0px) translateY(0px)' }}
                     initial={{ x: 0, y: 0 }}
                     animate={{
@@ -195,7 +194,7 @@ const Home = () => {
                   
                   {/* Third circle - light with border */}
                   <motion.div
-                    className="absolute w-88 h-88 rounded-full bg-transparent border border-gray-300 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    className="absolute w-88 h-88 rounded-full bg-transparent border-2 border-gray-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     style={{ transform: 'translateX(0px) translateY(0px)' }}
                     initial={{ x: 0, y: 0 }}
                     animate={{
@@ -223,9 +222,9 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <hr className="max-w-xs mx-auto mb-6 border-gray-300" />
+            <hr className="max-w-xs mx-auto mb-6 border-border dark:border-border" />
             <motion.button
-              className="px-8 py-3 bg-gray-900 text-white rounded-full font-thin hover:bg-gray-800 transition-colors"
+              className="px-8 py-3 bg-foreground dark:bg-foreground text-background dark:text-background rounded-full font-thin hover:opacity-90 transition-opacity"
               whileHover={{ scale: 1.1 }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
@@ -235,14 +234,14 @@ const Home = () => {
 
           {/* Contact Section */}
           <motion.div
-            className="contact-home py-12 sm:py-16 md:py-20 lg:py-24 px-4 text-center bg-white"
+            className="contact-home py-12 sm:py-16 md:py-20 lg:py-24 px-4 text-center bg-background dark:bg-background"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-gray-900 mb-3 sm:mb-4 tracking-wide px-2">Have a project?</h2>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-gray-900 mb-8 sm:mb-10 md:mb-12 tracking-wide px-2">Let's talk.</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-foreground dark:text-foreground mb-3 sm:mb-4 tracking-wide px-2">Have a project?</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-foreground dark:text-foreground mb-8 sm:mb-10 md:mb-12 tracking-wide px-2">Let's talk.</h2>
             <motion.a
               href="/contact"
               className="inline-block"

@@ -9,10 +9,10 @@ const CTA = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.3 }}
     >
-      <h3 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+      <h3 className="text-5xl md:text-6xl font-bold text-foreground dark:text-foreground mb-4">
         Want to take your Business Online
       </h3>
-      <h5 className="text-3xl md:text-4xl font-semibold text-gray-700 mb-12">
+      <h5 className="text-3xl md:text-4xl font-semibold text-muted-foreground dark:text-muted-foreground mb-12">
         Let's talk.
       </h5>
       <motion.a

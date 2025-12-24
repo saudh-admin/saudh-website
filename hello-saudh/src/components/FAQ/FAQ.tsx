@@ -22,7 +22,7 @@ const AccordionCard = ({ title, answer, category, show, index, showAccordion, se
 
   return (
     <motion.div
-      className={`border border-gray-200 rounded-lg overflow-hidden mb-4 hover:shadow-lg transition-shadow duration-300 ${show ? 'bg-gray-50' : 'bg-white'}`}
+      className={`border border-border dark:border-border rounded-lg overflow-hidden mb-4 hover:shadow-lg transition-shadow duration-300 ${show ? 'bg-muted/50 dark:bg-muted/20' : 'bg-card dark:bg-card'}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -33,7 +33,7 @@ const AccordionCard = ({ title, answer, category, show, index, showAccordion, se
         className="flex justify-between items-center p-6 cursor-pointer"
         onClick={handleClick}
       >
-        <div className="text-lg font-semibold text-gray-900 pr-4">{title}</div>
+        <div className="text-lg font-semibold text-foreground dark:text-foreground pr-4">{title}</div>
         <motion.div
           className={`flex-shrink-0 ${show ? 'text-[#ffd00a]' : 'text-gray-400'}`}
           animate={{ rotate: show ? 180 : 0 }}
@@ -58,7 +58,7 @@ const AccordionCard = ({ title, answer, category, show, index, showAccordion, se
       >
         <div className="px-6 pb-6">
           <motion.p
-            className="text-gray-600 leading-relaxed"
+            className="text-muted-foreground dark:text-muted-foreground leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: show ? 1 : 0, y: show ? 0 : 10 }}
             transition={{ 
@@ -402,7 +402,7 @@ const FAQ: React.FC<FAQProps> = ({ page = 'home' }) => {
 
   return (
     <motion.section
-      className="py-16 px-4 bg-white"
+      className="py-16 px-4 bg-background dark:bg-background"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -422,8 +422,8 @@ const FAQ: React.FC<FAQProps> = ({ page = 'home' }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <p className="text-gray-600 text-lg">Find answers to common questions about our services and processes</p>
+          <h2 className="text-4xl font-bold text-foreground dark:text-foreground mb-4">Frequently Asked Questions</h2>
+          <p className="text-muted-foreground dark:text-muted-foreground text-lg">Find answers to common questions about our services and processes</p>
         </motion.div>
 
         <motion.div
@@ -474,24 +474,24 @@ const FAQ: React.FC<FAQProps> = ({ page = 'home' }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <svg className="mx-auto mb-4 text-gray-400" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="mx-auto mb-4 text-muted-foreground dark:text-muted-foreground" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.172 16.172L4.343 11.343M14.828 16.172L19.657 11.343M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">No questions found</h3>
-              <p className="text-gray-500">Try selecting a different category</p>
+              <h3 className="text-xl font-semibold text-muted-foreground dark:text-muted-foreground mb-2">No questions found</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground">Try selecting a different category</p>
             </motion.div>
           )}
         </motion.div>
 
         <motion.div
-          className="text-center mt-12 text-gray-600"
+          className="text-center mt-12 text-muted-foreground dark:text-muted-foreground"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <p>
-            Still have questions? <a href="/contact" className="text-[#ffd00a] hover:underline font-semibold">Contact us</a> and we'll get back to you within 24 hours.
+            Still have questions? <a href="/contact" className="text-[#ffd00a] dark:text-[#ffd00a] hover:underline font-semibold">Contact us</a> and we'll get back to you within 24 hours.
           </p>
         </motion.div>
       </motion.div>

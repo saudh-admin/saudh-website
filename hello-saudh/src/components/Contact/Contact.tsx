@@ -35,7 +35,7 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <main className="bg-white pt-[70px]">
+      <main className="bg-background dark:bg-background pt-[70px]">
         <div className="contact-content flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
           {/* Contact Form */}
           <div className="contact-form flex-1 order-2 lg:order-1">
@@ -47,7 +47,7 @@ const Contact = () => {
                   name="name"
                   placeholder="Your name"
                   required
-                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 transition-all text-gray-900 placeholder-gray-500"
+                  className="w-full px-4 py-4 bg-input dark:bg-input border border-input dark:border-input rounded-lg focus:outline-none focus:border-[#ffd00a] dark:focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 dark:focus:ring-[#ffd00a]/20 transition-all text-foreground dark:text-foreground placeholder-muted-foreground dark:placeholder-muted-foreground"
                 />
               </div>
 
@@ -60,7 +60,7 @@ const Contact = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 transition-all text-gray-900 placeholder-gray-500"
+                  className="w-full px-4 py-4 bg-input dark:bg-input border border-input dark:border-input rounded-lg focus:outline-none focus:border-[#ffd00a] dark:focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 dark:focus:ring-[#ffd00a]/20 transition-all text-foreground dark:text-foreground placeholder-muted-foreground dark:placeholder-muted-foreground"
                 />
               </div>
 
@@ -71,7 +71,7 @@ const Contact = () => {
                   name="phone"
                   placeholder="WhatsApp Contact Number"
                   required
-                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 transition-all text-gray-900 placeholder-gray-500"
+                  className="w-full px-4 py-4 bg-input dark:bg-input border border-input dark:border-input rounded-lg focus:outline-none focus:border-[#ffd00a] dark:focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 dark:focus:ring-[#ffd00a]/20 transition-all text-foreground dark:text-foreground placeholder-muted-foreground dark:placeholder-muted-foreground"
                 />
               </div>
 
@@ -84,19 +84,19 @@ const Contact = () => {
                   placeholder="Please tell us a bit about your project.."
                   required
                   rows={6}
-                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 transition-all text-gray-900 placeholder-gray-500 resize-none"
+                  className="w-full px-4 py-4 bg-input dark:bg-input border border-input dark:border-input rounded-lg focus:outline-none focus:border-[#ffd00a] dark:focus:border-[#ffd00a] focus:ring-2 focus:ring-[#ffd00a]/20 dark:focus:ring-[#ffd00a]/20 transition-all text-foreground dark:text-foreground placeholder-muted-foreground dark:placeholder-muted-foreground resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-[#ffd00a] text-gray-900 font-medium rounded-lg hover:bg-[#ffbd00] transition-colors duration-300 text-base sm:text-lg"
+                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-[#ffd00a] dark:bg-[#ffd00a] text-gray-900 dark:text-gray-900 font-medium rounded-lg hover:bg-[#ffbd00] dark:hover:bg-[#ffbd00] transition-colors duration-300 text-base sm:text-lg"
               >
                 Send
               </button>
 
               {result && (
-                <div className="form-result-message text-center py-3 px-4 bg-gray-100 rounded-lg text-gray-900 font-medium">
+                <div className="form-result-message text-center py-3 px-4 bg-muted dark:bg-muted rounded-lg text-foreground dark:text-foreground font-medium">
                   {result}
                 </div>
               )}
@@ -105,7 +105,7 @@ const Contact = () => {
 
           {/* Contact Title & Image */}
           <div className="contact-title flex-1 flex flex-col justify-center items-center text-center lg:text-left order-1 lg:order-2">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-6 sm:mb-8 leading-tight tracking-wide px-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight text-foreground dark:text-foreground mb-6 sm:mb-8 leading-tight tracking-wide px-2">
               Tell us about your goals, and we'll get back to you right away!
             </h1>
             <img
