@@ -1,20 +1,17 @@
 # --- Step 1: Build the React app ---
 FROM node:20-alpine AS builder
 
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
 WORKDIR /app
 
 # Install dependencies
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm ci
 
 # Copy the rest of your source code
 COPY . .
 
 # Build the app for production
-RUN pnpm build
+RUN npm run build
 
 # --- Step 2: Serve with nginx ---
 FROM nginx:stable-alpine
