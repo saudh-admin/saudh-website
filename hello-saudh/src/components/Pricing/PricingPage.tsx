@@ -11,9 +11,9 @@ const PricingPage = () => {
     {
       name: "Starter",
       description: "Perfect for small cafes and food trucks starting their digital journey.",
-      monthlyPrice: "6,999",
-      annualPrice: "6,299",
-      annualBilled: "75,588",
+      monthlyPrice: "2,499",
+      annualPrice: "2,250",
+      annualBilled: "27,000",
       features: [
         "All 4 Modules Included",
         "Up to 1,000 monthly guests",
@@ -27,9 +27,9 @@ const PricingPage = () => {
     {
       name: "Growth",
       description: "The complete suite for busy restaurants ready to scale and automate.",
-      monthlyPrice: "11,999",
-      annualPrice: "10,799",
-      annualBilled: "1,29,588",
+      monthlyPrice: "22,000",
+      annualPrice: "20,000",
+      annualBilled: "2,40,000",
       features: [
         "Everything in Starter, plus:",
         "All 4 Modules Included",
